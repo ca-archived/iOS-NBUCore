@@ -1,0 +1,64 @@
+//
+//  NBUCore_Store.xcconfig
+//  NBUCore
+//
+//  Created by エルネスト 利辺羅 on 12/07/25.
+//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
+//
+
+//////////////////////////////////////////////////////////////////////////
+//              *** YOU DON'T NEED TO MODIFY THIS FILE ***              //
+// You can change these values directly in your Target's Build Settings //
+//////////////////////////////////////////////////////////////////////////
+
+///////////
+// STORE //
+///////////
+
+// Default preprocessor macros that can be used with "#ifdef TESTING..."
+GCC_PREPROCESSOR_DEFINITIONS = PRODUCTION=1
+
+// Bundle ID
+// *** In your Info.Plist set the "Bundle Identifier" to ${BUNDLEID} ***
+BUNDLEID = jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}
+
+// Display name for device's home screen
+// *** In your Info.Plist set the "Bundle display name" to ${DISPLAYNAME} ***
+DISPLAYNAME = ${PRODUCT_NAME}
+
+// Compatibility for custom schemes (ex. Release_stg, etc.)
+// *** Override if necessary in your target's build settings ***
+CUSTOM_SCHEME_PATH = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
+
+// Code Sign Identities
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
+
+// Reduce file size
+DEPLOYMENT_POSTPROCESSING = YES
+COPY_PHASE_STRIP = YES
+STRIP_INSTALLED_PRODUCT = YES
+
+////////////
+// COMMON //
+////////////
+
+// Deployment targets: iPhone/iPad, iOS4.x+
+TARGETED_DEVICE_FAMILY = 1,2
+IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*] = 4.0
+IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos6.*] = 4.3
+IPHONEOS_DEPLOYMENT_TARGET[sdk=iphonesimulator*] = 4.3
+
+// Architectures
+ARCHS[sdk=iphoneos*] = armv6 armv7
+ARCHS[sdk=iphoneos6.*] = $(ARCHS_STANDARD_32_BIT)
+ARCHS[sdk=iphonesimulator*] = i386
+
+// Base SDK: Latest
+SDKROOT = iphoneos
+
+// Warnings
+CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES
+
+// Paths
+ALWAYS_SEARCH_USER_PATHS = NO
+
