@@ -8,10 +8,6 @@
 
 #import "UIImage+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseImage
-
 @implementation UIImage (NBUAdditions)
 
 #pragma mark - Crop

@@ -8,10 +8,6 @@
 
 #import "NSBundle+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
-
 @implementation NSBundle (NBUAdditions)
 
 + (NSString *)pathForResource:(NSString *)name
@@ -53,7 +49,7 @@
     if ([mainBundle pathForResource:name
                              ofType:@"nib"])
     {
-        NBULogVerbose(@"Loaded from mainBundle Nib named: %@", name);
+        NBULogVerbose(@"Loaded Nib named: '%@' from mainBundle", name);
         return [mainBundle loadNibNamed:name
                                   owner:owner
                                 options:options];
@@ -68,7 +64,7 @@
         if ([bundle pathForResource:name
                              ofType:@"nib"])
         {
-            NBULogVerbose(@"Loaded from %@ Nib named: %@", bundle.bundleIdentifier, name);
+            NBULogVerbose(@"Loaded Nib named: '%@' from bundle: '%@' ", name, bundle.bundleIdentifier);
             return [bundle loadNibNamed:name
                                   owner:owner
                                 options:options];

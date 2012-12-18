@@ -8,10 +8,6 @@
 
 #import "UIWebView+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseGap
-
 static NSString * _systemDefaultUserAgent;
 
 @implementation UIWebView (NBUAdditions)

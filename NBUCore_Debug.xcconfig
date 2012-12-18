@@ -34,6 +34,7 @@ CUSTOM_SCHEME_PATH = $(BUILD_DIR)/Debug$(EFFECTIVE_PLATFORM_NAME)
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
 
 // Compile fast and keep all debugging symbols
+ONLY_ACTIVE_ARCH = YES
 DEPLOYMENT_POSTPROCESSING = NO
 COPY_PHASE_STRIP = NO
 STRIP_INSTALLED_PRODUCT = NO
@@ -61,4 +62,7 @@ CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES
 
 // Paths
 ALWAYS_SEARCH_USER_PATHS = NO
+
+// The places to search for headers
+HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers" "$(BUILT_PRODUCTS_DIR)/include" "$(BUILT_PRODUCTS_DIR)/usr/local/lib/include" "$(BUILT_PRODUCTS_DIR)/usr/local/include"
 

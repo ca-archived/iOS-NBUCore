@@ -1,5 +1,5 @@
 //
-//  NBUCore_Store.xcconfig
+//  NBUCore_Production.xcconfig
 //  NBUCore
 //
 //  Created by エルネスト 利辺羅 on 12/07/25.
@@ -11,9 +11,9 @@
 // You can change these values directly in your Target's Build Settings //
 //////////////////////////////////////////////////////////////////////////
 
-///////////
-// STORE //
-///////////
+////////////////
+// PRODUCTION //
+////////////////
 
 // Default preprocessor macros that can be used with "#ifdef TESTING..."
 GCC_PREPROCESSOR_DEFINITIONS = PRODUCTION=1
@@ -34,6 +34,7 @@ CUSTOM_SCHEME_PATH = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
 
 // Reduce file size
+ONLY_ACTIVE_ARCH = NO
 DEPLOYMENT_POSTPROCESSING = YES
 COPY_PHASE_STRIP = YES
 STRIP_INSTALLED_PRODUCT = YES
@@ -61,4 +62,7 @@ CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES
 
 // Paths
 ALWAYS_SEARCH_USER_PATHS = NO
+
+// The places to search for headers
+HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers" "$(BUILT_PRODUCTS_DIR)/include" "$(BUILT_PRODUCTS_DIR)/usr/local/lib/include" "$(BUILT_PRODUCTS_DIR)/usr/local/include"
 

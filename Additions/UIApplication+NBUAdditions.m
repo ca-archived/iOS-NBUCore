@@ -7,12 +7,8 @@
 //
 
 #import "UIApplication+NBUAdditions.h"
-#import <RestKit/RKDirectory.h>
+#import "RKDirectory.h"
 #import "Lockbox.h"
-
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
 
 @implementation UIApplication (NBUAdditions)
 

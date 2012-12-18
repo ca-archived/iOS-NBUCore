@@ -32,6 +32,8 @@ Commonly needed macros, functions, etc.
 A very useful replacement for NSLog wich is also bad for performance.  
 Easy to use and easy to extend. Based on [Cocoa Lumberjack](https://github.com/robbiehanson/CocoaLumberjack).
 
+NBUDashboardLogger for an on-device log console.
+
 ### NBUAdditions
 
 Many useful UIKit and NSFoundation categories that could be useful for many applications.

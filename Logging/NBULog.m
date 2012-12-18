@@ -8,54 +8,53 @@
 
 #import "NBULog.h"
 #import "DDTTYLogger.h"
-#import "DDASLLogger.h"
+#import "DDFileLogger.h"
 
-static int _appLogLevel;
-static int _baseLogLevel;
-
-@class NBULogFormatter;
+#ifdef DEBUG
+    static int _appLogLevel = LOG_LEVEL_VERBOSE;
+#elif defined (TESTING)
+    static int _appLogLevel = LOG_LEVEL_INFO;
+#endif
 
 @implementation NBULog
 
 + (void)initialize
 {
+    id<DDLogFormatter> nbuFormatter = [NSClassFromString(@"NBULogFormatter") new];
 #ifdef DEBUG
-    _appLogLevel = LOG_LEVEL_VERBOSE;
-    _baseLogLevel = LOG_LEVEL_INFO;
-#elif defined (TESTING)
-    _appLogLevel = LOG_LEVEL_INFO;
-    _baseLogLevel = LOG_LEVEL_WARN;
-#endif
-    
     // Set log to Xcode debug console/Terminal
     DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
-    [ttyLogger setLogFormatter:[NSClassFromString(@"NBULogFormatter") new]];
+    ttyLogger.logFormatter = nbuFormatter;
     
+    // Colors for iOS are not working yet...
     //    [ttyLogger setColorsEnabled:YES];
     //    [ttyLogger setForegroundColor:[UIColor redColor]
     //                  backgroundColor:nil
     //                          forFlag:LOG_FLAG_VERBOSE];
     [DDLog addLogger:ttyLogger];
+#else
+    // Set log to a file
+    DDFileLogger * fileLogger = [DDFileLogger new];
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
+    fileLogger.logFormatter = nbuFormatter;
+    [DDLog addLogger:fileLogger];
+#endif
 }
 
 + (int)appLogLevel
 {
+#if defined (DEBUG) || defined (TESTING)
     return _appLogLevel;
+#else
+    return APP_LOG_LEVEL;
+#endif
 }
 
 + (void)setAppLogLevel:(int)LOG_LEVEL
 {
+#if defined (DEBUG) || defined (TESTING)
     _appLogLevel = LOG_LEVEL;
-}
-
-+ (int)baseLogLevel
-{
-    return _baseLogLevel;
-}
-
-+ (void)setBaseLogLevel:(int)LOG_LEVEL
-{
-    _baseLogLevel = LOG_LEVEL;
+#endif
 }
 
 @end

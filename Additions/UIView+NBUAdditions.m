@@ -8,10 +8,6 @@
 
 #import "UIView+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
-
 @implementation UIView (NBUAdditions)
 
 #pragma mark - Properties

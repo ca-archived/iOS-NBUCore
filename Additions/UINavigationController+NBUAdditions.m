@@ -8,10 +8,6 @@
 
 #import "UINavigationController+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
-
 @implementation UINavigationController (NBUAdditions)
 
 #pragma mark - Properties
@@ -31,21 +27,21 @@
 
 - (IBAction)popViewController:(id)sender
 {
-    NBULogVerbose(@"popViewController");
+    NBULogTrace();
     
     [self popViewControllerAnimated:YES];
 }
 
 - (IBAction)popToRootViewController:(id)sender
 {
-    NBULogVerbose(@"popToRootViewController");
+    NBULogTrace();
     
     [self popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)dismiss:(id)sender
 {
-    NBULogVerbose(@"dismiss");
+    NBULogTrace();
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))
     {

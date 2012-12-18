@@ -8,10 +8,6 @@
 
 #import "UITabBarController+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
-
 @implementation UITabBarController (NBUAdditions)
 
 - (BOOL)isTabBarHidden

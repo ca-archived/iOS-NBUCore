@@ -8,10 +8,6 @@
 
 #import "UIResponder+NBUAdditions.h"
 
-// Set Logging Component
-#undef RKLogComponent
-#define RKLogComponent lcl_cBaseUI
-
 @implementation UIResponder (NBUAdditions)
 
 - (BOOL)sendAction:(SEL)action

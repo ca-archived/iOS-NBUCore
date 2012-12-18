@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
 //
 
+/// @name Macros
+
 /// Detect system versions
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -16,6 +18,14 @@
 /// Detect "widescreen" devices (iPhone 5 or iPod Touch v4)
 #define DEVICE_IS_WIDESCREEN (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON)
 
+/// @name Functions
+
 /// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NSStringFromBOOL(view.hidden)
-#define NSStringFromBOOL(bool) (bool ? @"YES" : @"NO")
+static inline NSString * NSStringFromBOOL(BOOL yesOrNo)
+{
+    return yesOrNo ? @"YES" : @"NO";
+}
+
+/// Whether the application is being debugged
+extern BOOL AmIBeingDebugged(void);
 
