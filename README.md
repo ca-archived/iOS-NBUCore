@@ -45,6 +45,12 @@ Installation
 1. Checkout from Git or download NBUCore inside your project.
 2. Add the NBUCore folder to your project or just choose the files you want to use.
 
+Screenshots
+-----------
+
+![Dashboard](https://github.com/icb-cost-01/iOS-NBUCore/wiki/images/Dashboard.png "On-device log console")
+![Dashboard minimized](https://github.com/icb-cost-01/iOS-NBUCore/wiki/images/Dashboard_minimized.png "Minimized log console")
+
 Notes
 -----
 
