@@ -9,23 +9,17 @@
 #import "DDLog.h"
 
 /// Extensible default contexts
-#define APP_LOG_CONTEXT 0
+#define APP_LOG_CONTEXT     0
 
-/// Dynamic levels  for debug or testing builds.
-#if defined (DEBUG) || defined (TESTING)
-    // In debug modes change the log level with NBULog methods
-    #define APP_LOG_LEVEL   [NBULog appLogLevel]
-#else
-    // In final modes log levels are fixed
-    #define APP_LOG_LEVEL LOG_LEVEL_WARN
-#endif
+/// Dynamic levels
+#define APP_LOG_LEVEL   [NBULog appLogLevel]
 
-/// Use NBULogVerbose for remaining NSLog messages
+/// Only keep NSLogs for debug builds
 #ifndef DEBUG
-    #define NSLog NBULogVerbose
+    #define NSLog(...)
 #endif
 
-/// Undef and define this for your own custom modules' prefix file
+/// Redefine (#undef ... #define ...) this for your own custom modules' prefix file
 /// @see NBUKit-Prefix.pch
 #define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
 #define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
@@ -36,17 +30,32 @@
 /**
  A simple class used to set/get App log levels for debug or testing builds.
  
- - To add other modules just create a NBULog category.
+ Default configuration (can be dynamically changed):
  
- @note Builds without the `DEBUG` or `TESTING` defined have fixed log levels.
+ - AppLogLevel: `LOG_LEVEL_VERBOSE` for `DEBUG`, `LOG_LEVEL_INFO` otherwise.
+ - Loggers: DDTTYLogger for `DEBUG`, DDFileLogger otherwise.
+ 
+ Manually add NBUDashboardLogger or DDASLLogger if desired.
+ 
+ To add other modules just create a NBULog category.
  */
 @interface NBULog : NSObject
 
-// Dynamically set the App log level for debug or testing builds.
-+ (void)setAppLogLevel:(int)LOG_LEVEL;
+/// @name Adjusting Log Levels
 
-// Get the App log level for debug or testing builds.
+// Dynamically set the App log level.
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX;
+
+// Get the App log level.
 + (int)appLogLevel;
+
+/// @name Adding Loggers
+
+/// Configure and add a NBUDashboardLogger.
++ (void)addDashboardLogger;
+
+/// Configure ad add a DDASLLogger. Not needed in most cases.
++ (void)addASLLogger;
 
 @end
 

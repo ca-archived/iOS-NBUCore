@@ -8,7 +8,7 @@
 
 #import "NBUUtil.h"
 
-#if defined (DEBUG) || defined (TESTING)
+#ifdef DEBUG
 
 #include <assert.h>
 #include <stdbool.h>

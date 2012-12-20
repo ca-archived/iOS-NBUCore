@@ -3,7 +3,7 @@
 //  NBUCore
 //
 //  Created by 利辺羅 on 2012/12/17.
-//
+//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
 //
 
 /**
@@ -19,8 +19,6 @@
     {
         [DDLog addLogger:[NBUDashboardLogger sharedInstance]];
     }
- 
- @warning Only for debug and testing configurations.
  */
 @interface NBUDashboardLogger : DDAbstractLogger
 

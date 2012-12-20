@@ -9,57 +9,68 @@
 #import "NBULog.h"
 #import "DDTTYLogger.h"
 #import "DDFileLogger.h"
+#import "DDASLLogger.h"
+#import "NBUDashboardLogger.h"
 
+// Default log levels
 #ifdef DEBUG
     static int _appLogLevel = LOG_LEVEL_VERBOSE;
-#elif defined (TESTING)
+#else
     static int _appLogLevel = LOG_LEVEL_INFO;
 #endif
+
+static id<DDLogFormatter> _nbuLogFormatter;
 
 @implementation NBULog
 
 + (void)initialize
 {
-    id<DDLogFormatter> nbuFormatter = [NSClassFromString(@"NBULogFormatter") new];
+    _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
+    
 #ifdef DEBUG
     // Set log to Xcode debug console/Terminal
     DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
-    ttyLogger.logFormatter = nbuFormatter;
+    ttyLogger.logFormatter = _nbuLogFormatter;
     
     // Colors for iOS are not working yet...
     //    [ttyLogger setColorsEnabled:YES];
     //    [ttyLogger setForegroundColor:[UIColor redColor]
     //                  backgroundColor:nil
     //                          forFlag:LOG_FLAG_VERBOSE];
-    [DDLog addLogger:ttyLogger];
 #else
     // Set log to a file
     DDFileLogger * fileLogger = [DDFileLogger new];
     fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
-    fileLogger.logFormatter = nbuFormatter;
+    fileLogger.logFormatter = _nbuLogFormatter;
     [DDLog addLogger:fileLogger];
 #endif
 }
 
 + (int)appLogLevel
 {
-#if defined (DEBUG) || defined (TESTING)
     return _appLogLevel;
-#else
-    return APP_LOG_LEVEL;
-#endif
 }
 
-+ (void)setAppLogLevel:(int)LOG_LEVEL
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX
 {
-#if defined (DEBUG) || defined (TESTING)
-    _appLogLevel = LOG_LEVEL;
-#endif
+    _appLogLevel = LOG_LEVEL_XXX;
+}
+
++ (void)addDashboardLogger
+{
+    [DDLog addLogger:[NBUDashboardLogger sharedInstance]];
+}
+
++ (void)addASLLogger
+{
+    DDASLLogger * logger = [DDASLLogger sharedInstance];
+    logger.logFormatter = _nbuLogFormatter;
+    [DDLog addLogger:logger];
 }
 
 @end
 
-#pragma mark - Log Formatter based on DispatchQueueLogFormatter
+#pragma mark - Log Formatter based on DDLog's DispatchQueueLogFormatter
 
 #import <Foundation/Foundation.h>
 #import <libkern/OSAtomic.h>

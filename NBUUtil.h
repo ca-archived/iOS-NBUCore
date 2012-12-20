@@ -8,7 +8,7 @@
 
 /// @name Macros
 
-/// Detect system versions
+/// Detect system versions.
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -20,12 +20,12 @@
 
 /// @name Functions
 
-/// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NSStringFromBOOL(view.hidden)
+/// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NSStringFromBOOL(view.hidden).
 static inline NSString * NSStringFromBOOL(BOOL yesOrNo)
 {
     return yesOrNo ? @"YES" : @"NO";
 }
 
-/// Whether the application is being debugged
+/// Whether the application is being debugged.
 extern BOOL AmIBeingDebugged(void);
 

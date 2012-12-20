@@ -15,7 +15,7 @@
 // TESTING //
 /////////////
 
-// Default preprocessor macros that can be used with "#ifdef TESTING..."
+// Default preprocessor macros that can be used with "#ifdef TESTING"
 GCC_PREPROCESSOR_DEFINITIONS = TESTING=1
 
 // Bundle ID
@@ -26,9 +26,9 @@ BUNDLEID = jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}-ota
 // *** In your Info.Plist set the "Bundle display name" to ${DISPLAYNAME} ***
 DISPLAYNAME = ${PRODUCT_NAME}-ota
 
-// Compatibility for custom schemes (ex. Release_stg, etc.)
+// Compatibility with custom configurations (ex. Release_stg)
 // *** Override if necessary in your target's build settings ***
-CUSTOM_SCHEME_PATH = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
+DEPENDENCIES_BUILD_DIR = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
 
 // Code Sign Identities
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution: Cyberagent.Inc
@@ -62,7 +62,6 @@ CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES
 
 // Paths
 ALWAYS_SEARCH_USER_PATHS = NO
-
-// The places to search for headers
+FRAMEWORK_SEARCH_PATHS = "$DEPENDENCIES_BUILD_DIR"
 HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers" "$(BUILT_PRODUCTS_DIR)/include" "$(BUILT_PRODUCTS_DIR)/usr/local/lib/include" "$(BUILT_PRODUCTS_DIR)/usr/local/include"
 

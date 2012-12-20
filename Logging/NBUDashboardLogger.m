@@ -3,7 +3,7 @@
 //  NBUCore
 //
 //  Created by 利辺羅 on 2012/12/17.
-//
+//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
 //
 
 #import "NBUDashboardLogger.h"
@@ -175,7 +175,7 @@ static NBUDashboardLogger * _sharedInstance;
     // Freeze messages in a buffer
     NSArray * lastBuffer = _messagesBuffer;
     _messagesBuffer = [NSArray arrayWithArray:_messages];
-    NSLog(@"!!! %d", _messagesBuffer.count);
+//    NSLog(@"!!! %d", _messagesBuffer.count);
     
     // Calculate how much the buffer moved
     NSUInteger offset = NSNotFound;
@@ -195,7 +195,7 @@ static NBUDashboardLogger * _sharedInstance;
         
         // Remove items?
         NSUInteger tableCount = [_tableView numberOfRowsInSection:0];
-        NSLog(@"••• %d", tableCount);
+//        NSLog(@"••• %d", tableCount);
         NSInteger removeCount = tableCount + offset - _maxMessages;
         if (removeCount > 0)
         {
@@ -207,8 +207,8 @@ static NBUDashboardLogger * _sharedInstance;
             }
             [_tableView deleteRowsAtIndexPaths:indexPaths
                               withRowAnimation:UITableViewRowAnimationFade];
-            NSLog(@"--- %d", indexPaths.count);
-            NSLog(@"--- %@", indexPaths);
+//            NSLog(@"--- %d", indexPaths.count);
+//            NSLog(@"--- %@", indexPaths);
         }
         
         // Insert items
@@ -220,8 +220,8 @@ static NBUDashboardLogger * _sharedInstance;
         }
         [_tableView insertRowsAtIndexPaths:indexPaths
                           withRowAnimation:UITableViewRowAnimationFade];
-        NSLog(@"+++ %d", indexPaths.count);
-        NSLog(@"+++ %@", indexPaths);
+//        NSLog(@"+++ %d", indexPaths.count);
+//        NSLog(@"+++ %@", indexPaths);
         
         [_tableView endUpdates];
     }
