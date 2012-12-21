@@ -7,7 +7,6 @@
 //
 
 #import "UIApplication+NBUAdditions.h"
-#import "RKDirectory.h"
 #import "Lockbox.h"
 
 @implementation UIApplication (NBUAdditions)
@@ -29,12 +28,14 @@
 
 - (NSURL *)documentsDirectory
 {
-    return [NSURL fileURLWithPath:[RKDirectory applicationDataDirectory]];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return (paths.count > 0) ? [NSURL fileURLWithPath:paths[0]] : nil;
 }
 
 - (NSURL *)cachesDirectory
 {
-    return [NSURL fileURLWithPath:[RKDirectory cachesDirectory]];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    return (paths.count > 0) ? [NSURL fileURLWithPath:paths[0]] : nil;
 }
 
 + (void)setObject:(id)object

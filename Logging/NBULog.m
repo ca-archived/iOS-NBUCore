@@ -26,11 +26,12 @@ static id<DDLogFormatter> _nbuLogFormatter;
 + (void)initialize
 {
     _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
-    
+
 #ifdef DEBUG
     // Set log to Xcode debug console/Terminal
     DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
     ttyLogger.logFormatter = _nbuLogFormatter;
+    [DDLog addLogger:ttyLogger];
     
     // Colors for iOS are not working yet...
     //    [ttyLogger setColorsEnabled:YES];
