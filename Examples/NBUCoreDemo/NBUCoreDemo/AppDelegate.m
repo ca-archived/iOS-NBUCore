@@ -28,9 +28,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // Test NBULog
     NBULogTrace();
     NBULogVerbose(@"A verbose log message");
-    NBULogInfo(@"An info log message");
+    NBULogInfo(@"TAP ME! A long info log message\nspanning\nmultiple\nlines.\nCan be expandend and collapsed");
     NBULogWarn(@"A warning log message");
-    NBULogError(@"A verbose log message");
+    NBULogError(@"An error log message");
     
     // Prepare the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

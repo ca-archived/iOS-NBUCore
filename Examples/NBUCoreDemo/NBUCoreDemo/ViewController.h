@@ -10,6 +10,16 @@
 
 @interface ViewController : UIViewController
 
+// Outlets
 @property (assign, nonatomic) IBOutlet UITextView *textView;
+@property (assign, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+// Actions
+- (IBAction)changeLogLevel:(id)sender;
+- (IBAction)testTrace:(id)sender;
+- (IBAction)testVerbose:(id)sender;
+- (IBAction)testInfo:(id)sender;
+- (IBAction)testWarn:(id)sender;
+- (IBAction)testError:(id)sender;
 
 @end
