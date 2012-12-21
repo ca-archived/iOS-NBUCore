@@ -28,7 +28,7 @@
 #define NBULogTrace()           NBULogVerbose(@"[%p] %@", self, THIS_METHOD)
 
 /**
- A simple class used to set/get App log levels for debug or testing builds.
+ DDLog wrapper. Use it to set/get App log levels for debug or testing builds.
  
  Default configuration (can be dynamically changed):
  

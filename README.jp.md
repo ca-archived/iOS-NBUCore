@@ -19,7 +19,7 @@ Components
 
 ### NBUCore_<>.xcconfig Files
 
-複数のビルド設定（Debug、Testing、Releaseなど）をしたい場合、  
+複数のビルド設定（Debug、Testing、Productionなど）をしたい場合、  
 .xcconfigファイルをターゲットの'build settings'に追加します。
 
 ### NBUUtil
@@ -40,8 +40,24 @@ Components
 Installation
 ------------
 
-1.NBUCoreをプロジェクト内にチェックアウトしてください。  
-2.NBUCoreフォルダーと必要なファイルをプロジェクトに追加してください。    
+1. NBUCoreをプロジェクト内にチェックアウト`git@github.com:icb-cost-01/iOS-NBUCore.git`するか、もしくは [ダウンロード](https://github.com/icb-cost-01/iOS-NBUCore/tags)してください。  
+2. その次に `NBUCore.h` 、もしくは必要なファイルだけをインポートしてください。  
+3. 任意でターゲットに設定ファイル [configuration files](#nbucore_xcconfig-files) を追加します。  
+ 
+_Keychain access は`Security.framework`のリンクが必須です。_
+ 
+Documentation
+-------------
+ 
+* HTML: http://172.17.127.199/doc/NBUCore/html
+* Xcode DocSet: http://172.17.127.199/doc/NBUCore/publish/NBUCore.atom
+ 
+Screenshots
+-----------
+ 
+![Dashboard](https://github.com/icb-cost-01/iOS-NBUCore/wiki/images/Dashboard.png "On-device log console")
+![Dashboard minimized](https://github.com/icb-cost-01/iOS-NBUCore/wiki/images/Dashboard_minimized.png "Minimized log console")
+
 
 Notes
 -----

@@ -13,12 +13,7 @@
  - Supports colors for log levels.
  - Expands and collapses text.
  
- To enable simply add this to your `didFinishLaunchingWithOptions` method:
- 
-    if (!AmIBeingDebugged())
-    {
-        [DDLog addLogger:[NBUDashboardLogger sharedInstance]];
-    }
+ To enable simply use [NBULog addDashboardLogger:].
  */
 @interface NBUDashboardLogger : DDAbstractLogger
 

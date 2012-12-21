@@ -21,7 +21,7 @@ Components
 ### NBUCore_<>.xcconfig Files
 
 Add these files to your target's build settings if you want to have some default settings
-to configure your Debug, Testing and Store configurations.
+to configure your Debug, Testing and Production configurations.
 
 ### NBUUtil
 
@@ -42,8 +42,18 @@ Import them all or just the ones you need. **Also do a pull request to add your 
 Installation
 ------------
 
-1. Checkout from Git or download NBUCore inside your project.
-2. Add the NBUCore folder to your project or just choose the files you want to use.
+1. Checkout `git@github.com:icb-cost-01/iOS-NBUCore.git` or [download](https://github.com/icb-cost-01/iOS-NBUCore/tags)
+the NBUCore sources to your project directory.
+2. Import `NBUCore.h` or only the files that you need.
+3. Optionally add the [configuration files](#nbucore_xcconfig-files) to your target.
+
+_Keychain access requires to link `Security.framework`._
+
+Documentation
+-------------
+
+* HTML: http://172.17.127.199/doc/NBUCore/html
+* Xcode DocSet: http://172.17.127.199/doc/NBUCore/publish/NBUCore.atom
 
 Notes
 -----
