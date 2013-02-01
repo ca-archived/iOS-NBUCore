@@ -1,24 +1,24 @@
 //
-//  ViewController.m
+//  LogTestsViewController.m
 //  NBUCoreDemo
 //
 //  Created by 利辺羅 on 2012/12/20.
 //  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LogTestsViewController.h"
 
-@implementation ViewController
+@implementation LogTestsViewController
 
 @synthesize textView = _textView;
-@synthesize segmentedControl = _segmentedControl;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self changeLogLevel:self];
+    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];
     
+    // Configure text view
     UIApplication * application = [UIApplication sharedApplication];
     _textView.text = [NSString stringWithFormat:@"%@: %@\n%@: %@\n%@: %@\n%@: %@\n%@: %@",
                       @"Application name",      application.applicationName,
@@ -28,9 +28,9 @@
                       @"Caches directory",      application.cachesDirectory.lastPathComponent];
 }
 
-- (IBAction)changeLogLevel:(id)sender
+- (IBAction)changeLogLevel:(UISegmentedControl *)sender
 {
-    switch (_segmentedControl.selectedSegmentIndex)
+    switch (sender.selectedSegmentIndex)
     {
         case 0:
             [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];
@@ -52,8 +52,10 @@
     // Quick test
     NBULogTrace();
     NBULogVerbose(@"Changing log level...");
+    NBULogVerbose(@"A verbose log message");
     NBULogInfo(@"App log level changed");
-    NBULogWarn(@"Do not use NSLogs anymore");
+    NBULogInfo(@"TAP ME! A long info log message\nspanning\nmultiple\nlines.\nCan be expandend and collapsed");
+    NBULogWarn(@"Do not use NSLog anymore");
     NBULogError(@"Mock error message");
 }
 

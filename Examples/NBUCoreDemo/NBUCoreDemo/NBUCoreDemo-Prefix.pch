@@ -12,4 +12,38 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "NBUCore.h"
+
+    // Production settings
+    #define	ProductionConfigurationName         @"Production"
+    #define	ProductionConnectionServer          @"cyberagent.co.jp"
+    #define ProductionConnectionAPIServer       @"api.cyberagent.co.jp"
+    #define ProductionConnectionProtocol        @"https"
+    #define	ProductionConnectionToken           @"9324982-1-0029384"
+    #define ProductionAnotherGlobalParameter    @[@"Anything that you can save", @"to NSUserDefaults"]
+
+    // Settings for DEBUG and TESTING
+    #ifndef PRODUCTION
+
+        #import "MyConfigurationPicker.h"
+
+        #define	ConfigurationName			MyConfigurationPicker.currentConfigurationName
+        #define	ConnectionServer			MyConfigurationPicker.server
+        #define ConnectionAPIServer         MyConfigurationPicker.apiServer
+        #define ConnectionProtocol          MyConfigurationPicker.protocol
+        #define	ConnectionToken             MyConfigurationPicker.token
+        #define AnotherGlobalParameter      MyConfigurationPicker.anotherParameter
+
+    // Settings for PRODUCTION
+    #else
+
+        #define	ConfigurationName			ProductionConfigurationName
+        #define	ConnectionServer			ProductionConnectionServer
+        #define ConnectionAPIServer         ProductionConnectionAPIServer
+        #define ConnectionProtocol          ProductionConnectionProtocol
+        #define	ConnectionToken             ProductionConnectionToken
+        #define AnotherGlobalParameter      ProductionAnotherGlobalParameter
+
+    #endif
+
 #endif
+

@@ -12,8 +12,8 @@
 		E52AD3B71682B38000719BF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E52AD3B51682B38000719BF6 /* InfoPlist.strings */; };
 		E52AD3B91682B38000719BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3B81682B38000719BF6 /* main.m */; };
 		E52AD3BD1682B38000719BF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3BC1682B38000719BF6 /* AppDelegate.m */; };
-		E52AD3C61682B38000719BF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3C51682B38000719BF6 /* ViewController.m */; };
-		E52AD3C91682B38000719BF6 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AD3C71682B38000719BF6 /* ViewController.xib */; };
+		E52AD3C61682B38000719BF6 /* LogTestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3C51682B38000719BF6 /* LogTestsViewController.m */; };
+		E52AD3C91682B38000719BF6 /* LogTestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AD3C71682B38000719BF6 /* LogTestsViewController.xib */; };
 		E52AD4341682B6A000719BF6 /* NBULog.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD42B1682B66300719BF6 /* NBULog.m */; };
 		E52AD4351682B6A000719BF6 /* NBUDashboardLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD4281682B66300719BF6 /* NBUDashboardLogger.m */; };
 		E52AD4361682B6A000719BF6 /* NBUDashboardLogger.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52AD4291682B66300719BF6 /* NBUDashboardLogger.xib */; };
@@ -22,9 +22,7 @@
 		E52AD4391682B6B600719BF6 /* NSBundle+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3D71682B66300719BF6 /* NSBundle+NBUAdditions.m */; };
 		E52AD43A1682B6B600719BF6 /* NSString+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3D91682B66300719BF6 /* NSString+NBUAdditions.m */; };
 		E52AD43B1682B6B600719BF6 /* UIApplication+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3DB1682B66300719BF6 /* UIApplication+NBUAdditions.m */; };
-		E52AD43C1682B6B600719BF6 /* UIButton+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3DD1682B66300719BF6 /* UIButton+NBUAdditions.m */; };
 		E52AD43D1682B6B600719BF6 /* UIImage+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3DF1682B66300719BF6 /* UIImage+NBUAdditions.m */; };
-		E52AD43E1682B6B600719BF6 /* UIImageView+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3E11682B66300719BF6 /* UIImageView+NBUAdditions.m */; };
 		E52AD43F1682B6B600719BF6 /* UINavigationController+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3E31682B66300719BF6 /* UINavigationController+NBUAdditions.m */; };
 		E52AD4401682B6B600719BF6 /* UIResponder+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3E51682B66300719BF6 /* UIResponder+NBUAdditions.m */; };
 		E52AD4411682B6B600719BF6 /* UIScrollView+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD3E71682B66300719BF6 /* UIScrollView+NBUAdditions.m */; };
@@ -38,6 +36,18 @@
 		E52AD4501682E52F00719BF6 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD40A1682B66300719BF6 /* DDASLLogger.m */; };
 		E52AD4511682E53600719BF6 /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD41D1682B66300719BF6 /* Lockbox.m */; };
 		E52AD4531682EFA900719BF6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52AD4521682EFA800719BF6 /* Security.framework */; };
+		E52C5FAF16B8A39200BA9C54 /* NBUConfigurationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FAE16B8A39200BA9C54 /* NBUConfigurationPicker.m */; };
+		E52C5FB816B8A8E900BA9C54 /* NBUActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FB516B8A8E900BA9C54 /* NBUActionSheet.m */; };
+		E52C5FB916B8A8E900BA9C54 /* NBUAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FB716B8A8E900BA9C54 /* NBUAlertView.m */; };
+		E52C5FBC16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FBB16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m */; };
+		E52C5FCE16B8AA2600BA9C54 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FCA16B8AA2600BA9C54 /* first.png */; };
+		E52C5FCF16B8AA2600BA9C54 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FCB16B8AA2600BA9C54 /* first@2x.png */; };
+		E52C5FD016B8AA2600BA9C54 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FCC16B8AA2600BA9C54 /* second.png */; };
+		E52C5FD116B8AA2600BA9C54 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FCD16B8AA2600BA9C54 /* second@2x.png */; };
+		E52C5FD316B8AA5900BA9C54 /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FD216B8AA5900BA9C54 /* MainController.xib */; };
+		E52C5FD716B8AB0000BA9C54 /* ConfigurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FD516B8AB0000BA9C54 /* ConfigurationPickerViewController.m */; };
+		E52C5FD816B8AB0000BA9C54 /* ConfigurationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52C5FD616B8AB0000BA9C54 /* ConfigurationPickerViewController.xib */; };
+		E52C5FDB16B8B17100BA9C54 /* MyConfigurationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FDA16B8B17100BA9C54 /* MyConfigurationPicker.m */; };
 		E5D6DBFC168314CB008FEFDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D6DBFB168314CB008FEFDC /* UIKit.framework */; };
 		E5D6DC2A168318D3008FEFDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D6DC1F168318D3008FEFDC /* Default-568h@2x.png */; };
 		E5D6DC2B168318D3008FEFDC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D6DC20168318D3008FEFDC /* Default.png */; };
@@ -62,9 +72,9 @@
 		E52AD3BA1682B38000719BF6 /* NBUCoreDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NBUCoreDemo-Prefix.pch"; sourceTree = "<group>"; };
 		E52AD3BB1682B38000719BF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E52AD3BC1682B38000719BF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E52AD3C41682B38000719BF6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E52AD3C51682B38000719BF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E52AD3C81682B38000719BF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		E52AD3C41682B38000719BF6 /* LogTestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTestsViewController.h; sourceTree = "<group>"; };
+		E52AD3C51682B38000719BF6 /* LogTestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogTestsViewController.m; sourceTree = "<group>"; };
+		E52AD3C81682B38000719BF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LogTestsViewController.xib; sourceTree = "<group>"; };
 		E52AD3D21682B66300719BF6 /* Lockbox+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lockbox+NBUAdditions.h"; sourceTree = "<group>"; };
 		E52AD3D31682B66300719BF6 /* Lockbox+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Lockbox+NBUAdditions.m"; sourceTree = "<group>"; };
 		E52AD3D41682B66300719BF6 /* NSArray+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+NBUAdditions.h"; sourceTree = "<group>"; };
@@ -75,12 +85,8 @@
 		E52AD3D91682B66300719BF6 /* NSString+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NBUAdditions.m"; sourceTree = "<group>"; };
 		E52AD3DA1682B66300719BF6 /* UIApplication+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NBUAdditions.h"; sourceTree = "<group>"; };
 		E52AD3DB1682B66300719BF6 /* UIApplication+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NBUAdditions.m"; sourceTree = "<group>"; };
-		E52AD3DC1682B66300719BF6 /* UIButton+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+NBUAdditions.h"; sourceTree = "<group>"; };
-		E52AD3DD1682B66300719BF6 /* UIButton+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+NBUAdditions.m"; sourceTree = "<group>"; };
 		E52AD3DE1682B66300719BF6 /* UIImage+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+NBUAdditions.h"; sourceTree = "<group>"; };
 		E52AD3DF1682B66300719BF6 /* UIImage+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NBUAdditions.m"; sourceTree = "<group>"; };
-		E52AD3E01682B66300719BF6 /* UIImageView+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+NBUAdditions.h"; sourceTree = "<group>"; };
-		E52AD3E11682B66300719BF6 /* UIImageView+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+NBUAdditions.m"; sourceTree = "<group>"; };
 		E52AD3E21682B66300719BF6 /* UINavigationController+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NBUAdditions.h"; sourceTree = "<group>"; };
 		E52AD3E31682B66300719BF6 /* UINavigationController+NBUAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NBUAdditions.m"; sourceTree = "<group>"; };
 		E52AD3E41682B66300719BF6 /* UIResponder+NBUAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+NBUAdditions.h"; sourceTree = "<group>"; };
@@ -156,6 +162,24 @@
 		E52AD4321682B66300719BF6 /* README.jp.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.jp.md; sourceTree = "<group>"; };
 		E52AD4331682B66300719BF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E52AD4521682EFA800719BF6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E52C5FAD16B8A39200BA9C54 /* NBUConfigurationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUConfigurationPicker.h; sourceTree = "<group>"; };
+		E52C5FAE16B8A39200BA9C54 /* NBUConfigurationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUConfigurationPicker.m; sourceTree = "<group>"; };
+		E52C5FB416B8A8E900BA9C54 /* NBUActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUActionSheet.h; sourceTree = "<group>"; };
+		E52C5FB516B8A8E900BA9C54 /* NBUActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUActionSheet.m; sourceTree = "<group>"; };
+		E52C5FB616B8A8E900BA9C54 /* NBUAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUAlertView.h; sourceTree = "<group>"; };
+		E52C5FB716B8A8E900BA9C54 /* NBUAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUAlertView.m; sourceTree = "<group>"; };
+		E52C5FBA16B8A8FF00BA9C54 /* UIButton+NBUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+NBUAdditions.h"; sourceTree = "<group>"; };
+		E52C5FBB16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+NBUAdditions.m"; sourceTree = "<group>"; };
+		E52C5FCA16B8AA2600BA9C54 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		E52C5FCB16B8AA2600BA9C54 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		E52C5FCC16B8AA2600BA9C54 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		E52C5FCD16B8AA2600BA9C54 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		E52C5FD216B8AA5900BA9C54 /* MainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainController.xib; sourceTree = "<group>"; };
+		E52C5FD416B8AB0000BA9C54 /* ConfigurationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationPickerViewController.h; sourceTree = "<group>"; };
+		E52C5FD516B8AB0000BA9C54 /* ConfigurationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationPickerViewController.m; sourceTree = "<group>"; };
+		E52C5FD616B8AB0000BA9C54 /* ConfigurationPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationPickerViewController.xib; sourceTree = "<group>"; };
+		E52C5FD916B8B17000BA9C54 /* MyConfigurationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConfigurationPicker.h; sourceTree = "<group>"; };
+		E52C5FDA16B8B17100BA9C54 /* MyConfigurationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConfigurationPicker.m; sourceTree = "<group>"; };
 		E5D6DBFB168314CB008FEFDC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5D6DC1F168318D3008FEFDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E5D6DC20168318D3008FEFDC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -219,9 +243,15 @@
 			children = (
 				E52AD3BB1682B38000719BF6 /* AppDelegate.h */,
 				E52AD3BC1682B38000719BF6 /* AppDelegate.m */,
-				E52AD3C41682B38000719BF6 /* ViewController.h */,
-				E52AD3C51682B38000719BF6 /* ViewController.m */,
-				E52AD3C71682B38000719BF6 /* ViewController.xib */,
+				E52C5FD216B8AA5900BA9C54 /* MainController.xib */,
+				E52C5FD916B8B17000BA9C54 /* MyConfigurationPicker.h */,
+				E52C5FDA16B8B17100BA9C54 /* MyConfigurationPicker.m */,
+				E52C5FD416B8AB0000BA9C54 /* ConfigurationPickerViewController.h */,
+				E52C5FD516B8AB0000BA9C54 /* ConfigurationPickerViewController.m */,
+				E52C5FD616B8AB0000BA9C54 /* ConfigurationPickerViewController.xib */,
+				E52AD3C41682B38000719BF6 /* LogTestsViewController.h */,
+				E52AD3C51682B38000719BF6 /* LogTestsViewController.m */,
+				E52AD3C71682B38000719BF6 /* LogTestsViewController.xib */,
 				E5D6DC1E168318D3008FEFDC /* Resources */,
 				E52AD3B31682B38000719BF6 /* Supporting Files */,
 			);
@@ -250,7 +280,8 @@
 				E52AD42C1682B66300719BF6 /* NBUCore.h */,
 				E52AD4301682B66300719BF6 /* NBUUtil.h */,
 				E52AD4311682B66300719BF6 /* NBUUtil.m */,
-				E52AD4261682B66300719BF6 /* Logging */,
+				E52AD4261682B66300719BF6 /* Helpers */,
+				E52C5FB316B8A8E900BA9C54 /* UI */,
 				E52AD3D11682B66300719BF6 /* Additions */,
 				E52AD3EF1682B66300719BF6 /* Library */,
 			);
@@ -261,8 +292,8 @@
 		E52AD3D11682B66300719BF6 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				E52AD3D21682B66300719BF6 /* Lockbox+NBUAdditions.h */,
-				E52AD3D31682B66300719BF6 /* Lockbox+NBUAdditions.m */,
+				E52C5FBA16B8A8FF00BA9C54 /* UIButton+NBUAdditions.h */,
+				E52C5FBB16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m */,
 				E52AD3D41682B66300719BF6 /* NSArray+NBUAdditions.h */,
 				E52AD3D51682B66300719BF6 /* NSArray+NBUAdditions.m */,
 				E52AD3D61682B66300719BF6 /* NSBundle+NBUAdditions.h */,
@@ -271,12 +302,8 @@
 				E52AD3D91682B66300719BF6 /* NSString+NBUAdditions.m */,
 				E52AD3DA1682B66300719BF6 /* UIApplication+NBUAdditions.h */,
 				E52AD3DB1682B66300719BF6 /* UIApplication+NBUAdditions.m */,
-				E52AD3DC1682B66300719BF6 /* UIButton+NBUAdditions.h */,
-				E52AD3DD1682B66300719BF6 /* UIButton+NBUAdditions.m */,
 				E52AD3DE1682B66300719BF6 /* UIImage+NBUAdditions.h */,
 				E52AD3DF1682B66300719BF6 /* UIImage+NBUAdditions.m */,
-				E52AD3E01682B66300719BF6 /* UIImageView+NBUAdditions.h */,
-				E52AD3E11682B66300719BF6 /* UIImageView+NBUAdditions.m */,
 				E52AD3E21682B66300719BF6 /* UINavigationController+NBUAdditions.h */,
 				E52AD3E31682B66300719BF6 /* UINavigationController+NBUAdditions.m */,
 				E52AD3E41682B66300719BF6 /* UIResponder+NBUAdditions.h */,
@@ -289,6 +316,8 @@
 				E52AD3EB1682B66300719BF6 /* UIView+NBUAdditions.m */,
 				E52AD3EC1682B66300719BF6 /* UIWebView+NBUAdditions.h */,
 				E52AD3ED1682B66300719BF6 /* UIWebView+NBUAdditions.m */,
+				E52AD3D21682B66300719BF6 /* Lockbox+NBUAdditions.h */,
+				E52AD3D31682B66300719BF6 /* Lockbox+NBUAdditions.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -389,16 +418,29 @@
 			path = "UIImage Categories";
 			sourceTree = "<group>";
 		};
-		E52AD4261682B66300719BF6 /* Logging */ = {
+		E52AD4261682B66300719BF6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				E52AD42A1682B66300719BF6 /* NBULog.h */,
 				E52AD42B1682B66300719BF6 /* NBULog.m */,
+				E52C5FAD16B8A39200BA9C54 /* NBUConfigurationPicker.h */,
+				E52C5FAE16B8A39200BA9C54 /* NBUConfigurationPicker.m */,
 				E52AD4271682B66300719BF6 /* NBUDashboardLogger.h */,
 				E52AD4281682B66300719BF6 /* NBUDashboardLogger.m */,
 				E52AD4291682B66300719BF6 /* NBUDashboardLogger.xib */,
 			);
-			path = Logging;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E52C5FB316B8A8E900BA9C54 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E52C5FB416B8A8E900BA9C54 /* NBUActionSheet.h */,
+				E52C5FB516B8A8E900BA9C54 /* NBUActionSheet.m */,
+				E52C5FB616B8A8E900BA9C54 /* NBUAlertView.h */,
+				E52C5FB716B8A8E900BA9C54 /* NBUAlertView.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		E5D6DC1E168318D3008FEFDC /* Resources */ = {
@@ -415,6 +457,10 @@
 				E5D6DC4816831918008FEFDC /* Icon.png */,
 				E5D6DC4916831918008FEFDC /* Icon@2x.png */,
 				E5D6DC29168318D3008FEFDC /* iTunesArtwork */,
+				E52C5FCA16B8AA2600BA9C54 /* first.png */,
+				E52C5FCB16B8AA2600BA9C54 /* first@2x.png */,
+				E52C5FCC16B8AA2600BA9C54 /* second.png */,
+				E52C5FCD16B8AA2600BA9C54 /* second@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -471,7 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E52AD3B71682B38000719BF6 /* InfoPlist.strings in Resources */,
-				E52AD3C91682B38000719BF6 /* ViewController.xib in Resources */,
+				E52AD3C91682B38000719BF6 /* LogTestsViewController.xib in Resources */,
 				E52AD4361682B6A000719BF6 /* NBUDashboardLogger.xib in Resources */,
 				E5D6DC2A168318D3008FEFDC /* Default-568h@2x.png in Resources */,
 				E5D6DC2B168318D3008FEFDC /* Default.png in Resources */,
@@ -484,6 +530,12 @@
 				E5D6DC4E16831918008FEFDC /* Icon-Small@2x.png in Resources */,
 				E5D6DC4F16831918008FEFDC /* Icon.png in Resources */,
 				E5D6DC5016831918008FEFDC /* Icon@2x.png in Resources */,
+				E52C5FCE16B8AA2600BA9C54 /* first.png in Resources */,
+				E52C5FCF16B8AA2600BA9C54 /* first@2x.png in Resources */,
+				E52C5FD016B8AA2600BA9C54 /* second.png in Resources */,
+				E52C5FD116B8AA2600BA9C54 /* second@2x.png in Resources */,
+				E52C5FD316B8AA5900BA9C54 /* MainController.xib in Resources */,
+				E52C5FD816B8AB0000BA9C54 /* ConfigurationPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +548,7 @@
 			files = (
 				E52AD3B91682B38000719BF6 /* main.m in Sources */,
 				E52AD3BD1682B38000719BF6 /* AppDelegate.m in Sources */,
-				E52AD3C61682B38000719BF6 /* ViewController.m in Sources */,
+				E52AD3C61682B38000719BF6 /* LogTestsViewController.m in Sources */,
 				E52AD4341682B6A000719BF6 /* NBULog.m in Sources */,
 				E52AD4351682B6A000719BF6 /* NBUDashboardLogger.m in Sources */,
 				E52AD4371682B6B600719BF6 /* Lockbox+NBUAdditions.m in Sources */,
@@ -504,9 +556,7 @@
 				E52AD4391682B6B600719BF6 /* NSBundle+NBUAdditions.m in Sources */,
 				E52AD43A1682B6B600719BF6 /* NSString+NBUAdditions.m in Sources */,
 				E52AD43B1682B6B600719BF6 /* UIApplication+NBUAdditions.m in Sources */,
-				E52AD43C1682B6B600719BF6 /* UIButton+NBUAdditions.m in Sources */,
 				E52AD43D1682B6B600719BF6 /* UIImage+NBUAdditions.m in Sources */,
-				E52AD43E1682B6B600719BF6 /* UIImageView+NBUAdditions.m in Sources */,
 				E52AD43F1682B6B600719BF6 /* UINavigationController+NBUAdditions.m in Sources */,
 				E52AD4401682B6B600719BF6 /* UIResponder+NBUAdditions.m in Sources */,
 				E52AD4411682B6B600719BF6 /* UIScrollView+NBUAdditions.m in Sources */,
@@ -519,6 +569,12 @@
 				E52AD44F1682E51B00719BF6 /* DDTTYLogger.m in Sources */,
 				E52AD4501682E52F00719BF6 /* DDASLLogger.m in Sources */,
 				E52AD4511682E53600719BF6 /* Lockbox.m in Sources */,
+				E52C5FAF16B8A39200BA9C54 /* NBUConfigurationPicker.m in Sources */,
+				E52C5FB816B8A8E900BA9C54 /* NBUActionSheet.m in Sources */,
+				E52C5FB916B8A8E900BA9C54 /* NBUAlertView.m in Sources */,
+				E52C5FBC16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m in Sources */,
+				E52C5FD716B8AB0000BA9C54 /* ConfigurationPickerViewController.m in Sources */,
+				E52C5FDB16B8B17100BA9C54 /* MyConfigurationPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,12 +589,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		E52AD3C71682B38000719BF6 /* ViewController.xib */ = {
+		E52AD3C71682B38000719BF6 /* LogTestsViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E52AD3C81682B38000719BF6 /* en */,
 			);
-			name = ViewController.xib;
+			name = LogTestsViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

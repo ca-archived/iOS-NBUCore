@@ -180,7 +180,7 @@ static NBUDashboardLogger * _sharedInstance;
     // Calculate how much the buffer moved
     NSUInteger offset = NSNotFound;
     if (lastBuffer.count > 0)
-        offset = [_messages indexOfObject:lastBuffer[0]];
+        offset = [_messagesBuffer indexOfObject:lastBuffer[0]];
     
     // Full refresh needed?
     if (offset == NSNotFound)
@@ -260,25 +260,38 @@ static NBUDashboardLogger * _sharedInstance;
 - (NSString *)textForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     DDLogMessage * message = _messagesBuffer[indexPath.row];
+    
+    // Selected cell
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0") &&
+        _tableView.indexPathForSelectedRow == indexPath)
+    {
+        return [self formatLogMessage:message];
+    }
     if ([_tableView.indexPathsForSelectedRows containsObject:indexPath])
     {
         return [self formatLogMessage:message];
     }
-    else
-    {
-        return [message->logMsg stringByReplacingOccurrencesOfString:@"\n"
-                                                          withString:@" "];
-    }
+    
+    // Unselected cell
+    return [message->logMsg stringByReplacingOccurrencesOfString:@"\n"
+                                                      withString:@" "];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Unselected cell
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0") &&
+        _tableView.indexPathForSelectedRow != indexPath)
+    {
+        return 20.0;
+    }
     if (![_tableView.indexPathsForSelectedRows containsObject:indexPath])
     {
         return 20.0;
     }
     
+    // Selected cell
     NSString * string = [self textForCellAtIndexPath:indexPath];
     CGSize size = [string sizeWithFont:_font
                      constrainedToSize:CGSizeMake(_tableView.size.width,

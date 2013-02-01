@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LogTestsViewController.h
 //  NBUCoreDemo
 //
 //  Created by 利辺羅 on 2012/12/20.
@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LogTestsViewController : UIViewController
 
 // Outlets
-@property (assign, nonatomic) IBOutlet UITextView *textView;
-@property (assign, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (assign, nonatomic) IBOutlet UITextView * textView;
 
 // Actions
 - (IBAction)changeLogLevel:(id)sender;

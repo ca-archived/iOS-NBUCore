@@ -23,27 +23,22 @@ static id<DDLogFormatter> _nbuLogFormatter;
 
 @implementation NBULog
 
+static BOOL _dashboardLoggerAdded;
+static BOOL _ttyLoggerAdded;
+static BOOL _aslLoggerAdded;
+static BOOL _fileLoggerAdded;
+
+// Configure a formatter and add some default logger outputs
 + (void)initialize
 {
     _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
 
 #ifdef DEBUG
     // Set log to Xcode debug console/Terminal
-    DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
-    ttyLogger.logFormatter = _nbuLogFormatter;
-    [DDLog addLogger:ttyLogger];
-    
-    // Colors for iOS are not working yet...
-    //    [ttyLogger setColorsEnabled:YES];
-    //    [ttyLogger setForegroundColor:[UIColor redColor]
-    //                  backgroundColor:nil
-    //                          forFlag:LOG_FLAG_VERBOSE];
+    [self addTTYLogger];
 #else
     // Set log to a file
-    DDFileLogger * fileLogger = [DDFileLogger new];
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
-    fileLogger.logFormatter = _nbuLogFormatter;
-    [DDLog addLogger:fileLogger];
+    [self addFileLogger];
 #endif
 }
 
@@ -57,16 +52,59 @@ static id<DDLogFormatter> _nbuLogFormatter;
     _appLogLevel = LOG_LEVEL_XXX;
 }
 
+#pragma mark - Adding loggers
+
 + (void)addDashboardLogger
 {
+    if (_dashboardLoggerAdded)
+        return;
+    
     [DDLog addLogger:[NBUDashboardLogger sharedInstance]];
+    
+    _dashboardLoggerAdded = YES;
 }
 
 + (void)addASLLogger
 {
+    if (_aslLoggerAdded)
+        return;
+    
     DDASLLogger * logger = [DDASLLogger sharedInstance];
     logger.logFormatter = _nbuLogFormatter;
     [DDLog addLogger:logger];
+    
+    _aslLoggerAdded = YES;
+}
+
++ (void)addTTYLogger
+{
+    if (_ttyLoggerAdded)
+        return;
+    
+    DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
+    ttyLogger.logFormatter = _nbuLogFormatter;
+    [DDLog addLogger:ttyLogger];
+    
+    // Colors for iOS are not working yet...
+    //    [ttyLogger setColorsEnabled:YES];
+    //    [ttyLogger setForegroundColor:[UIColor redColor]
+    //                  backgroundColor:nil
+    //                          forFlag:LOG_FLAG_VERBOSE];
+
+    _ttyLoggerAdded = YES;
+}
+
++ (void)addFileLogger
+{
+    if (_fileLoggerAdded)
+        return;
+    
+    DDFileLogger * fileLogger = [DDFileLogger new];
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
+    fileLogger.logFormatter = _nbuLogFormatter;
+    [DDLog addLogger:fileLogger];
+    
+    _fileLoggerAdded = YES;
 }
 
 @end

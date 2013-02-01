@@ -20,6 +20,8 @@
 
 - (void)setRootViewController:(UIViewController *)rootViewController
 {
+    NBULogTrace();
+    
     self.viewControllers = rootViewController ? @[rootViewController] : nil;
 }
 

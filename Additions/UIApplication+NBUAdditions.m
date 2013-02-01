@@ -38,6 +38,8 @@
     return (paths.count > 0) ? [NSURL fileURLWithPath:paths[0]] : nil;
 }
 
+#pragma mark - NSUserDefaults
+
 + (void)setObject:(id)object
            forKey:(NSString *)key
 {
@@ -56,6 +58,13 @@
     }
 }
 
++ (id)objectForKey:(NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
+#pragma mark - Keychain
+
 + (void)setSecureObject:(id)object
                  forKey:(NSString *)key
 {
@@ -66,11 +75,6 @@
         NBULogError(@"Couldn't set secure object '%@' for key '%@'",
                    object, key);
     }
-}
-
-+ (id)objectForKey:(NSString *)key
-{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
 + (id)secureObjectForKey:(NSString *)key

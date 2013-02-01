@@ -49,10 +49,22 @@
  * Note: If manually creating your own background threads (via NSThread/alloc/init or NSThread/detachNeThread),
  * you can use [[NSThread currentThread] setName:(NSString *)].
 **/
-@interface DispatchQueueLogFormatter : NSObject <DDLogFormatter> {
-@protected
+@interface DispatchQueueLogFormatter : NSObject <DDLogFormatter>
+{
+	@protected
 	
 	NSString *dateFormatString;
+	
+	@private
+	
+	int32_t atomicLoggerCount;
+	NSDateFormatter *threadUnsafeDateFormatter; // Use [self stringFromDate]
+	
+	OSSpinLock lock;
+	
+	NSUInteger _minQueueLength;           // _prefix == Only access via atomic property
+	NSUInteger _maxQueueLength;           // _prefix == Only access via atomic property
+	NSMutableDictionary *_replacements;   // _prefix == Only access from within spinlock
 }
 
 /**
@@ -75,18 +87,15 @@
  * If the minQueueLength is 8: [diskIO  ]
  * 
  * The default minQueueLength is 0 (no minimum, so [detail box] won't be padded).
- * 
- * If you want every [detail box] to have the exact same width,
- * set both minQueueLength and maxQueueLength to the same value.
 **/
 @property (assign) NSUInteger minQueueLength;
 
 /**
  * The maxQueueLength restricts the number of characters that will be inside the [detail box].
  * If the maxQueueLength is 0, there is no restriction.
+ * For example:
  * 
- * For example, say a dispatch_queue has a label of "diskIO":
- *
+ * Say a dispatch_queue has a label of "diskIO". (standardizedQueueLength==NO)
  * If the maxQueueLength is 0: [diskIO]
  * If the maxQueueLength is 4: [disk]
  * If the maxQueueLength is 5: [diskI]
@@ -94,10 +103,7 @@
  * If the maxQueueLength is 7: [diskIO]
  * If the maxQueueLength is 8: [diskIO]
  * 
- * The default maxQueueLength is 0 (no maximum, so [detail box] won't be truncated).
- * 
- * If you want every [detail box] to have the exact same width,
- * set both minQueueLength and maxQueueLength to the same value.
+ * The default maxQueueLength is 0 (no maximum, so [thread box] queue names won't be truncated).
 **/
 @property (assign) NSUInteger maxQueueLength;
 

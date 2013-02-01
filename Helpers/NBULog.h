@@ -9,7 +9,7 @@
 #import "DDLog.h"
 
 /// Extensible default contexts
-#define APP_LOG_CONTEXT     0
+#define APP_LOG_CONTEXT 0
 
 /// Dynamic levels
 #define APP_LOG_LEVEL   [NBULog appLogLevel]
@@ -52,10 +52,20 @@
 /// @name Adding Loggers
 
 /// Configure and add a NBUDashboardLogger.
+/// @note To be used for testing builds only.
 + (void)addDashboardLogger;
 
-/// Configure ad add a DDASLLogger. Not needed in most cases.
+/// Configure and add a DDASLLogger (Apple System Log). Not needed in most cases.
+/// @note To be used for testing builds only.
 + (void)addASLLogger;
+
+/// Configure and add a DDTTYLogger (Apple System Log and Xcode console). Not needed in most cases.
+/// @note To be used for testing builds only.
++ (void)addTTYLogger;
+
+/// Configure and add a DDFileLogger (log to a file).
+/// @note Added by default for non debug builds.
++ (void)addFileLogger;
 
 @end
 
