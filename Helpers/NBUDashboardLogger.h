@@ -13,7 +13,7 @@
  - Supports colors for log levels.
  - Expands and collapses text.
  
- To enable simply use [NBULog addDashboardLogger:].
+ To enable simply use [NBULog addDashboardLogger].
  */
 @interface NBUDashboardLogger : DDAbstractLogger
 

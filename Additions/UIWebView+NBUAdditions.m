@@ -24,7 +24,7 @@ static NSString * _systemDefaultUserAgent;
 
 + (void)setDefaultUserAgent:(NSString *)userAgent
 {
-    NBULogVerbose(@"setDefaultUserAgent: %@", userAgent);
+    NBULogInfo(@"setDefaultUserAgent: %@", userAgent);
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent" : userAgent}];
 }

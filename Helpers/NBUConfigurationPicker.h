@@ -35,7 +35,8 @@ extern NSString * const NBUConfigurationChangedNotification;
 /// Show the picker.
 + (void)show;
 
-/// Create a standard button configured to display the picker.
+/// Create a UIButton configured to display the picker.
+/// @param title The desired button title.
 + (UIButton *)pickerButtonWithTitle:(NSString *)title;
 
 /// @name Managing the Current Configuration

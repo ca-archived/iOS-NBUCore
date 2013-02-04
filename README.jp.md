@@ -2,7 +2,7 @@ iOS NBUCore
 ===========  
 [English](https://github.com/icb-cost-01/iOS-NBUCore/blob/master/README.md)
 
-_最新バージョン 1.5.0b4_
+_最新バージョン 1.5.0_
 
 全てのプロジェクトの Core Service  
 

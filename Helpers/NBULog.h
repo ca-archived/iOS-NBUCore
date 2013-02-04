@@ -43,10 +43,11 @@
 
 /// @name Adjusting Log Levels
 
-// Dynamically set the App log level.
+/// Dynamically set the App log level.
+/// @param LOG_LEVEL_XXX The desired log level.
 + (void)setAppLogLevel:(int)LOG_LEVEL_XXX;
 
-// Get the App log level.
+/// Get the App log level.
 + (int)appLogLevel;
 
 /// @name Adding Loggers
