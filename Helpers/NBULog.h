@@ -9,23 +9,41 @@
 #import "DDLog.h"
 
 /// Extensible default contexts
-#define APP_LOG_CONTEXT 0
+#define APP_LOG_CONTEXT     0
+
+/// App modules
+/// Define more in your Prefix.pch file if needed (max 10 modules).
+/// Ex.:    #define APP_MODULE_NETWORK  1
+#define APP_MODULE_GENERAL  0
+
+/// By default all files will be in the "General" module.
+/// Change the module of any file by redefining `APP_MODULE` at
+/// the beginning of the implementation file. Ex.:
+///     #undef APP_MODULE
+///     #define APP_MODULE APP_MODULE_NETWORK
+#define APP_MODULE          APP_MODULE_GENERAL
 
 /// Dynamic levels
-#define APP_LOG_LEVEL   [NBULog appLogLevel]
+#define APP_LOG_LEVEL       [NBULog appLogLevelForModule:APP_MODULE]
 
-/// Only keep NSLogs for debug builds
+/// Remove NSLog from non-debug
 #ifndef DEBUG
     #define NSLog(...)
 #endif
 
-/// Redefine (#undef ... #define ...) this for your own custom modules' prefix file
-/// @see NBUKit-Prefix.pch
-#define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-#define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-#define NBULogInfo(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_INFO,    APP_LOG_LEVEL, LOG_FLAG_INFO,     APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-#define NBULogVerbose(frmt, ...)LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE, APP_LOG_LEVEL, LOG_FLAG_VERBOSE,  APP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
+/// Log with the currently defined APP_MODULE
+#define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogInfo(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_INFO,    APP_LOG_LEVEL, LOG_FLAG_INFO,     APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogVerbose(frmt, ...)LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE, APP_LOG_LEVEL, LOG_FLAG_VERBOSE,  APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogTrace()           NBULogVerbose(@"[%p] %@", self, THIS_METHOD)
+
+/// Log with specific module that may be different from the currently defined APP_MODULE
+#define NBULogErrorForModule(mod, frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogWarnForModule(mod, frmt, ...)     LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogInfoForModule(mod, frmt, ...)     LOG_OBJC_MAYBE(LOG_ASYNC_INFO,    APP_LOG_LEVEL, LOG_FLAG_INFO,     APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogVerboseForModule(mod, frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE, APP_LOG_LEVEL, LOG_FLAG_VERBOSE,  APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogTraceForModule(mod)               NBULogVerboseForModule(mod, @"[%p] %@", self, THIS_METHOD)
 
 /**
  DDLog wrapper. Use it to set/get App log levels for debug or testing builds.
@@ -41,14 +59,21 @@
  */
 @interface NBULog : NSObject
 
-/// @name Adjusting Log Levels
+/// @name Adjusting App Log Levels
 
-/// Dynamically set the App log level.
+/// Get the current App log level for a given module.
+/// @param APP_MODULE_XXX The target module.
++ (int)appLogLevelForModule:(int)APP_MODULE_XXX;
+
+/// Dynamically set the App log level for a given module.
+/// @param LOG_LEVEL_XXX The desired log level.
+/// @param APP_MODULE_XXX The target module.
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX
+             forModule:(int)APP_MODULE_XXX;
+
+/// Dynamically set the App log level for all modules at once.
 /// @param LOG_LEVEL_XXX The desired log level.
 + (void)setAppLogLevel:(int)LOG_LEVEL_XXX;
-
-/// Get the App log level.
-+ (int)appLogLevel;
 
 /// @name Adding Loggers
 

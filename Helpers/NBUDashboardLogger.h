@@ -33,3 +33,10 @@
 
 @end
 
+/**
+ The UIWindow containing the NBUDashboardLogger.
+ */
+@interface NBUDashboardWindow : UIWindow
+
+@end
+

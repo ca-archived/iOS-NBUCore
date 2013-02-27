@@ -34,7 +34,7 @@
 		E52AD44E1682E51B00719BF6 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD40E1682B66300719BF6 /* DDLog.m */; };
 		E52AD44F1682E51B00719BF6 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD4101682B66300719BF6 /* DDTTYLogger.m */; };
 		E52AD4501682E52F00719BF6 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD40A1682B66300719BF6 /* DDASLLogger.m */; };
-		E52AD4511682E53600719BF6 /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD41D1682B66300719BF6 /* Lockbox.m */; };
+		E52AD4511682E53600719BF6 /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD41D1682B66300719BF6 /* Lockbox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E52AD4531682EFA900719BF6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52AD4521682EFA800719BF6 /* Security.framework */; };
 		E52C5FAF16B8A39200BA9C54 /* NBUConfigurationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FAE16B8A39200BA9C54 /* NBUConfigurationPicker.m */; };
 		E52C5FB816B8A8E900BA9C54 /* NBUActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C5FB516B8A8E900BA9C54 /* NBUActionSheet.m */; };

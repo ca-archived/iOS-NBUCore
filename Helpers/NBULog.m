@@ -12,12 +12,9 @@
 #import "DDASLLogger.h"
 #import "NBUDashboardLogger.h"
 
-// Default log levels
-#ifdef DEBUG
-    static int _appLogLevel = LOG_LEVEL_VERBOSE;
-#else
-    static int _appLogLevel = LOG_LEVEL_INFO;
-#endif
+#define MAX_MODULES 10
+
+static int _appLogLevel[MAX_MODULES];
 
 static id<DDLogFormatter> _nbuLogFormatter;
 
@@ -28,28 +25,38 @@ static BOOL _ttyLoggerAdded;
 static BOOL _aslLoggerAdded;
 static BOOL _fileLoggerAdded;
 
-// Configure a formatter and add some default logger outputs
+// Configure a formatter, default levels and add default loggers
 + (void)initialize
 {
     _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
 
+    // Default log levels and loggers
 #ifdef DEBUG
-    // Set log to Xcode debug console/Terminal
+    [self setAppLogLevel:LOG_LEVEL_VERBOSE];
     [self addTTYLogger];
 #else
-    // Set log to a file
+    [self setAppLogLevel:LOG_LEVEL_INFO];
     [self addFileLogger];
 #endif
 }
 
-+ (int)appLogLevel
++ (int)appLogLevelForModule:(int)APP_MODULE_XXX
 {
-    return _appLogLevel;
+    return _appLogLevel[APP_MODULE_XXX];
+}
+
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX
+             forModule:(int)APP_MODULE_XXX
+{
+    _appLogLevel[APP_MODULE_XXX] = LOG_LEVEL_XXX;
 }
 
 + (void)setAppLogLevel:(int)LOG_LEVEL_XXX
 {
-    _appLogLevel = LOG_LEVEL_XXX;
+    for (int i = 0; i < MAX_MODULES; i++)
+    {
+        _appLogLevel[i] = LOG_LEVEL_XXX;
+    }
 }
 
 #pragma mark - Adding loggers
@@ -334,6 +341,7 @@ static NSString * _processName;
 			[threadUnsafeDateFormatter setDateFormat:dateFormatString];
 		}
 		
+        [threadUnsafeDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
 		return [threadUnsafeDateFormatter stringFromDate:date];
 	}
 	else
@@ -355,6 +363,7 @@ static NSString * _processName;
 			[threadDictionary setObject:dateFormatter forKey:key];
 		}
 		
+        [dateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
 		return [dateFormatter stringFromDate:date];
 	}
 }

@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
 //
 
+extern NSString * const NBULocalizedStringNotFound;
+
 /**
  NSBundle category to handle subbundles.
  */
@@ -25,6 +27,17 @@
 + (NSArray *)loadNibNamed:(NSString *)name
                     owner:(id)owner
                   options:(NSDictionary *)options;
+
+/// Search for a localized string first in the mainBundle, then in the backupBundle.
+/// @param key The key for the string.
+/// @param value The value to return if key is `nil`.
+/// @param tableName The table to search for.
+/// @param bundle The bundle to search for in case the string was not found
+/// in the mainBundle.
++ (NSString *)localizedStringForKey:(NSString *)key
+                              value:(NSString *)value
+                              table:(NSString *)tableName
+                       backupBundle:(NSBundle *)bundle;
 
 @end
 

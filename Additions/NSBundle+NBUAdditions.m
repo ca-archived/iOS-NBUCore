@@ -8,6 +8,8 @@
 
 #import "NSBundle+NBUAdditions.h"
 
+NSString * const NBULocalizedStringNotFound = @"NBULocalizedStringNotFound";
+
 @implementation NSBundle (NBUAdditions)
 
 + (NSString *)pathForResource:(NSString *)name
@@ -73,6 +75,34 @@
     
     NBULogError(@"Couldn't load Nib named: %@", name);
     return nil;
+}
+
++ (NSString *)localizedStringForKey:(NSString *)key
+                              value:(NSString *)value
+                              table:(NSString *)tableName
+                       backupBundle:(NSBundle *)bundle
+{
+    // First try main bundle
+    NSString * string = [[NSBundle mainBundle] localizedStringForKey:key
+                                                               value:NBULocalizedStringNotFound
+                                                               table:tableName];
+    
+    // Then try the backup bundle
+    if ([string isEqualToString:NBULocalizedStringNotFound])
+    {
+        string = [bundle localizedStringForKey:key
+                                         value:NBULocalizedStringNotFound
+                                         table:tableName];
+    }
+    
+    // Still not found?
+    if ([string isEqualToString:NBULocalizedStringNotFound])
+    {
+        NBULogWarn(@"No localized string for '%@' in '%@'", key, tableName);
+        string = value.length > 0 ? value : key;
+    }
+    
+    return string;
 }
 
 @end

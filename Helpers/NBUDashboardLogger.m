@@ -10,9 +10,14 @@
 
 static NBUDashboardLogger * _sharedInstance;
 
+@implementation NBUDashboardWindow
+
+@end
+
 @interface NBUDashboardLogger (Private) <UITableViewDelegate, UITableViewDataSource>
 
 @end
+
 
 @implementation NBUDashboardLogger
 {
@@ -31,10 +36,10 @@ static NBUDashboardLogger * _sharedInstance;
 
 + (NBUDashboardLogger *)sharedInstance
 {
-    if (!_sharedInstance)
-    {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         _sharedInstance = [NBUDashboardLogger new];
-    }
+    });
     return _sharedInstance;
 }
 
