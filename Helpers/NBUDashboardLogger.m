@@ -10,11 +10,12 @@
 
 static NBUDashboardLogger * _sharedInstance;
 
-@implementation NBUDashboardWindow
+// Private categories and classes
+@interface NBUDashboardLogger (Private) <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
-@interface NBUDashboardLogger (Private) <UITableViewDelegate, UITableViewDataSource>
+@implementation NBUDashboardWindow
 
 @end
 
@@ -27,12 +28,12 @@ static NBUDashboardLogger * _sharedInstance;
     CGFloat _fontSize;
     NSMutableArray * _messages;
     NSArray * _messagesBuffer;
-    NSUInteger _maxMessages;
     BOOL _updateScheduled;
     NSTimeInterval _minIntervalToUpdate;
     NSDate * _lastUpdate;
 }
 @synthesize tableView = _tableView;
+@synthesize maxMessages = _maxMessages;
 
 + (NBUDashboardLogger *)sharedInstance
 {
@@ -187,49 +188,55 @@ static NBUDashboardLogger * _sharedInstance;
     if (lastBuffer.count > 0)
         offset = [_messagesBuffer indexOfObject:lastBuffer[0]];
     
-    // Full refresh needed?
-    if (offset == NSNotFound)
-    {
-        [_tableView reloadData];
-    }
-    
     // Partial only
-    else
+    if (offset != NSNotFound)
     {
-        [_tableView beginUpdates];
-        
-        // Remove items?
-        NSUInteger tableCount = [_tableView numberOfRowsInSection:0];
-//        NSLog(@"••• %d", tableCount);
-        NSInteger removeCount = tableCount + offset - _maxMessages;
-        if (removeCount > 0)
+        @try
         {
-            NSMutableArray * indexPaths = [NSMutableArray arrayWithCapacity:removeCount];
-            for (NSUInteger i = tableCount - removeCount; i < tableCount; i++)
+            [_tableView beginUpdates];
+            
+            // Remove items?
+            NSUInteger tableCount = [_tableView numberOfRowsInSection:0];
+            //        NSLog(@"••• %d", tableCount);
+            NSInteger removeCount = tableCount + offset - _maxMessages;
+            if (removeCount > 0)
+            {
+                NSMutableArray * indexPaths = [NSMutableArray arrayWithCapacity:removeCount];
+                for (NSUInteger i = tableCount - removeCount; i < tableCount; i++)
+                {
+                    [indexPaths addObject:[NSIndexPath indexPathForRow:i
+                                                             inSection:0]];
+                }
+                [_tableView deleteRowsAtIndexPaths:indexPaths
+                                  withRowAnimation:UITableViewRowAnimationFade];
+                //            NSLog(@"--- %d", indexPaths.count);
+                //            NSLog(@"--- %@", indexPaths);
+            }
+            
+            // Insert items
+            NSMutableArray * indexPaths = [NSMutableArray arrayWithCapacity:offset];
+            for (NSUInteger i = 0; i < offset; i++)
             {
                 [indexPaths addObject:[NSIndexPath indexPathForRow:i
                                                          inSection:0]];
             }
-            [_tableView deleteRowsAtIndexPaths:indexPaths
+            [_tableView insertRowsAtIndexPaths:indexPaths
                               withRowAnimation:UITableViewRowAnimationFade];
-//            NSLog(@"--- %d", indexPaths.count);
-//            NSLog(@"--- %@", indexPaths);
+            //        NSLog(@"+++ %d", indexPaths.count);
+            //        NSLog(@"+++ %@", indexPaths);
+            
+            [_tableView endUpdates];
+            
+            return;
         }
-        
-        // Insert items
-        NSMutableArray * indexPaths = [NSMutableArray arrayWithCapacity:offset];
-        for (NSUInteger i = 0; i < offset; i++)
+        @catch (NSException *exception)
         {
-            [indexPaths addObject:[NSIndexPath indexPathForRow:i
-                                                     inSection:0]];
+            NSLog(@"EXCEPTION while updating Dashboard: %@", exception.reason);
         }
-        [_tableView insertRowsAtIndexPaths:indexPaths
-                          withRowAnimation:UITableViewRowAnimationFade];
-//        NSLog(@"+++ %d", indexPaths.count);
-//        NSLog(@"+++ %@", indexPaths);
-        
-        [_tableView endUpdates];
     }
+    
+    // Full refresh needed
+    [_tableView reloadData];
 }
 
 #pragma mark - TableView delegate/data source
@@ -278,8 +285,9 @@ static NBUDashboardLogger * _sharedInstance;
     }
     
     // Unselected cell
-    return [message->logMsg stringByReplacingOccurrencesOfString:@"\n"
-                                                      withString:@" "];
+    return [[message->logMsg stringByReplacingOccurrencesOfString:@"  "
+                                                       withString:@""] stringByReplacingOccurrencesOfString:@"\n"
+                                                                                                 withString:@" "];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView

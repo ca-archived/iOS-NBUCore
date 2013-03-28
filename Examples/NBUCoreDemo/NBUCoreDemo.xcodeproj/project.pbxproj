@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E524A5BD16F15A68003054AE /* NSFileManager+NBUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E524A5BB16F15A68003054AE /* NSFileManager+NBUAdditions.m */; };
 		E52AD3AF1682B38000719BF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52AD3AE1682B38000719BF6 /* Foundation.framework */; };
 		E52AD3B11682B38000719BF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52AD3B01682B38000719BF6 /* CoreGraphics.framework */; };
 		E52AD3B71682B38000719BF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E52AD3B51682B38000719BF6 /* InfoPlist.strings */; };
@@ -63,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E524A5BB16F15A68003054AE /* NSFileManager+NBUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+NBUAdditions.m"; sourceTree = "<group>"; };
+		E524A5BC16F15A68003054AE /* NSFileManager+NBUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+NBUAdditions.h"; sourceTree = "<group>"; };
 		E52AD3A81682B38000719BF6 /* NBUCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBUCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E52AD3AE1682B38000719BF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E52AD3B01682B38000719BF6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -298,6 +301,8 @@
 				E52AD3D51682B66300719BF6 /* NSArray+NBUAdditions.m */,
 				E52AD3D61682B66300719BF6 /* NSBundle+NBUAdditions.h */,
 				E52AD3D71682B66300719BF6 /* NSBundle+NBUAdditions.m */,
+				E524A5BC16F15A68003054AE /* NSFileManager+NBUAdditions.h */,
+				E524A5BB16F15A68003054AE /* NSFileManager+NBUAdditions.m */,
 				E52AD3D81682B66300719BF6 /* NSString+NBUAdditions.h */,
 				E52AD3D91682B66300719BF6 /* NSString+NBUAdditions.m */,
 				E52AD3DA1682B66300719BF6 /* UIApplication+NBUAdditions.h */,
@@ -575,6 +580,7 @@
 				E52C5FBC16B8A8FF00BA9C54 /* UIButton+NBUAdditions.m in Sources */,
 				E52C5FD716B8AB0000BA9C54 /* ConfigurationPickerViewController.m in Sources */,
 				E52C5FDB16B8B17100BA9C54 /* MyConfigurationPicker.m in Sources */,
+				E524A5BD16F15A68003054AE /* NSFileManager+NBUAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +616,6 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -636,7 +641,6 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -662,13 +666,11 @@
 		E52AD3CE1682B38000719BF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Cyberagent.Inc";
 				DISPLAYNAME = NBUCore;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NBUCoreDemo/NBUCoreDemo-Prefix.pch";
 				INFOPLIST_FILE = "NBUCoreDemo/NBUCoreDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E12F256F-51CB-4F38-B871-C14BFFFCC337";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

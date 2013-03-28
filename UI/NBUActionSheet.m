@@ -8,14 +8,81 @@
 
 #import "NBUActionSheet.h"
 
+// Private category
 @interface NBUActionSheet (Private) <UIActionSheetDelegate>
 
 @end
+
 
 @implementation NBUActionSheet
 
 @synthesize selectedButtonBlock = _selectedButtonBlock;
 @synthesize cancelButtonBlock = _cancelButtonBlock;
+
+- (id)initWithTitle:(NSString *)title
+  cancelButtonTitle:(NSString *)cancelButtonTitle
+destructiveButtonTitle:(NSString *)destructiveButtonTitle
+  otherButtonTitles:(NSArray *)otherButtonTitles
+selectedButtonBlock:(NBUActionSheetSelectedButtonBlock)selectedButtonBlock
+  cancelButtonBlock:(NBUActionSheetCancelButtonBlock)cancelButtonBlock
+{
+    self = [super initWithTitle:title
+                       delegate:nil
+              cancelButtonTitle:DEVICE_IS_IPHONE_IDIOM ? cancelButtonTitle : nil
+         destructiveButtonTitle:destructiveButtonTitle
+              otherButtonTitles:nil];
+    if (self)
+    {
+        for (NSString * otherButtonTitle in otherButtonTitles)
+        {
+            [self addButtonWithTitle:otherButtonTitle];
+        }
+        self.selectedButtonBlock = selectedButtonBlock;
+        self.cancelButtonBlock = cancelButtonBlock;
+    }
+    return self;
+}
+
+- (void)showFrom:(id)target
+{
+    if ([target isKindOfClass:[UIView class]])
+    {
+        [self showFromView:target];
+    }
+    else if ([target isKindOfClass:[UIViewController class]])
+    {
+        [self showFromView:((UIViewController *)target).view];
+    }
+    else
+    {
+        NBULogWarn(@"%@ can't be shown from '%@' target. Will show from key window instead.",
+                   THIS_METHOD, NSStringFromClass([target class]));
+        
+        [self showFromView:[UIApplication sharedApplication].keyWindow];
+    }
+}
+
+- (void)showFromView:(UIView *)view
+{
+    UIView * targetView = view;
+    
+    // iPhone? Try to use the topmost controller's view instead
+    if (DEVICE_IS_IPHONE_IDIOM)
+    {
+        UIViewController * topmostController = view.viewController;
+        
+        if (topmostController.navigationController)
+            topmostController = topmostController.navigationController;
+        if (topmostController.tabBarController)
+            topmostController = topmostController.tabBarController;
+        
+        targetView = topmostController.view;
+    }
+    
+    [super showFromRect:targetView.bounds
+                 inView:targetView
+               animated:YES];
+}
 
 - (void)setDelegate:(id<UIActionSheetDelegate>)delegate
 {
@@ -34,11 +101,15 @@
     [super showInView:view];
 }
 
-- (void)showFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated
+- (void)showFromRect:(CGRect)rect
+              inView:(UIView *)view
+            animated:(BOOL)animated
 {
     self.delegate = self;
     
-    [super showFromRect:rect inView:view animated:animated];
+    [super showFromRect:rect
+                 inView:view
+               animated:animated];
 }
 
 - (void)showFromToolbar:(UIToolbar *)view
@@ -55,11 +126,13 @@
     [super showFromTabBar:view];
 }
 
-- (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated
+- (void)showFromBarButtonItem:(UIBarButtonItem *)item
+                     animated:(BOOL)animated
 {
     self.delegate = self;
     
-    [super showFromBarButtonItem:item animated:animated];
+    [super showFromBarButtonItem:item
+                        animated:animated];
 }
 
 #pragma mark - Delegate methods
@@ -72,14 +145,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         NSInteger selectedIndex = self.cancelButtonIndex == 0 ? buttonIndex - 1 : buttonIndex;
         
         NBULogVerbose(@"Selected button at index: %d", selectedIndex);
-        if (_selectedButtonBlock)
-        {
-            _selectedButtonBlock(selectedIndex);
-        }
+        
+        if (_selectedButtonBlock) _selectedButtonBlock(selectedIndex);
     }
     else
     {
         NBULogVerbose(@"Canceled");
+        
         if (_cancelButtonBlock) _cancelButtonBlock();
     }
 }

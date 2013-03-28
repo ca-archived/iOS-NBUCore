@@ -22,6 +22,9 @@
 /// Get the shared logger instance.
 + (NBUDashboardLogger *)sharedInstance;
 
+/// Set the maximum number of messages to be dispalyed in the Dashboard. Default value `100`.
+@property (nonatomic)   NSUInteger maxMessages;
+
 /// @name Outlets
 
 /// The UITableView used to display log messages.

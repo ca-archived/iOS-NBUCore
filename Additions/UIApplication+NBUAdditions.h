@@ -31,6 +31,9 @@
 /// Convinience method to retrive the application caches directory.
 @property (nonatomic, readonly) NSURL * cachesDirectory;
 
+/// Convinience method to retrive the application library directory.
+@property (nonatomic, readonly) NSURL * libraryDirectory;
+
 /// @name Set/Get Values in NSDefaults/Keychain
 
 /// Retrieve a saved object from NSUserDefaults.

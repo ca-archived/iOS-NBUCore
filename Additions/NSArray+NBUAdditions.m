@@ -50,5 +50,10 @@
     return [self objectAtIndex:index];
 }
 
+- (NSString *)shortDescription
+{
+    return [NSString stringWithFormat:@"(%@)", [self componentsJoinedByString:@", "]];
+}
+
 @end
 

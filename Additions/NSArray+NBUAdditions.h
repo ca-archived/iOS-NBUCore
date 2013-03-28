@@ -37,5 +37,8 @@
 - (id)objectAfter:(id)object
              wrap:(BOOL)wrap;
 
+/// A "shorter" description method that tries avoid spanning into multiple lines.
+- (NSString *)shortDescription;
+
 @end
 

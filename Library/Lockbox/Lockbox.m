@@ -82,7 +82,7 @@ static NSString *_bundleId = nil;
             status = SecItemAdd((LOCKBOX_DICTREF) dict, NULL);
     }
     if (status != errSecSuccess)
-        NSLog(@"SecItemAdd failed for key %@: %ld", hierKey, status);
+        NBULogError(@"SecItemAdd failed for key %@: %ld", hierKey, status);
     
     return (status == errSecSuccess);
 }
@@ -98,7 +98,7 @@ static NSString *_bundleId = nil;
     OSStatus status =
     SecItemCopyMatching ( (LOCKBOX_DICTREF) query, (CFTypeRef *) &data );
     if (status != errSecSuccess)
-        NSLog(@"SecItemCopyMatching failed for key %@: %ld", hierKey, status);
+        NBULogError(@"SecItemCopyMatching failed for key %@: %ld", hierKey, status);
     
     if (!data)
         return nil;

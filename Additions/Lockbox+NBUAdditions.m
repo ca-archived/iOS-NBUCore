@@ -28,7 +28,7 @@
     
     if ((keysAndValues.count % 2) != 0)
     {
-//        NBULogWarn(@"Dictionary for %@ was not saved properly to keychain", key);
+        NBULogWarn(@"Dictionary for %@ was not saved properly to keychain", key);
         return nil;
     }
     

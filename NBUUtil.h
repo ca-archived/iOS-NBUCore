@@ -15,7 +15,11 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-/// Detect "widescreen" devices (iPhone 5 or iPod Touch v4)
+/// Detect device idioms
+#define DEVICE_IS_IPHONE_IDIOM  (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define DEVICE_IS_IPAD_IDIOM    (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+/// Detect "widescreen" devices (iPhone 5 or iPod Touch 4).
 #define DEVICE_IS_WIDESCREEN (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON)
 
 /// @name Functions

@@ -31,7 +31,7 @@ DISPLAYNAME = ${PRODUCT_NAME}-ota
 DEPENDENCIES_BUILD_DIR = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
 
 // Code Sign Identities
-CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution: Cyberagent.Inc
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
 
 // Keep debugging symbols
 ONLY_ACTIVE_ARCH = NO

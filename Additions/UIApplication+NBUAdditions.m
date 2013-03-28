@@ -28,14 +28,47 @@
 
 - (NSURL *)documentsDirectory
 {
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return (paths.count > 0) ? [NSURL fileURLWithPath:paths[0]] : nil;
+    NSError * error;
+    NSURL * url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                                                         inDomain:NSUserDomainMask
+                                                appropriateForURL:nil
+                                                           create:YES
+                                                            error:&error];
+    if (error)
+    {
+        NBULogError(@"Can't find the %@: %@", THIS_METHOD, error);
+    }
+    return url;
 }
 
 - (NSURL *)cachesDirectory
 {
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return (paths.count > 0) ? [NSURL fileURLWithPath:paths[0]] : nil;
+    NSError * error;
+    NSURL * url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory
+                                                         inDomain:NSUserDomainMask
+                                                appropriateForURL:nil
+                                                           create:YES
+                                                            error:&error];
+    if (error)
+    {
+        NBULogError(@"Can't find the %@: %@", THIS_METHOD, error);
+    }
+    return url;
+}
+
+- (NSURL *)libraryDirectory
+{
+    NSError * error;
+    NSURL * url = [[NSFileManager defaultManager] URLForDirectory:NSLibraryDirectory
+                                                         inDomain:NSUserDomainMask
+                                                appropriateForURL:nil
+                                                           create:YES
+                                                            error:&error];
+    if (error)
+    {
+        NBULogError(@"Can't find the %@: %@", THIS_METHOD, error);
+    }
+    return url;
 }
 
 #pragma mark - NSUserDefaults

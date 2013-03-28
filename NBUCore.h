@@ -21,6 +21,7 @@
 #import "NSArray+NBUAdditions.h"
 #import "NSString+NBUAdditions.h"
 #import "NSBundle+NBUAdditions.h"
+#import "NSFileManager+NBUAdditions.h"
 #import "UIApplication+NBUAdditions.h"
 #import "UITabBarController+NBUAdditions.h"
 #import "UINavigationController+NBUAdditions.h"

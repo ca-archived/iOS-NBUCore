@@ -8,9 +8,11 @@
 
 #import "NBUAlertView.h"
 
+// Private category
 @interface NBUAlertView (Private) <UIAlertViewDelegate>
 
 @end
+
 
 @implementation NBUAlertView
 
