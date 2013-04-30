@@ -2,8 +2,20 @@
 //  NSBundle+NBUAdditions.m
 //  NBUCore
 //
-//  Created by 利辺羅 on 2012/08/13.
-//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
+//  Created by Ernesto Rivera on 2012/08/13.
+//  Copyright (c) 2012 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "NSBundle+NBUAdditions.h"
@@ -20,9 +32,7 @@ NSString * const NBULocalizedStringNotFound = @"NBULocalizedStringNotFound";
     NSString * path = [mainBundle pathForResource:name
                                            ofType:extension];
     if (path)
-    {
         return path;
-    }
     
     // Otherwise try with other bundles
     NSBundle * bundle;
@@ -33,12 +43,32 @@ NSString * const NBULocalizedStringNotFound = @"NBULocalizedStringNotFound";
         path = [bundle pathForResource:name
                                 ofType:extension];
         if (path)
-        {
             return path;
-        }
     }
     
-    NBULogVerbose(@"No path found for: %@ (.%@)", name, extension);
+    NBULogInfo(@"No path found for: %@ (.%@)", name, extension);
+    return nil;
+}
+
++ (UIImage *)imageNamed:(NSString *)name
+{
+    // First try with the main bundle
+    UIImage * image = [UIImage imageNamed:name];
+    
+    if (image)
+        return image;
+    
+    // Otherwise try with other bundles
+    for (NSString * bundlePath in [[NSBundle mainBundle] pathsForResourcesOfType:@"bundle"
+                                                                     inDirectory:nil])
+    {
+        image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@", bundlePath.lastPathComponent, name]];
+        
+        if (image)
+            return image;
+    }
+    
+    NBULogWarn(@"No image found for name: %@", name);
     return nil;
 }
 

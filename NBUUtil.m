@@ -2,11 +2,59 @@
 //  NBUUtil.m
 //  NBUCore
 //
-//  Created by 利辺羅 on 2012/12/06.
-//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
+//  Created by Ernesto Rivera on 2012/12/06.
+//  Copyright (c) 2012 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "NBUUtil.h"
+
+NSString * NSStringFromBOOL(BOOL yesOrNo)
+{
+    return yesOrNo ? @"YES" : @"NO";
+}
+
+UIInterfaceOrientation UIInterfaceOrientationFromValidDeviceOrientation(UIDeviceOrientation orientation)
+{
+    /*
+     UIInterfaceOrientationPortrait           = UIDeviceOrientationPortrait,
+     UIInterfaceOrientationPortraitUpsideDown = UIDeviceOrientationPortraitUpsideDown,
+     UIInterfaceOrientationLandscapeLeft      = UIDeviceOrientationLandscapeRight,
+     UIInterfaceOrientationLandscapeRight     = UIDeviceOrientationLandscapeLeft
+     */
+    switch (orientation)
+    {
+        case UIDeviceOrientationLandscapeLeft:      return UIInterfaceOrientationLandscapeRight;
+        case UIDeviceOrientationLandscapeRight:     return UIInterfaceOrientationLandscapeLeft;
+        case UIDeviceOrientationPortrait:
+        case UIDeviceOrientationPortraitUpsideDown:
+        default:                                    return (UIInterfaceOrientation)orientation;
+    }
+}
+
+/// Check if a given UIInterfaceOrientation is supported by a UIInterfaceOrientationMask.
+BOOL UIInterfaceOrientationIsSupportedByInterfaceOrientationMask(UIInterfaceOrientation orientation,
+                                                                        UIInterfaceOrientationMask mask)
+{
+    /*
+     UIInterfaceOrientationMaskPortrait = (1 << UIInterfaceOrientationPortrait),
+     UIInterfaceOrientationMaskLandscapeLeft = (1 << UIInterfaceOrientationLandscapeLeft),
+     UIInterfaceOrientationMaskLandscapeRight = (1 << UIInterfaceOrientationLandscapeRight),
+     UIInterfaceOrientationMaskPortraitUpsideDown = (1 << UIInterfaceOrientationPortraitUpsideDown)
+     */
+    return (mask & (1 << orientation)) ? YES : NO;
+}
 
 #ifdef DEBUG
 

@@ -2,8 +2,20 @@
 //  NBULog.m
 //  NBUCore
 //
-//  Created by 利辺羅 on 2012/12/06.
-//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
+//  Created by Ernesto Rivera on 2012/12/06.
+//  Copyright (c) 2012 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "NBULog.h"
@@ -284,7 +296,7 @@ static NSString * _processName;
 		
 		// Set default replacements:
 		
-		[_replacements setObject:@"main" forKey:@"com.apple.main-thread"];
+		_replacements[@"com.apple.main-thread"] = @"main";
 	}
 	return self;
 }
@@ -303,7 +315,7 @@ static NSString * _processName;
 	
 	OSSpinLockLock(&lock);
 	{
-		result = [_replacements objectForKey:longLabel];
+		result = _replacements[longLabel];
 	}
 	OSSpinLockUnlock(&lock);
 	
@@ -315,7 +327,7 @@ static NSString * _processName;
 	OSSpinLockLock(&lock);
 	{
 		if (shortLabel)
-			[_replacements setObject:shortLabel forKey:longLabel];
+			_replacements[longLabel] = shortLabel;
 		else
 			[_replacements removeObjectForKey:longLabel];
 	}
@@ -352,7 +364,7 @@ static NSString * _processName;
 		NSString *key = @"DispatchQueueLogFormatter_NSDateFormatter";
 		
 		NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
-		NSDateFormatter *dateFormatter = [threadDictionary objectForKey:key];
+		NSDateFormatter *dateFormatter = threadDictionary[key];
 		
 		if (dateFormatter == nil)
 		{
@@ -360,7 +372,7 @@ static NSString * _processName;
 			[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
 			[dateFormatter setDateFormat:dateFormatString];
 			
-			[threadDictionary setObject:dateFormatter forKey:key];
+			threadDictionary[key] = dateFormatter;
 		}
 		
         [dateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
@@ -425,7 +437,7 @@ static NSString * _processName;
 		
 		OSSpinLockLock(&lock);
 		{
-			abrvLabel = [_replacements objectForKey:fullLabel];
+			abrvLabel = _replacements[fullLabel];
 		}
 		OSSpinLockUnlock(&lock);
 		

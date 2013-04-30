@@ -2,8 +2,20 @@
 //  UIImage+NBUAdditions.m
 //  NBUCore
 //
-//  Created by エルネスト 利辺羅 on 12/06/01.
-//  Copyright (c) 2012年 CyberAgent Inc. All rights reserved.
+//  Created by Ernesto Rivera on 12/06/01.
+//  Copyright (c) 2012 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "UIImage+NBUAdditions.h"
@@ -40,44 +52,45 @@
     return croppedImage;
 }
 
-- (UIImage *)imageCroppedToFill:(CGSize)targetSize
+- (UIImage *)imageCroppedToFill:(CGSize)size
 {
-    CGFloat factor = MAX(targetSize.width / self.size.width,
-                         targetSize.height / self.size.height);
+    CGFloat factor = MAX(size.width / self.size.width,
+                         size.height / self.size.height);
     
-    UIGraphicsBeginImageContextWithOptions(targetSize,
+    UIGraphicsBeginImageContextWithOptions(size,
                                            YES,                     // Opaque
                                            self.scale);             // Use image scale
     
-    [self drawInRect:CGRectMake(- (floorf(self.size.width * factor) - targetSize.width) / 2.0,
-                                - (floorf(self.size.height * factor) - targetSize.width) / 2.0,
-                                floorf(self.size.width * factor),
-                                floorf(self.size.height * factor))];
+    CGRect rect = CGRectMake((size.width - floorf(self.size.width * factor)) / 2.0,
+                             (size.height - floorf(self.size.height * factor)) / 2.0,
+                             floorf(self.size.width * factor),
+                             floorf(self.size.height * factor));
+    [self drawInRect:rect];
     UIImage * croppedImage = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     
     NBULogVerbose(@"Image %@ %@ cropped to %@ %@",
-               self,
-               NSStringFromCGSize(self.size),
-               croppedImage,
-               NSStringFromCGSize(croppedImage.size));
+                  self,
+                  NSStringFromCGSize(self.size),
+                  croppedImage,
+                  NSStringFromCGSize(croppedImage.size));
     
     return croppedImage;
 }
 
 #pragma mark - Downsize
 
-- (UIImage *)imageDonwsizedToFill:(CGSize)targetSize
+- (UIImage *)imageDonwsizedToFill:(CGSize)size
 {
-    return [self imageDownsizedByFactor:MAX(targetSize.width / self.size.width,
-                                            targetSize.height / self.size.height)];
+    return [self imageDownsizedByFactor:MAX(size.width / self.size.width,
+                                            size.height / self.size.height)];
 }
 
-- (UIImage *)imageDonwsizedToFit:(CGSize)targetSize
+- (UIImage *)imageDonwsizedToFit:(CGSize)size
 {
-    return [self imageDownsizedByFactor:MIN(targetSize.width / self.size.width,
-                                            targetSize.height / self.size.height)];
+    return [self imageDownsizedByFactor:MIN(size.width / self.size.width,
+                                            size.height / self.size.height)];
 }
 
 - (UIImage *)imageDownsizedByFactor:(CGFloat)factor
@@ -110,6 +123,21 @@
     return downsizedImage;
 }
 
+#pragma mark - Creating thumbnails
+
+- (UIImage *)thumbnailWithSize:(CGSize)size
+{
+    // Manually set to double size for retina?
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    if (self.scale < screenScale)
+    {
+        size = CGSizeMake(size.width * screenScale,
+                          size.height * screenScale);
+    }
+    
+    return [self imageCroppedToFill:size];
+}
+
 #pragma mark - Flatten
 
 - (UIImage *)imageFlattened
@@ -135,7 +163,7 @@
     return flattenedImage;
 }
 
-#pragma mark - Save to Disk
+#pragma mark - Save/load from Disk
 
 - (NSURL *)writeToFile:(NSString *)path
 {
@@ -172,6 +200,11 @@
     
     // Write it
     return [self writeToFile:path];
+}
+
++ (UIImage *)imageWithContentsOfFileURL:(NSURL *)fileURL
+{
+    return [self imageWithContentsOfFile:fileURL.path];
 }
 
 // From: http://stackoverflow.com/questions/5427656/ios-uiimagepickercontroller-result-image-orientation-after-upload

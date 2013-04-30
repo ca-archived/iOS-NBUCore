@@ -1,9 +1,9 @@
 //
-//  UIButton+NBUAdditions.m
-//  NBUCore
+//  UIViewController+NBUAdditions.m
+//  NBUKit
 //
-//  Created by Ernesto Rivera on 2012/10/15.
-//  Copyright (c) 2012 CyberAgent Inc.
+//  Created by Ernesto Rivera on 2013/04/12.
+//  Copyright (c) 2013 CyberAgent Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -18,32 +18,19 @@
 //  limitations under the License.
 //
 
-#import "UIButton+NBUAdditions.h"
+#import "UIViewController+NBUAdditions.h"
 
-@implementation UIButton (NBUAdditions)
+@implementation UIViewController (NBUAdditions)
 
-@dynamic enabled;
-@dynamic hidden;
+@dynamic navigationItem;
 
-- (void)setTitle:(NSString *)title
+- (void)refreshOrientation
 {
-    [self setTitle:title
-          forState:UIControlStateNormal];
+    // Force orientation refresh
+    [self presentModalViewController:[UIViewController new]
+                            animated:NO];
+    [self dismissModalViewControllerAnimated:NO];
 }
-
-- (NSString *)title
-{
-    return [self titleForState:UIControlStateNormal];
-}
-
-@end
-
-
-@implementation UIBarButtonItem (NBUAdditions)
-
-@dynamic title;
-@dynamic enabled;
-@dynamic hidden;
 
 @end
 

@@ -2,7 +2,7 @@ iOS NBUCore
 ===========  
 [日本語](https://github.com/icb-cost-01/iOS-NBUCore/blob/master/README.jp.md)
 
-_Latest version 1.7.0_
+_Latest version 1.8.0_
 
 Core services for ANY iOS project
 

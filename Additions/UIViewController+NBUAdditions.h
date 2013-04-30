@@ -1,9 +1,9 @@
 //
-//  UIButton+NBUAdditions.m
-//  NBUCore
+//  UIViewController+NBUAdditions.h
+//  NBUKit
 //
-//  Created by Ernesto Rivera on 2012/10/15.
-//  Copyright (c) 2012 CyberAgent Inc.
+//  Created by Ernesto Rivera on 2013/04/12.
+//  Copyright (c) 2013 CyberAgent Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -18,32 +18,21 @@
 //  limitations under the License.
 //
 
-#import "UIButton+NBUAdditions.h"
+/**
+ UIViewController category for convenience methods.
+ 
+ - Make navigationItem an IBOutlet.
+ - Force orientation refresh.
+ */
+@interface UIViewController (NBUAdditions)
 
-@implementation UIButton (NBUAdditions)
+/// @name Outlets
 
-@dynamic enabled;
-@dynamic hidden;
+/// Navigation item as an IB outlet.
+@property(nonatomic, readonly, retain) IBOutlet UINavigationItem * navigationItem;
 
-- (void)setTitle:(NSString *)title
-{
-    [self setTitle:title
-          forState:UIControlStateNormal];
-}
-
-- (NSString *)title
-{
-    return [self titleForState:UIControlStateNormal];
-}
-
-@end
-
-
-@implementation UIBarButtonItem (NBUAdditions)
-
-@dynamic title;
-@dynamic enabled;
-@dynamic hidden;
+/// Force an orientation refresh.
+- (void)refreshOrientation;
 
 @end
 

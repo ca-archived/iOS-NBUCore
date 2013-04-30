@@ -2,8 +2,20 @@
 //  MyConfigurationPicker.m
 //  NBUCoreDemo
 //
-//  Created by 利辺羅 on 2013/01/30.
-//  Copyright (c) 2013年 CyberAgent Inc. All rights reserved.
+//  Created by Ernesto Rivera on 2013/01/30.
+//  Copyright (c) 2013 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #ifndef PRODUCTION
@@ -24,7 +36,7 @@
              
              // Development
              @{
-                 NBUConfigurationName           : @"Development",
+                 NBUConfigurationNameKey        : @"Development",
                  @"server"                      : @"localhost:80",
                  @"apiServer"                   : @"api.localhost:80",
                  @"protocol"                    : @"http",
@@ -34,7 +46,7 @@
              
              // Staging
              @{
-                 NBUConfigurationName           : @"Staging",
+                 NBUConfigurationNameKey        : @"Staging",
                  @"server"                      : @"stg.cyberagent.co.jp",
                  @"apiServer"                   : @"stg.api.cyberagent.co.jp",
                  @"protocol"                    : @"https",
@@ -44,7 +56,7 @@
              
              // Production
              @{
-                 NBUConfigurationName           : ProductionConfigurationName,
+                 NBUConfigurationNameKey        : ProductionConfigurationName,
                  @"server"                      : ProductionConnectionServer,
                  @"apiServer"                   : ProductionConnectionAPIServer,
                  @"protocol"                    : ProductionConnectionProtocol,
