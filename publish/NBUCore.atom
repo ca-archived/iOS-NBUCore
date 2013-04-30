@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://172.17.127.199/doc/NBUCore/publish/NBUCore.atom/20130430151928</id>
+    <title type="text">NBUCore</title>
+    <rights>Copyright © 2013 CyberAgent Inc. All rights reserved.</rights>
+    <link rel="self" href="http://172.17.127.199/doc/NBUCore/publish/NBUCore.atom"></link>
+    <docset:publisherName>CyberAgent Inc</docset:publisherName>
+    <docset:publisherID>jp.co.cyberagent.nbu.documentation</docset:publisherID>
+    <updated>2013-04-30T15:19:28+09:00</updated>
+    <entry>
+        <id>tag:172.17.127.199,2013-04-30:jp.co.cyberagent.nbu.NBUCore/1.0.0</id>
+        <title type="text">NBUCore Documentation</title>
+        <updated>2013-04-30T15:19:28+09:00</updated>
+        <content type="text">NBUCore Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http://172.17.127.199/doc/NBUCore/publish/NBUCore.xar" length="146912"></link>
+        <docset:identifier>jp.co.cyberagent.nbu.NBUCore</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>4.5.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>
