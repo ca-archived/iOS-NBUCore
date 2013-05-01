@@ -1,6 +1,6 @@
 iOS NBUCore
 ===========  
-_Latest version 1.8.0_
+_Latest version 1.8.1_
 
 Convenience extensions and utilities for iOS projects [[日本語](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.jp.md)]
 

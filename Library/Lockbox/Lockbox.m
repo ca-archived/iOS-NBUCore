@@ -13,7 +13,7 @@
 
 #if __has_feature(objc_arc)
 #define LOCKBOX_ID __bridge id
-#define LOCKBOX_DICTREF _bridge CFDictionaryRef
+#define LOCKBOX_DICTREF __bridge CFDictionaryRef
 #else
 #define LOCKBOX_ID id
 #define LOCKBOX_DICTREF CFDictionaryRef
@@ -25,7 +25,7 @@ static NSString *_bundleId = nil;
 
 +(void)initialize
 {
-    _bundleId = [[[NSBundle bundleForClass:[self class]] infoDictionary] objectForKey:(NSString*)kCFBundleIdentifierKey];
+    _bundleId = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleIdentifierKey];
 }
 
 +(NSMutableDictionary *)_service
@@ -70,7 +70,7 @@ static NSString *_bundleId = nil;
     
     NSMutableDictionary *dict = [self _service];
     [dict setObject: hierKey forKey: (LOCKBOX_ID) kSecAttrService];
-    [dict setObject: accessibility forKey: (LOCKBOX_ID) kSecAttrAccessible];
+    [dict setObject: (LOCKBOX_ID)(accessibility) forKey: (LOCKBOX_ID) kSecAttrAccessible];
     [dict setObject: [obj dataUsingEncoding:NSUTF8StringEncoding] forKey: (LOCKBOX_ID) kSecValueData];
     
     status = SecItemAdd ((LOCKBOX_DICTREF) dict, NULL);
@@ -82,7 +82,7 @@ static NSString *_bundleId = nil;
             status = SecItemAdd((LOCKBOX_DICTREF) dict, NULL);
     }
     if (status != errSecSuccess)
-        NBULogError(@"SecItemAdd failed for key %@: %ld", hierKey, status);
+        NSLog(@"SecItemAdd failed for key %@: %ld", hierKey, status);
     
     return (status == errSecSuccess);
 }
@@ -98,7 +98,7 @@ static NSString *_bundleId = nil;
     OSStatus status =
     SecItemCopyMatching ( (LOCKBOX_DICTREF) query, (CFTypeRef *) &data );
     if (status != errSecSuccess)
-        NBULogError(@"SecItemCopyMatching failed for key %@: %ld", hierKey, status);
+        NSLog(@"SecItemCopyMatching failed for key %@: %ld", hierKey, status);
     
     if (!data)
         return nil;
