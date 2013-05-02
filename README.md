@@ -33,6 +33,13 @@ Import them all or just the ones you need.
 Installation
 ------------
 
+### Cocoapods
+
+1. Install [Cocoapods](http://cocoapods.org) if not already done.
+2. Add `pod 'NBUCore'` to your Podfile.
+
+### Manual
+
 1. Checkout `git@github.com:CyberAgent/iOS-NBUCore.git` or [download](https://github.com/CyberAgent/iOS-NBUCore/tags)
 the NBUCore sources to your project directory.
 2. Import `NBUCore.h` or only the files that you need.
