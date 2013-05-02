@@ -5,6 +5,8 @@ Pod::Spec.new do |s|
     s.homepage      = "http://cyberagent.github.io/iOS-NBUCore/"
     s.license       = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
     s.author        = { "CyberAgent Inc." => "", "Ernesto Rivera" => "rivera_ernesto@cyberagent.co.jp" }
+    s.screenshots   = [ "https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png",
+                        "https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_minimized.png" ]
     s.source        = { :git => "https://github.com/CyberAgent/iOS-NBUCore.git", :tag => "#{s.version}" }
     s.platform      = :ios
     s.source_files  = 'Source/**/*.{h,m}'
