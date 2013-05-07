@@ -2,6 +2,8 @@ iOS NBUCore
 ===========  
 _Latest version 1.8.1_
 
+[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
+
 Convenience extensions and utilities for iOS projects [[日本語](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.jp.md)]
 
 ![NBUCore](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png)
