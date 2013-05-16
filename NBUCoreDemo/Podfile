@@ -1,0 +1,4 @@
+platform :ios
+
+pod 'NBUCore', :local => '../'
+

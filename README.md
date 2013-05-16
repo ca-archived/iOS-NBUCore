@@ -1,6 +1,8 @@
 iOS NBUCore
 ===========  
-_Latest version 1.8.0_
+_Latest version 1.8.1_
+
+[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
 Convenience extensions and utilities for iOS projects [[日本語](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.jp.md)]
 
@@ -32,6 +34,13 @@ Import them all or just the ones you need.
 
 Installation
 ------------
+
+### Cocoapods
+
+1. Install [Cocoapods](http://cocoapods.org) if not already done.
+2. Add `pod 'NBUCore'` to your Podfile.
+
+### Manual
 
 1. Checkout `git@github.com:CyberAgent/iOS-NBUCore.git` or [download](https://github.com/CyberAgent/iOS-NBUCore/tags)
 the NBUCore sources to your project directory.
