@@ -26,10 +26,10 @@
 
 - (UIImage *)imageCroppedToRect:(CGRect)cropArea
 {
-    cropArea = CGRectMake(floorf(cropArea.origin.x),
-                          floorf(cropArea.origin.y),
-                          floorf(cropArea.size.width),
-                          floorf(cropArea.size.height));
+    cropArea = CGRectMake(nearbyintf(cropArea.origin.x),
+                          nearbyintf(cropArea.origin.y),
+                          nearbyintf(cropArea.size.width),
+                          nearbyintf(cropArea.size.height));
     
     UIGraphicsBeginImageContextWithOptions(cropArea.size,
                                            YES,         // Opaque
@@ -43,7 +43,7 @@
     
     UIGraphicsEndImageContext();
     
-    NBULogVerbose(@"Image %@ %@ cropped to %@ %@",
+    NBULogInfo(@"Image %@ %@ cropped to %@ %@",
                self,
                NSStringFromCGSize(self.size),
                croppedImage,
@@ -61,20 +61,20 @@
                                            YES,                     // Opaque
                                            self.scale);             // Use image scale
     
-    CGRect rect = CGRectMake((size.width - floorf(self.size.width * factor)) / 2.0,
-                             (size.height - floorf(self.size.height * factor)) / 2.0,
-                             floorf(self.size.width * factor),
-                             floorf(self.size.height * factor));
+    CGRect rect = CGRectMake((size.width - nearbyintf(self.size.width * factor)) / 2.0,
+                             (size.height - nearbyintf(self.size.height * factor)) / 2.0,
+                             nearbyintf(self.size.width * factor),
+                             nearbyintf(self.size.height * factor));
     [self drawInRect:rect];
     UIImage * croppedImage = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     
-    NBULogVerbose(@"Image %@ %@ cropped to %@ %@",
-                  self,
-                  NSStringFromCGSize(self.size),
-                  croppedImage,
-                  NSStringFromCGSize(croppedImage.size));
+    NBULogInfo(@"Image %@ %@ cropped to %@ %@",
+               self,
+               NSStringFromCGSize(self.size),
+               croppedImage,
+               NSStringFromCGSize(croppedImage.size));
     
     return croppedImage;
 }
@@ -102,8 +102,8 @@
     // Downsize
     CGRect target = CGRectMake(0.0,
                                0.0,
-                               floorf(self.size.width * factor),
-                               floorf(self.size.height * factor));
+                               nearbyintf(self.size.width * factor),
+                               nearbyintf(self.size.height * factor));
     
     UIGraphicsBeginImageContextWithOptions(target.size,
                                            YES,         // Opaque
