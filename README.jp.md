@@ -1,6 +1,6 @@
 iOS NBUCore
 ===========  
-_最新バージョン 1.8.1_
+_最新バージョン 1.8.2_
 
 個々に使用の選択が可能なコンポーネント [English](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.md)
 

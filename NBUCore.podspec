@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name          = "NBUCore"
-    s.version       = "1.8.1"
+    s.version       = "1.8.2"
     s.summary       = "Convenience extensions and utilities for iOS projects."
     s.homepage      = "http://cyberagent.github.io/iOS-NBUCore/"
     s.license       = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
@@ -9,12 +9,25 @@ Pod::Spec.new do |s|
                         "https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_minimized.png" ]
     s.source        = { :git => "https://github.com/CyberAgent/iOS-NBUCore.git", :tag => "#{s.version}" }
     s.platform      = :ios
-    s.source_files  = 'Source/**/*.{h,m}'
+    s.source_files  = 'Source/*.{h,m}'
+    s.resources     = 'Source/**/*.{xib}'
     s.framework     = 'Security'
     s.requires_arc  = true
     s.preserve_paths = "README.*", "NOTICE"
     
     s.dependency 'Lockbox',         '~> 1.4.2'
     s.dependency 'CocoaLumberjack', '<= 1.6'
+    
+    s.subspec 'UI' do |su|
+        su.source_files  = 'Source/UI/*.{h,m}'
+    end
+    
+    s.subspec 'Helpers' do |sh|
+        sh.source_files  = 'Source/Helpers/*.{h,m}'
+    end
+    
+    s.subspec 'Additions' do |sa|
+        sa.source_files  = 'Source/Additions/*.{h,m}'
+    end
 end
 

@@ -1,4 +1,8 @@
 platform :ios
 
-pod 'NBUCore', :local => '../'
+# For development we use:
+pod 'NBUCore',      :path => '../'
+
+# But for real projects should be:
+# pod 'NBUCore',    '~> 1.8.2'
 
