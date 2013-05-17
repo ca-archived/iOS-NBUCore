@@ -4,7 +4,7 @@ _Latest version 1.8.1_
 
 [![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
-Convenience extensions and utilities for iOS projects [[日本語](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.jp.md)]
+Convenience extensions and utilities for iOS projects [[日本語](README.jp.md)]
 
 ![NBUCore](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png)
 
@@ -52,8 +52,8 @@ _Keychain access requires to link `Security.framework`._
 Documentation
 -------------
 
-* HTML: http://cyberagent.github.io/iOS-NBUCore/html/
-* Xcode DocSet: `http://cyberagent.github.io/iOS-NBUCore/publish/NBUCore.atom`
+* HTML: http://cocoadocs.org/docsets/NBUCore/
+* Xcode DocSet: `http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom`
 
 Screenshots
 -----------
