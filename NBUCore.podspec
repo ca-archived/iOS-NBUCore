@@ -1,3 +1,5 @@
+
+
 Pod::Spec.new do |s|
     s.name          = "NBUCore"
     s.version       = "1.8.2"
@@ -13,7 +15,7 @@ Pod::Spec.new do |s|
     s.resources     = 'Source/**/*.{xib}'
     s.framework     = 'Security'
     s.requires_arc  = true
-    s.preserve_paths = "README.*", "NOTICE"
+    s.preserve_paths = "README.*", "NOTICE", "*.xcconfig"
     
     s.dependency 'Lockbox',         '~> 1.4.2'
     s.dependency 'CocoaLumberjack', '<= 1.6'
