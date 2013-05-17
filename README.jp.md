@@ -2,7 +2,9 @@ iOS NBUCore
 ===========  
 _最新バージョン 1.8.1_
 
-個々に使用の選択が可能なコンポーネント [English](https://github.com/CyberAgent/iOS-NBUCore/blob/master/README.md)
+[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
+
+個々に使用の選択が可能なコンポーネント [English](README.md)
 
 ![NBUCore](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png)
 
@@ -41,8 +43,8 @@ _Keychain access は`Security.framework`のリンクが必須です。_
 Documentation
 -------------
  
-* HTML: http://cyberagent.github.io/iOS-NBUCore/html/
-* Xcode DocSet: `http://cyberagent.github.io/iOS-NBUCore/publish/NBUCore.atom`
+* HTML: http://cocoadocs.org/docsets/NBUCore/
+* Xcode DocSet: `http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom`
  
 Screenshots
 -----------
