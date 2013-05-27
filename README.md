@@ -35,10 +35,12 @@ Import them all or just the ones you need.
 Installation
 ------------
 
-### Cocoapods
+### Cocoapods (Recomended)
 
 1. Install [Cocoapods](http://cocoapods.org) if not already done.
 2. Add `pod 'NBUCore'` to your Podfile.
+
+_If you have a problem try `gem update cocoapods` fisrt._
 
 ### Manual
 
