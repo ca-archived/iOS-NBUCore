@@ -1,8 +1,8 @@
 platform :ios
 
-# For development we use:
+# For NBUCore development:
 pod 'NBUCore',      :path => '../'
 
-# But for real projects should be:
+# For client projects:
 # pod 'NBUCore',    '~> 1.8.2'
 

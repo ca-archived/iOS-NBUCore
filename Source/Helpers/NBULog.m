@@ -22,6 +22,7 @@
 #import "DDTTYLogger.h"
 #import "DDFileLogger.h"
 #import "DDASLLogger.h"
+#import "NBUDashboard.h"
 #import "NBUDashboardLogger.h"
 
 #define MAX_MODULES 10
@@ -78,7 +79,8 @@ static BOOL _fileLoggerAdded;
     if (_dashboardLoggerAdded)
         return;
     
-    [DDLog addLogger:[NBUDashboardLogger sharedInstance]];
+    [DDLog addLogger:[NBUDashboard sharedDashboard].logger];
+    [[NBUDashboard sharedDashboard] show];
     
     _dashboardLoggerAdded = YES;
 }

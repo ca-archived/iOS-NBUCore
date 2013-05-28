@@ -65,9 +65,9 @@
  - AppLogLevel: `LOG_LEVEL_VERBOSE` for `DEBUG`, `LOG_LEVEL_INFO` otherwise.
  - Loggers: DDTTYLogger for `DEBUG`, DDFileLogger otherwise.
  
- Manually add NBUDashboardLogger or DDASLLogger if desired.
+ Manually add NBUDashboard or DDASLLogger if desired.
  
- To add other modules just create a NBULog category.
+ To add register new modules just create a NBULog category.
  */
 @interface NBULog : NSObject
 

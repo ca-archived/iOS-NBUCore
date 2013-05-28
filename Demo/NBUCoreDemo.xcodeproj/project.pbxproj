@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0812F44A168849ABB2B939D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E5D742231754AF0C00F34B82 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E5E5DFDE1730EA18004985B1 /* NBUCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBUCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E5DFE11730EA18004985B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5E5DFE31730EA18004985B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,7 @@
 		E5E5DFD51730EA18004985B1 = {
 			isa = PBXGroup;
 			children = (
+				E5D742231754AF0C00F34B82 /* Podfile */,
 				E5E5DFE71730EA18004985B1 /* NBUCoreDemo */,
 				E5E5DFE01730EA18004985B1 /* Frameworks */,
 				E5E5DFDF1730EA18004985B1 /* Products */,
@@ -125,13 +127,13 @@
 			children = (
 				E5E5DFF01730EA18004985B1 /* AppDelegate.h */,
 				E5E5DFF11730EA18004985B1 /* AppDelegate.m */,
-				E5E5E0371730EAD7004985B1 /* ConfigurationPickerViewController.h */,
-				E5E5E0381730EAD7004985B1 /* ConfigurationPickerViewController.m */,
-				E5E5E0391730EAD7004985B1 /* ConfigurationPickerViewController.xib */,
+				E5E5E03D1730EAD7004985B1 /* MainController.xib */,
 				E5E5E03A1730EAD7004985B1 /* LogTestsViewController.h */,
 				E5E5E03B1730EAD7004985B1 /* LogTestsViewController.m */,
 				E5E5E03C1730EAD7004985B1 /* LogTestsViewController.xib */,
-				E5E5E03D1730EAD7004985B1 /* MainController.xib */,
+				E5E5E0371730EAD7004985B1 /* ConfigurationPickerViewController.h */,
+				E5E5E0381730EAD7004985B1 /* ConfigurationPickerViewController.m */,
+				E5E5E0391730EAD7004985B1 /* ConfigurationPickerViewController.xib */,
 				E5E5E03E1730EAD7004985B1 /* MyConfigurationPicker.h */,
 				E5E5E03F1730EAD7004985B1 /* MyConfigurationPicker.m */,
 				E5E5E0181730EA88004985B1 /* Resources */,

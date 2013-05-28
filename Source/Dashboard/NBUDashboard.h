@@ -1,5 +1,5 @@
 //
-//  NBUDashboardLogger.h
+//  NBUDashboard.h
 //  NBUCore
 //
 //  Created by Ernesto Rivera on 2012/12/17.
@@ -18,7 +18,9 @@
 //  limitations under the License.
 //
 
-#import "DDLog.h"
+#ifndef PRODUCTION
+
+@class NBUDashboardLogger;
 
 /**
  Logger to display log messages on device.
@@ -27,22 +29,19 @@
  - Supports colors for log levels.
  - Expands and collapses text.
  
- To enable simply use [NBULog addDashboardLogger].
+ To enable simply use [NBUDashboard sharedDashboard].hidden = NO.
  */
-@interface NBUDashboardLogger : DDAbstractLogger
+@interface NBUDashboard : UIWindow
 
-/// @name Getting the Logger
++ (NBUDashboard *)sharedDashboard;
 
-/// Get the shared logger instance.
-+ (NBUDashboardLogger *)sharedInstance;
-
-/// Set the maximum number of messages to be dispalyed in the Dashboard. Default value `100`.
-@property (nonatomic)   NSUInteger maxMessages;
+- (void)show;
 
 /// @name Outlets
 
-/// The UITableView used to display log messages.
-@property (assign, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) IBOutlet NBUDashboardLogger * logger;
+
+@property (assign, nonatomic) IBOutlet UIButton * toggleButton;
 
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
@@ -50,10 +49,5 @@
 
 @end
 
-/**
- The UIWindow containing the NBUDashboardLogger.
- */
-@interface NBUDashboardWindow : UIWindow
-
-@end
+#endif
 

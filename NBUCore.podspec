@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
     s.source        = { :git => "https://github.com/CyberAgent/iOS-NBUCore.git", :tag => "#{s.version}" }
     s.platform      = :ios
     s.source_files  = 'Source/*.{h,m}'
-    s.resources     = 'Source/**/*.{xib}'
     s.framework     = 'Security'
     s.requires_arc  = true
     s.preserve_paths = "README.*", "NOTICE", "*.xcconfig"
@@ -21,15 +20,20 @@ Pod::Spec.new do |s|
     s.dependency 'CocoaLumberjack', '<= 1.6'
     
     s.subspec 'UI' do |su|
-        su.source_files  = 'Source/UI/*.{h,m}'
+        su.source_files = 'Source/UI/*.{h,m}'
     end
     
     s.subspec 'Helpers' do |sh|
-        sh.source_files  = 'Source/Helpers/*.{h,m}'
+        sh.source_files = 'Source/Helpers/*.{h,m}'
     end
     
     s.subspec 'Additions' do |sa|
-        sa.source_files  = 'Source/Additions/*.{h,m}'
+        sa.source_files = 'Source/Additions/*.{h,m}'
+    end
+    
+    s.subspec 'Dashboard' do |sd|
+        sd.source_files = 'Source/Dashboard/*.{h,m}'
+        sd.resources    = 'Source/Dashboard/*.{xib}'
     end
 end
 
