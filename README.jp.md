@@ -1,10 +1,11 @@
-iOS NBUCore
-===========  
+NBUCore
+=======
+
 _最新バージョン 1.8.2_
 
 [![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
-個々に使用の選択が可能なコンポーネント [English](README.md)
+個々に使用の選択が可能なコンポーネント。 [English](README.md)
 
 ![NBUCore](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png)
 
@@ -49,8 +50,8 @@ Documentation
 Screenshots
 -----------
  
-![Dashboard](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/Dashboard.png "On-device log console")
-![Dashboard minimized](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/Dashboard_minimized.png "Minimized log console")
+![Dashboard](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png "On-device log console")
+![Dashboard minimized](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_minimized.png "Minimized log console")
 
 License
 -------
