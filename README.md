@@ -1,7 +1,7 @@
 NBUCore
 =======
 
-_Latest version 1.8.2_
+_Latest version 1.9.0_
 
 [![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
