@@ -21,6 +21,7 @@
 #ifndef PRODUCTION
 
 #import "NBUDashboardLogger.h"
+#import "NBUDashboard.h"
 #import <NBUCore/NBUCore.h>
 
 @implementation NBUDashboardLogger
@@ -433,6 +434,18 @@ selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    // Go fullscreen if needed
+    NBUDashboard * dashboard = (NBUDashboard *)_tableView.window;
+    if (!dashboard.isMaximized)
+    {
+        dashboard.maximized = YES;
+    }
+    
+    return YES;
 }
 
 @end
