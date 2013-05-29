@@ -39,13 +39,17 @@
 
 /// @name Outlets
 
-@property (strong, nonatomic) IBOutlet NBUDashboardLogger * logger;
+@property (strong, nonatomic) IBOutlet      NBUDashboardLogger * logger;
 
-@property (assign, nonatomic) IBOutlet UIButton * toggleButton;
+@property (assign, nonatomic) IBOutlet      UIButton * toggleButton;
 
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
 - (IBAction)toggle:(id)sender;
+
+@property (nonatomic, getter=isMaximized)   BOOL maximized;
+
+@property (nonatomic, getter=isMinimized)   BOOL minimized;
 
 @end
 

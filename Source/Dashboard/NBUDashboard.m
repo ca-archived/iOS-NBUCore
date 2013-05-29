@@ -32,6 +32,7 @@ static NBUDashboard * _sharedDashboard;
 @implementation NBUDashboard
 {
     CGSize _screenSize;
+    UIWindow * _keyWindow;
 }
 
 @synthesize logger = _logger;
@@ -55,6 +56,7 @@ static NBUDashboard * _sharedDashboard;
     if (self)
     {
         self.windowLevel = UIWindowLevelStatusBar + 1;
+        _screenSize = [UIScreen mainScreen].bounds.size;
         
         // Load other views and objects
         [NSBundle loadNibNamed:@"NBUDashboard"
@@ -143,7 +145,7 @@ static NBUDashboard * _sharedDashboard;
 - (void)show
 {
     self.hidden = NO;
-    [self setWindowHeight:kMinimumHeight];
+    self.minimized = YES;
 }
 
 - (IBAction)toggle:(id)sender
@@ -153,7 +155,14 @@ static NBUDashboard * _sharedDashboard;
     [UIView animateWithDuration:0.2
                      animations:^
      {
-         [self setWindowHeight:_toggleButton.selected ? [UIApplication sharedApplication].keyWindow.size.height : kMinimumHeight];
+         if (_toggleButton.selected)
+         {
+             self.maximized = YES;
+         }
+         else
+         {
+             self.minimized = YES;
+         }
      }];
 }
 
@@ -162,16 +171,34 @@ static NBUDashboard * _sharedDashboard;
     [self setWindowHeight:[gestureRecognizer locationInView:self].y];
 }
 
+- (BOOL)isMaximized
+{
+    return self.size.height == _screenSize.height;
+}
+
+- (void)setMaximized:(BOOL)maximized
+{
+    [self setWindowHeight:_screenSize.height];
+}
+
+- (BOOL)isMinimized
+{
+    return self.size.height == kMinimumHeight;
+}
+
+- (void)setMinimized:(BOOL)minimized
+{
+    [self setWindowHeight:kMinimumHeight];
+}
+
 - (void)setWindowHeight:(CGFloat)height
 {
     // Validate height
     height = MAX(kMinimumHeight, height);
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    if (size.height > 0 &&
-        size.height - height < kMinimumHeight * 2.0)
+    if (_screenSize.height - height < kMinimumHeight * 2.0)
     {
         // Snap to bottom
-        height = size.height;
+        height = _screenSize.height;
     }
     
     // Adjust layout
@@ -180,7 +207,7 @@ static NBUDashboard * _sharedDashboard;
         // Not minimized
         _logger.tableView.userInteractionEnabled = YES;
         _logger.tableView.frame = _logger.tableView.superview.bounds;
-        self.size = CGSizeMake(size.width,
+        self.size = CGSizeMake(_screenSize.width,
                                height);
     }
     else
@@ -194,8 +221,31 @@ static NBUDashboard * _sharedDashboard;
         _logger.tableView.contentOffset = CGPointMake(0.0,
                                                       MAX(_logger.tableView.contentOffset.y,
                                                           _logger.tableView.tableHeaderView.size.height));
-        self.size = CGSizeMake(size.width - 40.0,
+        self.size = CGSizeMake(_screenSize.width - 40.0,
                                height);
+    }
+    
+    // Change keyWindow to enable keyboard input
+    if (height == _screenSize.height)
+    {
+        // Maximized
+        if (!_keyWindow)
+        {
+            _keyWindow = [UIApplication sharedApplication].keyWindow;
+            [_keyWindow resignKeyWindow];
+            [self makeKeyWindow];
+//            NSLog(@"+++ %@ -> %@", _keyWindow, [UIApplication sharedApplication].keyWindow);
+        }
+    }
+    else
+    {
+        // Not maximized
+        if (_keyWindow)
+        {
+            [_keyWindow makeKeyWindow];
+            _keyWindow = nil;
+//            NSLog(@"+++ %@ <-", [UIApplication sharedApplication].keyWindow);
+        }
     }
 }
 
