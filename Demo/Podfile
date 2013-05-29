@@ -3,6 +3,6 @@ platform :ios
 # For NBUCore development:
 pod 'NBUCore',      :path => '../'
 
-# For client projects:
+# For client projects use:
 # pod 'NBUCore',    '~> 1.9.0'
 

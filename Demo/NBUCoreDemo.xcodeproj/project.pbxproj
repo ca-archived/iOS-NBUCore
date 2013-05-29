@@ -40,6 +40,7 @@
 /* Begin PBXFileReference section */
 		0812F44A168849ABB2B939D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E5D742231754AF0C00F34B82 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E5D742241754BAF500F34B82 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E5E5DFDE1730EA18004985B1 /* NBUCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBUCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E5DFE11730EA18004985B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5E5DFE31730EA18004985B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +96,7 @@
 		E5E5DFD51730EA18004985B1 = {
 			isa = PBXGroup;
 			children = (
+				E5D742241754BAF500F34B82 /* README.md */,
 				E5D742231754AF0C00F34B82 /* Podfile */,
 				E5E5DFE71730EA18004985B1 /* NBUCoreDemo */,
 				E5E5DFE01730EA18004985B1 /* Frameworks */,

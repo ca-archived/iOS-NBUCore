@@ -38,10 +38,6 @@ BUNDLEID = jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}
 // *** In your Info.Plist set the "Bundle display name" to ${DISPLAYNAME} ***
 DISPLAYNAME = ${PRODUCT_NAME}
 
-// Compatibility with custom configurations (ex. Release_stg)
-// *** Override if necessary in your target's build settings ***
-DEPENDENCIES_BUILD_DIR = $(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)
-
 // Code Sign Identities
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
 
@@ -74,10 +70,4 @@ CLANG_WARN_CONSTANT_CONVERSION = YES
 CLANG_WARN_ENUM_CONVERSION = YES
 CLANG_WARN_INT_CONVERSION = YES
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
-
-// Paths
-ALWAYS_SEARCH_USER_PATHS = NO
-LIBRARY_SEARCH_PATHS = "$DEPENDENCIES_BUILD_DIR"
-FRAMEWORK_SEARCH_PATHS = "$DEPENDENCIES_BUILD_DIR"
-HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers" "$(BUILT_PRODUCTS_DIR)/include" "$(BUILT_PRODUCTS_DIR)/usr/local/lib/include" "$(BUILT_PRODUCTS_DIR)/usr/local/include"
 

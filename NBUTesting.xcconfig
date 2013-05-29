@@ -1,5 +1,5 @@
 //
-//  NBUCore_Debug.xcconfig
+//  NBUCore_Testing.xcconfig
 //  NBUCore
 //
 //  Created by Ernesto Rivera on 12/07/25.
@@ -23,30 +23,26 @@
 // You can change these values directly in your Target's Build Settings //
 //////////////////////////////////////////////////////////////////////////
 
-///////////
-// DEBUG //
-///////////
+/////////////
+// TESTING //
+/////////////
 
-// Default preprocessor macros that can be used with "#ifdef DEBUG"
-GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
+// Default preprocessor macros that can be used with "#ifdef TESTING"
+GCC_PREPROCESSOR_DEFINITIONS = TESTING=1
 
 // Bundle ID
 // *** In your Info.Plist set the "Bundle Identifier" to ${BUNDLEID} ***
-BUNDLEID = jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}-dev
+BUNDLEID = jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}-ota
 
 // Display name for device's home screen
 // *** In your Info.Plist set the "Bundle display name" to ${DISPLAYNAME} ***
-DISPLAYNAME = ${PRODUCT_NAME}-dev
-
-// Compatibility with custom configurations (ex. Release_stg)
-// *** Override if necessary in your target's build settings ***
-DEPENDENCIES_BUILD_DIR = $(BUILD_DIR)/Debug$(EFFECTIVE_PLATFORM_NAME)
+DISPLAYNAME = ${PRODUCT_NAME}-ota
 
 // Code Sign Identities
-CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
 
-// Compile fast and keep all debugging symbols
-ONLY_ACTIVE_ARCH = YES
+// Keep debugging symbols
+ONLY_ACTIVE_ARCH = NO
 DEPLOYMENT_POSTPROCESSING = NO
 COPY_PHASE_STRIP = NO
 STRIP_INSTALLED_PRODUCT = NO
@@ -74,10 +70,4 @@ CLANG_WARN_CONSTANT_CONVERSION = YES
 CLANG_WARN_ENUM_CONVERSION = YES
 CLANG_WARN_INT_CONVERSION = YES
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
-
-// Paths
-ALWAYS_SEARCH_USER_PATHS = NO
-LIBRARY_SEARCH_PATHS = "$DEPENDENCIES_BUILD_DIR"
-FRAMEWORK_SEARCH_PATHS = "$DEPENDENCIES_BUILD_DIR"
-HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers" "$(BUILT_PRODUCTS_DIR)/include" "$(BUILT_PRODUCTS_DIR)/usr/local/lib/include" "$(BUILT_PRODUCTS_DIR)/usr/local/include"
 
