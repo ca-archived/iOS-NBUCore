@@ -38,8 +38,8 @@
 /// Dynamic levels
 #define APP_LOG_LEVEL       [NBULog appLogLevelForModule:APP_MODULE]
 
-/// Remove NSLog from non-debug
-#ifndef DEBUG
+/// Remove NSLog from production builds
+#ifndef PRODUCTION
     #define NSLog(...)
 #endif
 
