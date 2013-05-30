@@ -79,7 +79,7 @@ static BOOL _fileLoggerAdded;
     if (_dashboardLoggerAdded)
         return;
     
-    [DDLog addLogger:[NBUDashboard sharedDashboard].logger];
+    [self addLogger:[NBUDashboard sharedDashboard].logger];
     [[NBUDashboard sharedDashboard] show];
     
     _dashboardLoggerAdded = YES;
@@ -92,7 +92,7 @@ static BOOL _fileLoggerAdded;
     
     DDASLLogger * logger = [DDASLLogger sharedInstance];
     logger.logFormatter = _nbuLogFormatter;
-    [DDLog addLogger:logger];
+    [self addLogger:logger];
     
     _aslLoggerAdded = YES;
 }
@@ -104,7 +104,7 @@ static BOOL _fileLoggerAdded;
     
     DDTTYLogger * ttyLogger = [DDTTYLogger sharedInstance];
     ttyLogger.logFormatter = _nbuLogFormatter;
-    [DDLog addLogger:ttyLogger];
+    [self addLogger:ttyLogger];
     
     // Colors for iOS are not working yet...
     //    [ttyLogger setColorsEnabled:YES];
@@ -123,7 +123,7 @@ static BOOL _fileLoggerAdded;
     DDFileLogger * fileLogger = [DDFileLogger new];
     fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
     fileLogger.logFormatter = _nbuLogFormatter;
-    [DDLog addLogger:fileLogger];
+    [self addLogger:fileLogger];
     
     _fileLoggerAdded = YES;
 }
@@ -132,9 +132,7 @@ static BOOL _fileLoggerAdded;
 
 #pragma mark - Log Formatter based on DDLog's DispatchQueueLogFormatter
 
-#import <Foundation/Foundation.h>
 #import <libkern/OSAtomic.h>
-#import "DDLog.h"
 
 /**
  * Welcome to Cocoa Lumberjack!

@@ -69,7 +69,7 @@
  
  To add register new modules just create a NBULog category.
  */
-@interface NBULog : NSObject
+@interface NBULog : DDLog
 
 /// @name Adjusting App Log Levels
 
