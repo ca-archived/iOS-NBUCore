@@ -22,7 +22,7 @@
 
 #import "NBUDashboardLogger.h"
 #import "NBUDashboard.h"
-#import <NBUCore/NBUCore.h>
+#import "NBUCore.h"
 
 @implementation NBUDashboardLogger
 {

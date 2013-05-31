@@ -96,7 +96,7 @@
 
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <NBUCore/NBUCore.h>
+    #import "NBUCore.h"
 
     // Production settings
     #define	ProductionConfigurationName         @"Production"
