@@ -23,7 +23,14 @@
 #import <CocoaLumberjack/DDLog.h>
 
 /**
+ A DDLogger that displays log messages with a searcheable UITableView.
  
+ - Supports colors for log levels.
+ - Expands and collapses text.
+ - Can be filtered according to log levels or text.
+ - Can be minimized, maximized or used in any size in between.
+ 
+ @note You don't need to use this class directly but instead use [NBULog addDashboardLogger].
  */
 @interface NBUDashboardLogger : DDAbstractLogger <UITableViewDelegate,
                                                   UITableViewDataSource,
@@ -39,6 +46,7 @@
 /// The UITableView used to display log messages.
 @property (assign, nonatomic) IBOutlet  UITableView * tableView;
 
+/// The UISearchBar used to filter log messages.
 @property (assign, nonatomic) IBOutlet  UISearchBar * searchBar;
 
 @end

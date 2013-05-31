@@ -32,6 +32,13 @@ Components
 必要なものだけをImportして使うこともできます。  
 **是非、みなさんがお使いの便利なカテゴリーを 'Pull Request' してNBUAdditionalsにコミットしてみてください！:-)**
 
+### NBUDashboard
+ 
+デバイスでのコンソール。
+ 
+![Dashboard](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png "On-device log console")
+![Dashboard minimized](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_filter.png "Filter log messages")
+
 Installation
 ------------
 
@@ -46,12 +53,6 @@ Documentation
  
 * HTML: http://cocoadocs.org/docsets/NBUCore/
 * Xcode DocSet: `http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom`
- 
-Screenshots
------------
- 
-![Dashboard](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png "On-device log console")
-![Dashboard minimized](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_minimized.png "Minimized log console")
 
 License
 -------

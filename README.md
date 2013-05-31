@@ -5,7 +5,7 @@ _Latest version 1.9.0_
 
 [![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
-Convenience extensions and utilities for iOS projects. [[日本語](README.jp.md)]
+Convenience extensions, macros and on-device console for iOS projects. [[日本語](README.jp.md)]
 
 ![NBUCore](https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png)
 
@@ -26,12 +26,22 @@ Commonly needed macros, functions, etc.
 A very useful replacement for NSLog wich is also bad for performance.  
 Easy to use and easy to extend. Based on [Cocoa Lumberjack](https://github.com/robbiehanson/CocoaLumberjack).
 
-NBUDashboard for an on-device log console.
-
 ### NBUAdditions
 
 Many useful UIKit and NSFoundation categories that could be useful for many applications.
 Import them all or just the ones you need.
+
+### NBUDashboard
+
+On-device log console that supports:
+
+* Different colors for log levels.
+* Expands and collapses text on tap.
+* Can be filtered according to log levels or custom strings.
+* Can be minimized, maximized or used in any size in between.
+
+![Dashboard](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png "On-device log console")
+![Dashboard minimized](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_filter.png "Filter log messages")
 
 Installation
 ------------
@@ -58,12 +68,6 @@ Documentation
 * HTML: http://cocoadocs.org/docsets/NBUCore/
 * Xcode DocSet: `http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom`
 
-Screenshots
------------
- 
-![Dashboard](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png "On-device log console")
-![Dashboard minimized](https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_minimized.png "Minimized log console")
- 
 License
 -------
 

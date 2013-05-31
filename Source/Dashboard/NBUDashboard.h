@@ -23,32 +23,39 @@
 @class NBUDashboardLogger;
 
 /**
- Logger to display log messages on device.
+ An on-device "dashboard" to display (for now):
  
- - Compatible with NBULog and DDLog.
- - Supports colors for log levels.
- - Expands and collapses text.
+ - A NBUDashboardLogger.
  
- To enable simply use [NBUDashboard sharedDashboard].hidden = NO.
+ @note You don't need to use this class directly but instead use [NBULog addDashboardLogger].
  */
 @interface NBUDashboard : UIWindow
 
+/// The shared dashboard.
 + (NBUDashboard *)sharedDashboard;
 
+/// Add the dashboard to the screen.
+/// @discussion Called automatically by NBULog.
 - (void)show;
 
 /// @name Outlets
 
+/// The logger.
 @property (strong, nonatomic) IBOutlet      NBUDashboardLogger * logger;
 
+/// A button to toggle: the dashboard size.
 @property (assign, nonatomic) IBOutlet      UIButton * toggleButton;
 
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
 - (IBAction)toggle:(id)sender;
 
+/// @name Properties
+
+/// Whether the dashboard is maximized.
 @property (nonatomic, getter=isMaximized)   BOOL maximized;
 
+/// Whether the dashboard is minimized.
 @property (nonatomic, getter=isMinimized)   BOOL minimized;
 
 @end
