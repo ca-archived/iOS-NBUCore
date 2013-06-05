@@ -19,6 +19,16 @@
 //
 
 #import "LogTestsViewController.h"
+#import <NBUCore/NBULog+CFunctions.h>
+
+void testCLogs()
+{
+    NBULogCTrace();
+    NBULogCVerbose(@"Verbose message from a C function");
+    NBULogCInfo(@"Info message from a C function");
+    NBULogCWarn(@"Warning message from a C function");
+    NBULogCError(@"Verbose message from a C function");
+}
 
 @implementation LogTestsViewController
 
@@ -38,6 +48,9 @@
                       @"Build",                 application.applicationBuild,
                       @"Documents directory",   application.documentsDirectory.lastPathComponent,
                       @"Caches directory",      application.cachesDirectory.lastPathComponent];
+    
+    // Test logs from C functions
+    testCLogs();
 }
 
 - (IBAction)changeLogLevel:(UISegmentedControl *)sender
