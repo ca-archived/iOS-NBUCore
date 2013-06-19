@@ -175,7 +175,17 @@
     
     // Freeze messages in a buffer
     NSArray * lastBuffer = _messagesBuffer;
-    _messagesBuffer = [NSArray arrayWithArray:[self isFilteringEnabled] ? _filteredMessages : _messages];
+    @try
+    {
+        // FIXME: Crashing for some reason when maxMessages is reached
+        _messagesBuffer = [NSArray arrayWithArray:[self isFilteringEnabled] ? _filteredMessages : _messages];
+    }
+    @catch (NSException * exception)
+    {
+        NSLog(@"EXCEPTION while updating Dashboard: %@", exception.reason);
+        [_tableView reloadData];
+    }
+    
     //    NSLog(@"!!! %d", _messagesBuffer.count);
     
     // Calculate how much the buffer moved
@@ -224,7 +234,7 @@
             
             return;
         }
-        @catch (NSException *exception)
+        @catch (NSException * exception)
         {
             NSLog(@"EXCEPTION while updating Dashboard: %@", exception.reason);
         }
