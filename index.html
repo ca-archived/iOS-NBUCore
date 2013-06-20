@@ -28,43 +28,65 @@
         </ul>
       </header>
       <section>
-        <p><em>Latest version 1.8.1</em></p>
+        <p><em>Latest version 1.9.0</em></p>
 
 <p><a href="https://travis-ci.org/CyberAgent/iOS-NBUCore"><img src="https://travis-ci.org/CyberAgent/iOS-NBUCore.png" alt="Build Status"></a></p>
 
+<p>[<a href="README.jp.md">日本語</a>]</p>
+
 <p><img src="https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png" alt="NBUCore"></p>
 
-<h2>Components</h2>
+<h2>
+<a name="components" class="anchor" href="#components"><span class="octicon octicon-link"></span></a>Components</h2>
 
-<h3>.xcconfig Files</h3>
+<h3>
+<a name="xcconfig-files" class="anchor" href="#xcconfig-files"><span class="octicon octicon-link"></span></a>.xcconfig Files</h3>
 
 <p>Add these files to your target's build settings if you want to have some default settings
 to configure your Debug, Testing and Production configurations.</p>
 
-<h3>NBUUtil</h3>
+<h3>
+<a name="nbuutil" class="anchor" href="#nbuutil"><span class="octicon octicon-link"></span></a>NBUUtil</h3>
 
 <p>Commonly needed macros, functions, etc.</p>
 
-<h3>NBULog</h3>
+<h3>
+<a name="nbulog" class="anchor" href="#nbulog"><span class="octicon octicon-link"></span></a>NBULog</h3>
 
 <p>A very useful replacement for NSLog wich is also bad for performance.<br>
 Easy to use and easy to extend. Based on <a href="https://github.com/robbiehanson/CocoaLumberjack">Cocoa Lumberjack</a>.</p>
 
-<p>NBUDashboardLogger for an on-device log console.</p>
-
-<h3>NBUAdditions</h3>
+<h3>
+<a name="nbuadditions" class="anchor" href="#nbuadditions"><span class="octicon octicon-link"></span></a>NBUAdditions</h3>
 
 <p>Many useful UIKit and NSFoundation categories that could be useful for many applications.
 Import them all or just the ones you need.</p>
 
-<h2>Installation</h2>
+<h3>
+<a name="nbudashboard" class="anchor" href="#nbudashboard"><span class="octicon octicon-link"></span></a>NBUDashboard</h3>
 
-<h3>Cocoapods</h3>
+<p>On-device log console that supports:</p>
+
+<ul>
+<li>Different colors for log levels.</li>
+<li>Expands and collapses text on tap.</li>
+<li>Can be filtered according to log levels or custom strings.</li>
+<li>Can be minimized, maximized or used in any size in between.</li>
+</ul><p><img src="https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png" alt="Dashboard" title="On-device log console"><img src="https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_filter.png" alt="Dashboard minimized" title="Filter log messages"></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a name="cocoapods-recomended" class="anchor" href="#cocoapods-recomended"><span class="octicon octicon-link"></span></a>Cocoapods (Recomended)</h3>
 
 <ol>
 <li>Install <a href="http://cocoapods.org">Cocoapods</a> if not already done.</li>
 <li>Add <code>pod 'NBUCore'</code> to your Podfile.</li>
-</ol><h3>Manual</h3>
+</ol><p><em>If you have a problem try <code>gem update cocoapods</code> first.</em></p>
+
+<h3>
+<a name="manual" class="anchor" href="#manual"><span class="octicon octicon-link"></span></a>Manual</h3>
 
 <ol>
 <li>Checkout <code>git@github.com:CyberAgent/iOS-NBUCore.git</code> or <a href="https://github.com/CyberAgent/iOS-NBUCore/tags">download</a>
@@ -73,18 +95,16 @@ the NBUCore sources to your project directory.</li>
 <li>Optionally add the <a href="#nbucore_xcconfig-files">configuration files</a> to your target.</li>
 </ol><p><em>Keychain access requires to link <code>Security.framework</code>.</em></p>
 
-<h2>Documentation</h2>
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <ul>
 <li>HTML: <a href="http://cocoadocs.org/docsets/NBUCore/">http://cocoadocs.org/docsets/NBUCore/</a>
 </li>
 <li>Xcode DocSet: <code>http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom</code>
 </li>
-</ul><h2>Screenshots</h2>
-
-<p><img src="https://github.com/CyberAgent/iOS-NBUCore/wiki/images/Dashboard.png" alt="Dashboard" title="On-device log console"><img src="https://github.com/CyberAgent/iOS-NBUCore/wiki/images/Dashboard_minimized.png" alt="Dashboard minimized" title="Minimized log console"></p>
-
-<h2>License</h2>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <pre><code>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. 
