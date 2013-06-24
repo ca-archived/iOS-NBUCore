@@ -43,6 +43,9 @@
 /// Convinience method to retrive the application caches directory.
 @property (nonatomic, readonly) NSURL * cachesDirectory;
 
+/// Convinience method to retrive the application temporary directory.
+@property (nonatomic, readonly) NSURL * temporaryDirectory;
+
 /// Convinience method to retrive the application library directory.
 @property (nonatomic, readonly) NSURL * libraryDirectory;
 

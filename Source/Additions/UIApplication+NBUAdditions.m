@@ -69,6 +69,12 @@
     return url;
 }
 
+- (NSURL *)temporaryDirectory
+{
+    return [NSURL fileURLWithPath:NSTemporaryDirectory()
+                      isDirectory:YES];
+}
+
 - (NSURL *)libraryDirectory
 {
     NSError * error;
