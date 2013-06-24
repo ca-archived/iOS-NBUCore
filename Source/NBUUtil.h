@@ -43,8 +43,8 @@ extern UIInterfaceOrientation UIInterfaceOrientationFromValidDeviceOrientation(U
 extern BOOL UIInterfaceOrientationIsSupportedByInterfaceOrientationMask(UIInterfaceOrientation orientation,
                                                                         UIInterfaceOrientationMask mask);
 
-/// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NSStringFromBOOL(view.hidden).
-extern NSString * NSStringFromBOOL(BOOL yesOrNo);
+/// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NBUStringFromBOOL(view.hidden).
+extern NSString * NBUStringFromBOOL(BOOL yesOrNo);
 
 /// Whether the application is being debugged.
 extern BOOL AmIBeingDebugged(void);

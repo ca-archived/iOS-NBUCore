@@ -20,7 +20,7 @@
 
 #import "NBUUtil.h"
 
-NSString * NSStringFromBOOL(BOOL yesOrNo)
+NSString * NBUStringFromBOOL(BOOL yesOrNo)
 {
     return yesOrNo ? @"YES" : @"NO";
 }

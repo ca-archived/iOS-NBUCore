@@ -39,7 +39,7 @@
 - (void)setTabBarHidden:(BOOL)hidden
                animated:(BOOL)animated
 {
-    NBULogVerbose(@"setTabBarHidden: %@", NSStringFromBOOL(hidden));
+    NBULogVerbose(@"setTabBarHidden: %@", NBUStringFromBOOL(hidden));
     
     [UIView animateWithDuration:animated ? UINavigationControllerHideShowBarDuration : 0.0
                           delay:0.0
