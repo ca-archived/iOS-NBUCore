@@ -30,5 +30,12 @@
 - (NSArray *)URLsForFilesWithExtensions:(NSArray *)extensions
                   searchInDirectoryURLs:(NSArray *)directories;
 
+/// Create a file URL in a given directory following a file name string format to
+/// avoid overriding existing files.
+/// @param directory The target directory where the new file would be saved.
+/// @param fileNameFormat The name format the new file would have. Default `@"file%02d"`.
++ (NSURL *)URLForNewFileAtDirectory:(NSURL *)directory
+                 fileNameWithFormat:(NSString *)fileNameFormat;
+
 @end
 

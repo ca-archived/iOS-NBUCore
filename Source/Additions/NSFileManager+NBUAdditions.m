@@ -87,5 +87,23 @@
     return fileURLs;
 }
 
++ (NSURL *)URLForNewFileAtDirectory:(NSURL *)directory
+                 fileNameWithFormat:(NSString *)fileNameFormat
+{
+    NSFileManager * manager = [self defaultManager];
+    NSString * pathFormat = [NSString stringWithFormat:@"%@/%@",
+                             directory.path,
+                             fileNameFormat ? fileNameFormat : @"file%02d"];
+    NSString * path;
+    NSUInteger i = 1;
+    do
+    {
+        path = [NSString stringWithFormat:pathFormat, i++];
+    }
+    while ([manager fileExistsAtPath:path]);
+    
+    return [NSURL fileURLWithPath:path];
+}
+
 @end
 
