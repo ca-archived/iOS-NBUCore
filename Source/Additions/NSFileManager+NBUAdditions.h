@@ -30,6 +30,10 @@
 - (NSArray *)URLsForFilesWithExtensions:(NSArray *)extensions
                   searchInDirectoryURLs:(NSArray *)directories;
 
+/// Retrieve all the subdirectories of a given directory.
+/// @param directory The directory to search for.
+- (NSArray *)URLsForSubdirectoriesOfDirectory:(NSURL *)directory;
+
 /// Create a file URL in a given directory following a file name string format to
 /// avoid overriding existing files.
 /// @param directory The target directory where the new file would be saved.

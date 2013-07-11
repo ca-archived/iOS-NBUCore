@@ -40,7 +40,10 @@
                                           options:NSDirectoryEnumerationSkipsHiddenFiles
                                             error:&error];
         if (error)
+        {
             [errors addObject:error];
+            error = nil;
+        }
         
         // Check every fileURL in contents
         BOOL isDirectory;
@@ -48,8 +51,8 @@
         {
             // Skip directories
             isDirectory = NO;
-            if (![self fileExistsAtPath:fileURL.path
-                            isDirectory:&isDirectory] || isDirectory)
+            if ([self fileExistsAtPath:fileURL.path
+                           isDirectory:&isDirectory] && isDirectory)
             {
                 continue;
             }
@@ -85,6 +88,34 @@
     NBULogInfo(@"Found %d files with extensions %@", fileURLs.count, extensions.shortDescription);
     
     return fileURLs;
+}
+
+- (NSArray *)URLsForSubdirectoriesOfDirectory:(NSURL *)directory
+{
+    NSMutableArray * subdirectories = [NSMutableArray array];
+    
+    NSError * error;
+    NSArray * contents = [self contentsOfDirectoryAtURL:directory
+                             includingPropertiesForKeys:nil
+                                                options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                  error:&error];
+    if (error)
+    {
+        NBULogError(@"%@ %@", THIS_METHOD, error);
+    }
+    
+    BOOL isDirectory;
+    for (NSURL * fileURL in contents)
+    {
+        isDirectory = NO;
+        if ([self fileExistsAtPath:fileURL.path
+                       isDirectory:&isDirectory] && isDirectory)
+        {
+            [subdirectories addObject:fileURL];
+        }
+    }
+    
+    return subdirectories;
 }
 
 + (NSURL *)URLForNewFileAtDirectory:(NSURL *)directory
