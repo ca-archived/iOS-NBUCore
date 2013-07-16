@@ -1,9 +1,9 @@
 NBUCore
 =======
 
-_Latest version 1.9.1_
-
-[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
+[![Platform: iOS](http://cocoapod-badges.herokuapp.com/p/NBUCore/badge.svg)](http://cocoadocs.org/docsets/NBUCore/)
+[![Version: 1.9.2](http://cocoapod-badges.herokuapp.com/v/NBUCore/badge.png)](http://cocoadocs.org/docsets/NBUCore/)
+[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png?branch=master)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
 Convenience extensions, macros and on-device console for iOS projects. [[日本語](README.jp.md)]
 
