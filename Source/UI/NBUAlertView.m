@@ -56,12 +56,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex != self.cancelButtonIndex)
     {
+        NSInteger selectedIndex = self.cancelButtonIndex == 0 ? buttonIndex - 1 : buttonIndex;
+        
         NBULogVerbose(@"Selected button at index: %d", buttonIndex);
+        
         if (_selectedButtonBlock) _selectedButtonBlock(buttonIndex);
     }
     else
     {
         NBULogVerbose(@"Canceled");
+        
         if (_cancelButtonBlock) _cancelButtonBlock();
     }
 }
