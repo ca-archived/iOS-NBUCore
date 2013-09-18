@@ -27,7 +27,7 @@ void testCLogs()
     NBULogCVerbose(@"Verbose message from a C function");
     NBULogCInfo(@"Info message from a C function");
     NBULogCWarn(@"Warning message from a C function");
-    NBULogCError(@"Verbose message from a C function");
+    NBULogCError(@"Error message from a C function");
 }
 
 @implementation LogTestsViewController
@@ -39,6 +39,13 @@ void testCLogs()
     [super viewDidLoad];
     
     [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+    {
+        CGRect bounds = self.view.bounds;
+        bounds.origin.y = -20.0;
+        self.view.bounds = bounds;
+    }
     
     // Configure text view
     UIApplication * application = [UIApplication sharedApplication];
