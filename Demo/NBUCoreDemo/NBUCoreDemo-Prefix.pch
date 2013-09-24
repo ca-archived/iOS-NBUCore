@@ -107,7 +107,7 @@
     #define ProductionAnotherGlobalParameter    @[@"Anything that you can save", @"to NSUserDefaults"]
 
     // Settings for DEBUG and TESTING
-    #ifndef PRODUCTION
+    #ifdef DEBUG
 
         #import "MyConfigurationPicker.h"
 

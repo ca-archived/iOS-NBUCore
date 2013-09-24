@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#ifndef PRODUCTION
+#ifdef DEBUG
 
 @class NBUDashboardLogger;
 

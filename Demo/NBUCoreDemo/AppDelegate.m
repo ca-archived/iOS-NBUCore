@@ -30,12 +30,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // Configure NBULog
     [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
     
-#ifndef PRODUCTION
+#ifdef DEBUG
     [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for debug and testing builds
     [NBULog addDashboardLogger];                // Add dashboard logger
 #endif
     
     NBULogTrace();
+    NSLog(@"This NSLog will only appear on DEBUG builds");
     
     // Prepare the window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

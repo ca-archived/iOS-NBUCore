@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#ifndef PRODUCTION
+#ifdef DEBUG
 
 #import "NBUDashboard.h"
 #import "NBUDashboardLogger.h"

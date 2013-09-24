@@ -20,7 +20,7 @@
 
 // *** Check NBUCoreDemo-Prefix.pch ***
 
-#ifndef PRODUCTION
+#ifdef DEBUG
 
 // *** You need your own NBUConfigurationPicker subclass! ***
 @interface MyConfigurationPicker : NBUConfigurationPicker
