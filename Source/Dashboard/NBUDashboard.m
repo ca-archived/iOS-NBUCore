@@ -18,8 +18,6 @@
 //  limitations under the License.
 //
 
-#ifdef DEBUG
-
 #import "NBUDashboard.h"
 #import "NBUDashboardLogger.h"
 #import "NBUCore.h"
@@ -258,6 +256,4 @@ static NBUDashboard * _sharedDashboard;
 }
 
 @end
-
-#endif
 

@@ -18,8 +18,6 @@
 //  limitations under the License.
 //
 
-#ifdef DEBUG
-
 #import <CocoaLumberjack/DDLog.h>
 
 /**
@@ -50,6 +48,4 @@
 @property (assign, nonatomic) IBOutlet  UISearchBar * searchBar;
 
 @end
-
-#endif
 
