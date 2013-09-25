@@ -106,8 +106,8 @@
     #define	ProductionConnectionToken           @"9324982-1-0029384"
     #define ProductionAnotherGlobalParameter    @[@"Anything that you can save", @"to NSUserDefaults"]
 
-    // Settings for DEBUG and TESTING
-    #ifdef DEBUG
+    // Settings for DEBUG builds
+    #if defined (DEBUG) ||  defined (TESTING)
 
         #import "MyConfigurationPicker.h"
 
@@ -118,7 +118,7 @@
         #define	ConnectionToken             MyConfigurationPicker.token
         #define AnotherGlobalParameter      MyConfigurationPicker.anotherParameter
 
-    // Settings for PRODUCTION
+    // Settings for non DEBUG builds
     #else
 
         #define	ConfigurationName			ProductionConfigurationName

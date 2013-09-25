@@ -47,7 +47,7 @@
 
 - (IBAction)changeConfiguration:(UISegmentedControl *)sender
 {
-#ifdef DEBUG
+#if defined (DEBUG) ||  defined (TESTING)
     [MyConfigurationPicker show];
 #endif
 }

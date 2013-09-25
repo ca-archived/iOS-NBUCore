@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#ifdef DEBUG
+#if defined (DEBUG) ||  defined (TESTING)
 
 #import "MyConfigurationPicker.h"
 

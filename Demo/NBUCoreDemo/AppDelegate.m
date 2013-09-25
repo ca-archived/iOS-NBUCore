@@ -29,10 +29,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Configure NBULog
     [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
-    
 #ifdef DEBUG
-    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for debug and testing builds
-    [NBULog addDashboardLogger];                // Add dashboard logger
+    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for DEBUG builds
+#endif
+    
+#if defined (DEBUG) ||  defined (TESTING)
+    // Add dashboard logger
+    [NBULog addDashboardLogger];
 #endif
     
     NBULogTrace();
