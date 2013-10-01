@@ -42,7 +42,7 @@
 @property (strong, nonatomic) IBOutlet      NBUDashboardLogger * logger;
 
 /// A button to toggle: the dashboard size.
-@property (assign, nonatomic) IBOutlet      UIButton * toggleButton;
+@property (weak, nonatomic) IBOutlet        UIButton * toggleButton;
 
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
