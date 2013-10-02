@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#if defined (DEBUG) ||  defined (TESTING)
+#if defined (DEBUG) || defined (TESTING)
 
 #import "MyConfigurationPicker.h"
 
@@ -29,7 +29,7 @@
     return NO;
 }
 
-// ** Required method **
+// *** Required method ***
 + (NSArray *)availableConfigurations
 {
     return @[
@@ -66,6 +66,8 @@
              
              ];
 }
+
+#pragma mark - Convenience methods
 
 + (NSString *)server
 {

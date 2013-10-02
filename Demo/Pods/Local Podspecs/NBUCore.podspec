@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name          = "NBUCore"
-    s.version       = "1.9.6"
+    s.version       = "2.0.0"
     s.summary       = "Convenience extensions and utilities for iOS projects."
     s.homepage      = "http://cyberagent.github.io/iOS-NBUCore/"
     s.license       = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
     s.requires_arc  = true
     s.preserve_paths = "README.*", "NOTICE", "*.xcconfig"
     
-    s.dependency 'Lockbox',         '~> 1.4.2'
-    s.dependency 'CocoaLumberjack', '<= 1.6'
+    s.dependency 'Lockbox',         '~> 1.4.3'
+    s.dependency 'CocoaLumberjack', '~> 1.6.2'
     
     s.subspec 'UI' do |su|
         su.source_files = 'Source/UI/*.{h,m}'

@@ -1,25 +1,25 @@
 PODS:
-  - CocoaLumberjack (1.6)
+  - CocoaLumberjack (1.6.2)
   - Lockbox (1.4.3)
-  - NBUCore (1.9.6):
-    - CocoaLumberjack (<= 1.6)
-    - Lockbox (~> 1.4.2)
+  - NBUCore (2.0.0):
+    - CocoaLumberjack (~> 1.6.2)
+    - Lockbox (~> 1.4.3)
     - NBUCore/Additions
     - NBUCore/Dashboard
     - NBUCore/Helpers
     - NBUCore/UI
-  - NBUCore/Additions (1.9.6):
-    - CocoaLumberjack (<= 1.6)
-    - Lockbox (~> 1.4.2)
-  - NBUCore/Dashboard (1.9.6):
-    - CocoaLumberjack (<= 1.6)
-    - Lockbox (~> 1.4.2)
-  - NBUCore/Helpers (1.9.6):
-    - CocoaLumberjack (<= 1.6)
-    - Lockbox (~> 1.4.2)
-  - NBUCore/UI (1.9.6):
-    - CocoaLumberjack (<= 1.6)
-    - Lockbox (~> 1.4.2)
+  - NBUCore/Additions (2.0.0):
+    - CocoaLumberjack (~> 1.6.2)
+    - Lockbox (~> 1.4.3)
+  - NBUCore/Dashboard (2.0.0):
+    - CocoaLumberjack (~> 1.6.2)
+    - Lockbox (~> 1.4.3)
+  - NBUCore/Helpers (2.0.0):
+    - CocoaLumberjack (~> 1.6.2)
+    - Lockbox (~> 1.4.3)
+  - NBUCore/UI (2.0.0):
+    - CocoaLumberjack (~> 1.6.2)
+    - Lockbox (~> 1.4.3)
 
 DEPENDENCIES:
   - NBUCore (from `../`)
@@ -29,8 +29,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 0f2fa7090a23f13261072d882e017c688300efbe
+  CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
   Lockbox: 1bcfd564f034b83456fcad5bdd49470a80a38d2b
-  NBUCore: 05f28118e670f19d41196a6b00bfd338f28f3a77
+  NBUCore: 21b37b65fb28894af3d54d1d0f9a3031af6eb1ed
 
 COCOAPODS: 0.25.0
