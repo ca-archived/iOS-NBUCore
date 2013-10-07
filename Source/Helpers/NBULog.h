@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#import "DDLog.h"
+#import <CocoaLumberjack/DDLog.h>
 
 /// Extensible default contexts
 #define APP_LOG_CONTEXT     0

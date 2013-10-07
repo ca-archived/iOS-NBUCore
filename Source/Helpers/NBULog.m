@@ -19,11 +19,11 @@
 //
 
 #import "NBULog.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
-#import "DDASLLogger.h"
 #import "NBUDashboard.h"
 #import "NBUDashboardLogger.h"
+#import <CocoaLumberjack/DDTTYLogger.h>
+#import <CocoaLumberjack/DDFileLogger.h>
+#import <CocoaLumberjack/DDASLLogger.h>
 
 #define MAX_MODULES 10
 
