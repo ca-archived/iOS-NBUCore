@@ -21,6 +21,7 @@
 #import "NBUDashboardLogger.h"
 #import "NBUDashboard.h"
 #import "NBUCore.h"
+#import "NBUCorePrivate.h"
 
 @implementation NBUDashboardLogger
 {

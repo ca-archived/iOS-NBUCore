@@ -20,8 +20,8 @@
 
 #import "UITabBarController+NBUAdditions.h"
 #import "UIView+NBUAdditions.h"
-#import "NBULog.h"
 #import "NBUUtil.h"
+#import "NBUCorePrivate.h"
 
 @implementation UITabBarController (NBUAdditions)
 

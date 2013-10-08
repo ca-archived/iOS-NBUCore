@@ -19,6 +19,7 @@
 //
 
 #import "NSArray+NBUAdditions.h"
+#import "NBUCorePrivate.h"
 
 @implementation NSArray (NBUAdditions)
 

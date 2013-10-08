@@ -19,6 +19,7 @@
 //
 
 #import "UIResponder+NBUAdditions.h"
+#import "NBUCorePrivate.h"
 
 @implementation UIResponder (NBUAdditions)
 

@@ -20,7 +20,7 @@
 
 #import "UINavigationController+NBUAdditions.h"
 #import "NBUUtil.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 @implementation UINavigationController (NBUAdditions)
 

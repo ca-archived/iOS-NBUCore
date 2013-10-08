@@ -21,7 +21,7 @@
 #import "NBUActionSheet.h"
 #import "UIView+NBUAdditions.h"
 #import "NBUUtil.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 // Private category
 @interface NBUActionSheet (Private) <UIActionSheetDelegate>

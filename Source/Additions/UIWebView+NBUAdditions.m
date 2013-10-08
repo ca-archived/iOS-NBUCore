@@ -19,7 +19,7 @@
 //
 
 #import "UIWebView+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 static NSString * _systemDefaultUserAgent;
 

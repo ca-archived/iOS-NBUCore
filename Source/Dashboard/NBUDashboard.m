@@ -22,6 +22,7 @@
 #import "NBUDashboardLogger.h"
 #import "NBUCore.h"
 #import "NBUUtil.h"
+#import "NBUCorePrivate.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kMinimumHeight 20.0

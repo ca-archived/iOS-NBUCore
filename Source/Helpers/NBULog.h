@@ -107,3 +107,25 @@
 
 @end
 
+
+/**
+ NBULog category used to set/get NBUCore log levels.
+ 
+ Default configuration (can be dynamically changed):
+ 
+ - Log level: `LOG_LEVEL_INFO` for `DEBUG`, `LOG_LEVEL_WARN` otherwise.
+ 
+ */
+@interface NBULog (NBUCore)
+
+/// @name Adjusting NBUCore Log Levels
+
+/// Get the current NBUCore log level.
++ (int)coreLogLevel;
+
+/// Dynamically set the NBUCore log level for all modules at once.
+/// @param LOG_LEVEL_XXX The desired log level.
++ (void)setCoreLogLevel:(int)LOG_LEVEL_XXX;
+
+@end
+

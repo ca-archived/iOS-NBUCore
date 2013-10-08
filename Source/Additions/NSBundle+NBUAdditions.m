@@ -19,7 +19,7 @@
 //
 
 #import "NSBundle+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 NSString * const NBULocalizedStringNotFound = @"NBULocalizedStringNotFound";
 

@@ -19,7 +19,7 @@
 //
 
 #import "UIImage+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 @implementation UIImage (NBUAdditions)
 

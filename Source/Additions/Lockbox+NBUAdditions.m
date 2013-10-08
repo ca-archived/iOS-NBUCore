@@ -19,7 +19,7 @@
 //
 
 #import "Lockbox+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 @implementation Lockbox (NBUAdditions)
 

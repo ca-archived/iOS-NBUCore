@@ -19,6 +19,7 @@
 //
 
 #import "NSString+NBUAdditions.h"
+#import "NBUCorePrivate.h"
 
 @implementation NSString (NBUAdditions)
 

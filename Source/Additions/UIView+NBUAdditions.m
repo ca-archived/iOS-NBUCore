@@ -19,7 +19,7 @@
 //
 
 #import "UIView+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 @implementation UIView (NBUAdditions)
 

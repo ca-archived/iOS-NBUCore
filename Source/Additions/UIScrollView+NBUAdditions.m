@@ -19,6 +19,7 @@
 //
 
 #import "UIScrollView+NBUAdditions.h"
+#import "NBUCorePrivate.h"
 
 @implementation UIScrollView (NBUAdditions)
 

@@ -21,6 +21,7 @@
 #import "NBULog.h"
 #import "NBUDashboard.h"
 #import "NBUDashboardLogger.h"
+#import "NBUCorePrivate.h"
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CocoaLumberjack/DDFileLogger.h>
 #import <CocoaLumberjack/DDASLLogger.h>
@@ -524,3 +525,33 @@ static NSString * _processName;
 }
 
 @end
+
+
+#pragma mark - NBULog (NBUCore)
+
+static int _coreLogLevel;
+
+@implementation NBULog (NBUCore)
+
++ (void)load
+{
+    // Default levels
+#ifdef DEBUG
+    [self setCoreLogLevel:LOG_LEVEL_INFO];
+#else
+    [self setCoreLogLevel:LOG_LEVEL_WARN];
+#endif
+}
+
++ (void)setCoreLogLevel:(int)LOG_LEVEL_XXX
+{
+    _coreLogLevel = LOG_LEVEL_XXX;
+}
+
++ (int)coreLogLevel
+{
+    return _coreLogLevel;
+}
+
+@end
+

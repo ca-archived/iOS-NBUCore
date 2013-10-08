@@ -19,7 +19,7 @@
 //
 
 #import "NBUAlertView.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 
 // Private category
 @interface NBUAlertView (Private) <UIAlertViewDelegate>

@@ -19,7 +19,7 @@
 //
 
 #import "UIApplication+NBUAdditions.h"
-#import "NBULog.h"
+#import "NBUCorePrivate.h"
 #import <Lockbox/Lockbox.h>
 
 @implementation UIApplication (NBUAdditions)

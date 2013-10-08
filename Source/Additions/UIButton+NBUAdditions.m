@@ -19,6 +19,7 @@
 //
 
 #import "UIButton+NBUAdditions.h"
+#import "NBUCorePrivate.h"
 
 @implementation UIButton (NBUAdditions)
 
