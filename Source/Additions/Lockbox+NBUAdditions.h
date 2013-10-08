@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#import "Lockbox.h"
+#import <Lockbox/Lockbox.h>
 
 /**
  Lockbox additions to be able to save dictionary and keys to the keychain.
