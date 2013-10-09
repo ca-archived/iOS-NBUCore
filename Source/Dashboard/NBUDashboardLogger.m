@@ -68,7 +68,9 @@
     [super awakeFromNib];
     
     // Customize searchBar keyboard's return key
-    for(UIView * view in _searchBar.subviews)
+    NSArray * subviewsToCheck = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ? ((UIView *)_searchBar.subviews[0]).subviews :
+                                                                                  _searchBar.subviews;
+    for(UIView * view in subviewsToCheck)
     {
         if([view conformsToProtocol:@protocol(UITextInputTraits)])
         {
