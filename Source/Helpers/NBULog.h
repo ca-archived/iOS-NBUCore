@@ -24,19 +24,22 @@
 #define APP_LOG_CONTEXT     0
 
 /// App modules
-/// Define more in your Prefix.pch file if needed (max 10 modules).
+/// Define more in your Prefix.pch file if needed (max 20 modules).
 /// Ex.:    #define APP_MODULE_NETWORK  1
-#define APP_MODULE_GENERAL  0
+#define APP_MODULE_DEFAULT  0
 
-/// By default all files will be in the "General" module.
+/// By default all files will be in the "Default" module.
 /// Change the module of any file by redefining `APP_MODULE` at
 /// the beginning of the implementation file. Ex.:
 ///     #undef APP_MODULE
 ///     #define APP_MODULE APP_MODULE_NETWORK
-#define APP_MODULE          APP_MODULE_GENERAL
+#define APP_MODULE          APP_MODULE_DEFAULT
 
 /// Dynamic levels
 #define APP_LOG_LEVEL       [NBULog appLogLevelForModule:APP_MODULE]
+
+/// Log level used to clear modules' log levels
+#define LOG_LEVEL_DEFAULT   -1
 
 /// Remove NSLog from non DEBUG builds
 #ifndef DEBUG
@@ -65,13 +68,21 @@
  - AppLogLevel: `LOG_LEVEL_VERBOSE` for `DEBUG`, `LOG_LEVEL_INFO` otherwise.
  - Loggers: DDTTYLogger for `DEBUG`, DDFileLogger otherwise.
  
- Manually add NBUDashboard or DDASLLogger if desired.
+ Manually add NBUDashboard, DDTTYLogger, DDASLLogger or DDFileLogger if desired.
  
  To add register new modules just create a NBULog category.
  */
 @interface NBULog : DDLog
 
 /// @name Adjusting App Log Levels
+
+/// Get the current App log level.
++ (int)appLogLevel;
+
+/// Dynamically set the App log level for all modules at once.
+/// @param LOG_LEVEL_XXX The desired log level.
+/// @note Setting this value clears all modules' levels.
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX;
 
 /// Get the current App log level for a given module.
 /// @param APP_MODULE_XXX The target module.
@@ -82,10 +93,6 @@
 /// @param APP_MODULE_XXX The target module.
 + (void)setAppLogLevel:(int)LOG_LEVEL_XXX
              forModule:(int)APP_MODULE_XXX;
-
-/// Dynamically set the App log level for all modules at once.
-/// @param LOG_LEVEL_XXX The desired log level.
-+ (void)setAppLogLevel:(int)LOG_LEVEL_XXX;
 
 /// @name Adding Loggers
 

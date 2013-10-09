@@ -26,14 +26,14 @@
 #import <CocoaLumberjack/DDFileLogger.h>
 #import <CocoaLumberjack/DDASLLogger.h>
 
-#define MAX_MODULES 10
+#define MAX_MODULES 20
 
-static int _appLogLevel[MAX_MODULES];
-
-static id<DDLogFormatter> _nbuLogFormatter;
+static int _appLogLevel;
+static int _appModuleLogLevel[MAX_MODULES];
 
 @implementation NBULog
 
+static id<DDLogFormatter> _nbuLogFormatter;
 static BOOL _dashboardLoggerAdded;
 static BOOL _ttyLoggerAdded;
 static BOOL _aslLoggerAdded;
@@ -44,33 +44,50 @@ static BOOL _fileLoggerAdded;
 {
     _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
 
-    // Default log levels and loggers
+    // Default log level
+    [self setAppLogLevel:LOG_LEVEL_DEFAULT];
+    
+    // Default loggers
 #ifdef DEBUG
-    [self setAppLogLevel:LOG_LEVEL_VERBOSE];
     [self addTTYLogger];
 #else
-    [self setAppLogLevel:LOG_LEVEL_INFO];
     [self addFileLogger];
 #endif
 }
 
++ (int)appLogLevel
+{
+    return _appLogLevel;
+}
+
 + (int)appLogLevelForModule:(int)APP_MODULE_XXX
 {
-    return _appLogLevel[APP_MODULE_XXX];
+    int logLevel = _appModuleLogLevel[APP_MODULE_XXX];
+    
+    // Fallback to the default log level if necessary
+    return logLevel == LOG_LEVEL_DEFAULT ? _appLogLevel : logLevel;
+}
+
++ (void)setAppLogLevel:(int)LOG_LEVEL_XXX
+{
+#ifdef DEBUG
+    _appLogLevel = LOG_LEVEL_XXX == LOG_LEVEL_DEFAULT ? LOG_LEVEL_VERBOSE : LOG_LEVEL_XXX;
+#else
+    _appLogLevel = LOG_LEVEL_XXX == LOG_LEVEL_DEFAULT ? LOG_LEVEL_INFO : LOG_LEVEL_XXX;
+#endif
+    
+    // Reset all modules' levels
+    for (int i = 0; i < MAX_MODULES; i++)
+    {
+        [self setAppLogLevel:LOG_LEVEL_DEFAULT
+                   forModule:i];
+    }
 }
 
 + (void)setAppLogLevel:(int)LOG_LEVEL_XXX
              forModule:(int)APP_MODULE_XXX
 {
-    _appLogLevel[APP_MODULE_XXX] = LOG_LEVEL_XXX;
-}
-
-+ (void)setAppLogLevel:(int)LOG_LEVEL_XXX
-{
-    for (int i = 0; i < MAX_MODULES; i++)
-    {
-        _appLogLevel[i] = LOG_LEVEL_XXX;
-    }
+    _appModuleLogLevel[APP_MODULE_XXX] = LOG_LEVEL_XXX;
 }
 
 #pragma mark - Adding loggers
