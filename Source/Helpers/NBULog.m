@@ -40,12 +40,15 @@ static BOOL _aslLoggerAdded;
 static BOOL _fileLoggerAdded;
 
 // Configure a formatter, default levels and add default loggers
-+ (void)initialize
++ (void)load
 {
     _nbuLogFormatter = [NSClassFromString(@"NBULogFormatter") new];
 
     // Default log level
     [self setAppLogLevel:LOG_LEVEL_DEFAULT];
+    
+    // Register the App log context
+    [NBULog registerAppContextModules:nil];
     
     // Default loggers
 #ifdef DEBUG
@@ -544,6 +547,42 @@ static NSString * _processName;
 @end
 
 
+#pragma mark - NBULog (NBULogContextDescription)
+
+#import "NBULogContextDescription.h"
+
+static NSMutableDictionary * _registeredContexts;
+
+@implementation NBULog (NBULogContextDescription)
+
++ (void)registerAppContextModules:(NSDictionary *)appContextModules
+{
+    [self registerContextDescription:[NBULogContextDescription descriptionWithName:@"App"
+                                                                           context:APP_LOG_CONTEXT
+                                                                           modules:appContextModules
+                                                                 contextLevelBlock:^{ return [NBULog appLogLevel]; }
+                                                              setContextLevelBlock:^(int level) { [NBULog setAppLogLevel:level]; }
+                                                        contextLevelForModuleBlock:^(int module) { return [NBULog appLogLevelForModule:module]; }
+                                                     setContextLevelForModuleBlock:^(int module, int level) { [NBULog setAppLogLevel:level forModule:module]; }]];
+}
+
++ (void)registerContextDescription:(NBULogContextDescription *)contextDescription
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+    {
+        _registeredContexts = [NSMutableDictionary dictionary];
+    });
+    
+    @synchronized(self)
+    {
+        _registeredContexts[@(contextDescription.logContext)] = contextDescription;
+    }
+}
+
+@end
+
+
 #pragma mark - NBULog (NBUCore)
 
 static int _coreLogLevel;
@@ -553,16 +592,26 @@ static int _coreLogLevel;
 + (void)load
 {
     // Default levels
-#ifdef DEBUG
-    [self setCoreLogLevel:LOG_LEVEL_INFO];
-#else
-    [self setCoreLogLevel:LOG_LEVEL_WARN];
-#endif
+    [self setCoreLogLevel:LOG_LEVEL_DEFAULT];
+    
+    // Register the NBUCore log context
+    [NBULog registerContextDescription:[NBULogContextDescription descriptionWithName:@"NBUCore"
+                                                                             context:NBUCORE_LOG_CONTEXT
+                                                                             modules:nil
+                                                                   contextLevelBlock:^{ return [NBULog coreLogLevel]; }
+                                                                setContextLevelBlock:^(int level) { [NBULog setCoreLogLevel:level]; }
+                                                          contextLevelForModuleBlock:NULL
+                                                       setContextLevelForModuleBlock:NULL]];
 }
 
 + (void)setCoreLogLevel:(int)LOG_LEVEL_XXX
 {
-    _coreLogLevel = LOG_LEVEL_XXX;
+#ifdef DEBUG
+    _coreLogLevel = LOG_LEVEL_XXX == LOG_LEVEL_DEFAULT ? LOG_LEVEL_INFO : LOG_LEVEL_XXX;
+#else
+    _coreLogLevel = LOG_LEVEL_XXX == LOG_LEVEL_DEFAULT ? LOG_LEVEL_WARN : LOG_LEVEL_XXX;
+#endif
+    
 }
 
 + (int)coreLogLevel

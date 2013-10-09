@@ -115,6 +115,18 @@
 @end
 
 
+@class NBULogContextDescription;
+
+/**
+ */
+@interface NBULog (NBULogContextDescription)
+
++ (void)registerAppContextModules:(NSDictionary *)appContextModules;
++ (void)registerContextDescription:(NBULogContextDescription *)contextDescription;
+
+@end
+
+
 /**
  NBULog category used to set/get NBUCore log levels.
  
