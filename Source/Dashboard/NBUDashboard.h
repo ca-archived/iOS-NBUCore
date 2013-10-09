@@ -44,6 +44,8 @@
 /// A button to toggle: the dashboard size.
 @property (weak, nonatomic) IBOutlet        UIButton * toggleButton;
 
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray * fullscreenOnlyViews;
+
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
 - (IBAction)toggle:(id)sender;

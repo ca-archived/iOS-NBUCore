@@ -44,7 +44,6 @@ static NBUDashboard * _sharedDashboard;
     dispatch_once(&onceToken, ^
                   {
                       CGRect frame = [UIScreen mainScreen].bounds;
-//                      frame.size = CGSizeMake(20.0, 20.0);
                       _sharedDashboard = [[NBUDashboard alloc] initWithFrame:frame];
                   });
     return _sharedDashboard;
@@ -243,6 +242,12 @@ static NBUDashboard * _sharedDashboard;
             [self makeKeyWindow];
 //            NSLog(@"+++ %@ -> %@", _keyWindow, [UIApplication sharedApplication].keyWindow);
         }
+        
+        // Show fullscreen-only views
+        for (UIView * view in _fullscreenOnlyViews)
+        {
+            view.hidden = NO;
+        }
     }
     else
     {
@@ -252,6 +257,12 @@ static NBUDashboard * _sharedDashboard;
             [_keyWindow makeKeyWindow];
             _keyWindow = nil;
 //            NSLog(@"+++ %@ <-", [UIApplication sharedApplication].keyWindow);
+        }
+        
+        // Hide fullscreen-only views
+        for (UIView * view in _fullscreenOnlyViews)
+        {
+            view.hidden = YES;
         }
     }
 }
