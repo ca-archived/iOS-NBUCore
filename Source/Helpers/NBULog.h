@@ -121,8 +121,9 @@
  */
 @interface NBULog (NBULogContextDescription)
 
-+ (void)registerAppContextModules:(NSDictionary *)appContextModules;
++ (void)registerAppContextWithModulesAndNames:(NSDictionary *)appContextModulesAndNames;
 + (void)registerContextDescription:(NBULogContextDescription *)contextDescription;
++ (NSArray *)orderedRegisteredContexts;
 
 @end
 

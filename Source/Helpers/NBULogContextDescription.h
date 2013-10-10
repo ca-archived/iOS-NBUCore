@@ -28,7 +28,7 @@ typedef void (^NBULogSetContextLevelForModuleBlock)(int module, int level);
 
 + (NBULogContextDescription *)descriptionWithName:(NSString *)name
                                           context:(int)logContext
-                                          modules:(NSDictionary *)modules
+                                  modulesAndNames:(NSDictionary *)modulesAndNames
                                 contextLevelBlock:(NBULogContextLevelBlock)contextLevel
                              setContextLevelBlock:(NBULogSetContextLevelBlock)setContextLevel
                        contextLevelForModuleBlock:(NBULogContextLevelForModuleBlock)contextLevelForModule
@@ -36,7 +36,8 @@ typedef void (^NBULogSetContextLevelForModuleBlock)(int module, int level);
 
 @property (strong, nonatomic, readonly) NSString * name;
 @property (nonatomic, readonly)         int logContext;
-@property (strong, nonatomic, readonly) NSDictionary * modules;
+@property (strong, nonatomic, readonly) NSDictionary * modulesAndNames;
+@property (strong, nonatomic, readonly) NSArray * orderedModules;
 @property (copy, nonatomic, readonly)   NBULogContextLevelBlock contextLevel;
 @property (copy, nonatomic, readonly)   NBULogSetContextLevelBlock setContextLevel;
 @property (copy, nonatomic, readonly)   NBULogContextLevelForModuleBlock contextLevelForModule;

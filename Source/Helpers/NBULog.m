@@ -48,7 +48,7 @@ static BOOL _fileLoggerAdded;
     [self setAppLogLevel:LOG_LEVEL_DEFAULT];
     
     // Register the App log context
-    [NBULog registerAppContextModules:nil];
+    [NBULog registerAppContextWithModulesAndNames:nil];
     
     // Default loggers
 #ifdef DEBUG
@@ -555,11 +555,11 @@ static NSMutableDictionary * _registeredContexts;
 
 @implementation NBULog (NBULogContextDescription)
 
-+ (void)registerAppContextModules:(NSDictionary *)appContextModules
++ (void)registerAppContextWithModulesAndNames:(NSDictionary *)appContextModulesAndNames
 {
     [self registerContextDescription:[NBULogContextDescription descriptionWithName:@"App"
                                                                            context:APP_LOG_CONTEXT
-                                                                           modules:appContextModules
+                                                                   modulesAndNames:appContextModulesAndNames
                                                                  contextLevelBlock:^{ return [NBULog appLogLevel]; }
                                                               setContextLevelBlock:^(int level) { [NBULog setAppLogLevel:level]; }
                                                         contextLevelForModuleBlock:^(int module) { return [NBULog appLogLevelForModule:module]; }
@@ -580,6 +580,16 @@ static NSMutableDictionary * _registeredContexts;
     }
 }
 
++ (NSArray *)orderedRegisteredContexts
+{
+    NSMutableArray * orderedContexts = [NSMutableArray array];
+    for (id key in [_registeredContexts.allKeys sortedArrayUsingSelector:@selector(compare:)])
+    {
+        [orderedContexts addObject:_registeredContexts[key]];
+    }
+    return orderedContexts;
+}
+
 @end
 
 
@@ -597,7 +607,7 @@ static int _coreLogLevel;
     // Register the NBUCore log context
     [NBULog registerContextDescription:[NBULogContextDescription descriptionWithName:@"NBUCore"
                                                                              context:NBUCORE_LOG_CONTEXT
-                                                                             modules:nil
+                                                                     modulesAndNames:nil
                                                                    contextLevelBlock:^{ return [NBULog coreLogLevel]; }
                                                                 setContextLevelBlock:^(int level) { [NBULog setCoreLogLevel:level]; }
                                                           contextLevelForModuleBlock:NULL

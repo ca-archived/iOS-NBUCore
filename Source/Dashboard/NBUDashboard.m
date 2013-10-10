@@ -154,7 +154,7 @@ static NBUDashboard * _sharedDashboard;
     self.minimized = YES;
 }
 
-- (IBAction)toggle:(id)sender
+- (IBAction)toggleFullscreen:(id)sender
 {
     _toggleButton.selected = !_toggleButton.selected;
     
@@ -170,6 +170,21 @@ static NBUDashboard * _sharedDashboard;
              self.minimized = YES;
          }
      }];
+}
+
+- (IBAction)toggleAdjustLevelsView:(id)sender
+{
+    // Show adjust levels view?
+    if (self.rootViewController.view == _loggerView)
+    {
+        self.rootViewController.view = _adjustLevelsView;
+    }
+    
+    // Set back the logger view
+    else
+    {
+        self.rootViewController.view = _loggerView;
+    }
 }
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer

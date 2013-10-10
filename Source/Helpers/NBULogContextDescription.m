@@ -25,7 +25,7 @@
 
 + (NBULogContextDescription *)descriptionWithName:(NSString *)name
                                           context:(int)logContext
-                                          modules:(NSDictionary *)modules
+                                  modulesAndNames:(NSDictionary *)modulesAndNames
                                 contextLevelBlock:(NBULogContextLevelBlock)contextLevel
                              setContextLevelBlock:(NBULogSetContextLevelBlock)setContextLevel
                        contextLevelForModuleBlock:(NBULogContextLevelForModuleBlock)contextLevelForModule
@@ -34,7 +34,8 @@
     NBULogContextDescription * description = [NBULogContextDescription new];
     description->_name = name;
     description->_logContext = logContext;
-    description->_modules = modules;
+    description->_modulesAndNames = modulesAndNames;
+    description->_orderedModules = [modulesAndNames.allKeys sortedArrayUsingSelector:@selector(compare:)];
     description->_contextLevel = contextLevel;
     description->_setContextLevel = setContextLevel;
     description->_contextLevelForModule = contextLevelForModule;

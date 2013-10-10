@@ -45,10 +45,14 @@
 @property (weak, nonatomic) IBOutlet        UIButton * toggleButton;
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray * fullscreenOnlyViews;
+@property (strong, nonatomic) IBOutlet      UIView * loggerView;
+@property (strong, nonatomic) IBOutlet      UIView * adjustLevelsView;
 
 /// Maximize/minimize the log dashboard.
 /// @param sender The sender object.
-- (IBAction)toggle:(id)sender;
+- (IBAction)toggleFullscreen:(id)sender;
+
+- (IBAction)toggleAdjustLevelsView:(id)sender;
 
 /// @name Properties
 
