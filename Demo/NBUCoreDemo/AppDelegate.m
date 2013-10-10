@@ -28,9 +28,12 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Configure NBULog
-    [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
+    [NBULog registerAppContextWithModulesAndNames:@{@(1) : @"Module 1",
+                                                    @(2) : @"Module 2",
+                                                    @(3) : @"Module 3"}];
+//    [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
 #ifdef DEBUG
-    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for DEBUG builds
+//    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for DEBUG builds
 #endif
     
 #if defined (DEBUG) ||  defined (TESTING)

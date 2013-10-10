@@ -40,6 +40,7 @@ install_resource()
   esac
 }
 install_resource "../../Source/Dashboard/NBUDashboard.xib"
+install_resource "../../Source/Dashboard/NBULogAdjustLevelsCell.xib"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
