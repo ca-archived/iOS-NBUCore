@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name          = "NBUCore"
-    s.version       = "1.9.6"
+    s.version       = "1.9.7"
     s.summary       = "Convenience extensions and utilities for iOS projects."
     s.homepage      = "http://cyberagent.github.io/iOS-NBUCore/"
     s.license       = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
