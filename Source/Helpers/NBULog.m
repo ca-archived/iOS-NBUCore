@@ -127,12 +127,37 @@ static BOOL _fileLoggerAdded;
     ttyLogger.logFormatter = _nbuLogFormatter;
     [self addLogger:ttyLogger];
     
-    // Colors for iOS are not working yet...
-    //    [ttyLogger setColorsEnabled:YES];
-    //    [ttyLogger setForegroundColor:[UIColor redColor]
-    //                  backgroundColor:nil
-    //                          forFlag:LOG_FLAG_VERBOSE];
-
+    // XcodeColors installed and enabled?
+    char *xcode_colors = getenv("XcodeColors");
+    if (xcode_colors && (strcmp(xcode_colors, "YES") == 0))
+    {
+        // Set default colors
+        [ttyLogger setForegroundColor:[UIColor colorWithRed:0.5
+                                                      green:0.5
+                                                       blue:0.5
+                                                      alpha:1.0]
+                      backgroundColor:nil
+                              forFlag:LOG_FLAG_VERBOSE];
+        [ttyLogger setForegroundColor:[UIColor colorWithRed:26.0/255.0
+                                                      green:158.0/255.0
+                                                       blue:4.0/255.0
+                                                      alpha:1.0]
+                      backgroundColor:nil
+                              forFlag:LOG_FLAG_INFO];
+        [ttyLogger setForegroundColor:[UIColor colorWithRed:244.0/255.0
+                                                      green:103.0/255.0
+                                                       blue:8.0/255.0
+                                                      alpha:1.0]
+                      backgroundColor:nil
+                              forFlag:LOG_FLAG_WARN];
+        [ttyLogger setForegroundColor:[UIColor redColor]
+                      backgroundColor:nil
+                              forFlag:LOG_FLAG_ERROR];
+        
+        // Enable colors
+        [ttyLogger setColorsEnabled:YES];
+    }
+    
     _ttyLoggerAdded = YES;
 }
 
