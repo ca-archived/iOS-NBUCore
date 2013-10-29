@@ -53,8 +53,6 @@ static BOOL _fileLoggerAdded;
     // Default loggers
 #ifdef DEBUG
     [self addTTYLogger];
-#else
-    [self addFileLogger];
 #endif
 }
 
