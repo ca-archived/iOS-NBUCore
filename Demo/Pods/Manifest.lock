@@ -1,5 +1,5 @@
 PODS:
-  - CocoaLumberjack (1.6.2)
+  - CocoaLumberjack (HEAD based on 1.6.2)
   - Lockbox (1.4.3)
   - NBUCore (2.0.0):
     - CocoaLumberjack (~> 1.6.2)
@@ -22,13 +22,10 @@ PODS:
     - Lockbox (~> 1.4.3)
 
 DEPENDENCIES:
-  - CocoaLumberjack (from `https://github.com/rivera-ernesto/CocoaLumberjack.git`, commit `635987dacce6ecd8a315b66d5422c8abf6107ae0`)
+  - CocoaLumberjack (HEAD)
   - NBUCore (from `../`)
 
 EXTERNAL SOURCES:
-  CocoaLumberjack:
-    :commit: 635987dacce6ecd8a315b66d5422c8abf6107ae0
-    :git: https://github.com/rivera-ernesto/CocoaLumberjack.git
   NBUCore:
     :path: ../
 
