@@ -18,21 +18,47 @@
 //  limitations under the License.
 //
 
-// *** Check NBUCoreDemo-Prefix.pch ***
+// *** Optionally add this file to the target's prefix file ***
 
-#if defined (DEBUG) ||  defined (TESTING)
+// Production settings
+#define	ProductionConfigurationName         @"Production"
+#define	ProductionConnectionServer          @"cyberagent.co.jp"
+#define ProductionConnectionAPIServer       @"api.cyberagent.co.jp"
+#define ProductionConnectionProtocol        @"https"
+#define	ProductionConnectionToken           @"9324982-1-0029384"
+#define ProductionAnotherGlobalParameter    @[@"Anything that you can save", @"to NSUserDefaults"]
 
-// *** You need your own NBUConfigurationPicker subclass! ***
-@interface MyConfigurationPicker : NBUConfigurationPicker
+// Settings for non DEBUG/TESTING builds
+#if !defined (DEBUG) &&  !defined (TESTING)
 
-// Your project configuration parameters
-+ (NSString *)server;
-+ (NSString *)apiServer;
-+ (NSString *)protocol;
-+ (NSString *)token;
-+ (NSArray *)anotherParameter;
+    #define	ConfigurationName			ProductionConfigurationName
+    #define	ConnectionServer			ProductionConnectionServer
+    #define ConnectionAPIServer         ProductionConnectionAPIServer
+    #define ConnectionProtocol          ProductionConnectionProtocol
+    #define	ConnectionToken             ProductionConnectionToken
+    #define AnotherGlobalParameter      ProductionAnotherGlobalParameter
 
-@end
+// Settings for DEBUG/TESTING builds
+#else
+
+    // *** You need your own NBUConfigurationPicker subclass! ***
+    @interface MyConfigurationPicker : NBUConfigurationPicker
+
+    // Convenience methods
+    + (NSString *)server;
+    + (NSString *)apiServer;
+    + (NSString *)protocol;
+    + (NSString *)token;
+    + (NSArray *)anotherParameter;
+
+    @end
+
+    #define	ConfigurationName			MyConfigurationPicker.currentConfigurationName
+    #define	ConnectionServer			MyConfigurationPicker.server
+    #define ConnectionAPIServer         MyConfigurationPicker.apiServer
+    #define ConnectionProtocol          MyConfigurationPicker.protocol
+    #define	ConnectionToken             MyConfigurationPicker.token
+    #define AnotherGlobalParameter      MyConfigurationPicker.anotherParameter
 
 #endif
 

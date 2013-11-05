@@ -21,7 +21,7 @@
 @interface ConfigurationPickerViewController : UIViewController
 
 // Outlets
-@property (assign, nonatomic) IBOutlet UITextView * textView;
+@property (weak, nonatomic) IBOutlet UITextView * textView;
 
 // Actions
 - (IBAction)changeConfiguration:(id)sender;

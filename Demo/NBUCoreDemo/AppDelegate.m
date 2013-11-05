@@ -3,7 +3,7 @@
 //  NBUCoreDemo
 //
 //  Created by Ernesto Rivera on 2012/12/20.
-//  Copyright (c) 2012 CyberAgent Inc.
+//  Copyright (c) 2012-2013 CyberAgent Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -28,9 +28,12 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Configure NBULog
-    [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
+    [NBULog registerAppContextWithModulesAndNames:@{@(1) : @"Module 1",
+                                                    @(2) : @"Module 2",
+                                                    @(3) : @"Module 3"}];
+//    [NBULog setAppLogLevel:LOG_LEVEL_INFO];     // Info, warning and errors only
 #ifdef DEBUG
-    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for DEBUG builds
+//    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];  // Also verbose for DEBUG builds
 #endif
     
 #if defined (DEBUG) ||  defined (TESTING)

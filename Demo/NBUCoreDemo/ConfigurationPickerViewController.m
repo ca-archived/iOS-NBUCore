@@ -19,6 +19,7 @@
 //
 
 #import "ConfigurationPickerViewController.h"
+#import "MyConfigurationPicker.h"
 
 @implementation ConfigurationPickerViewController
 

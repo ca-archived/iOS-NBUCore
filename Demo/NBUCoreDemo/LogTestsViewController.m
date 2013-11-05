@@ -3,7 +3,7 @@
 //  NBUCoreDemo
 //
 //  Created by Ernesto Rivera on 2012/12/20.
-//  Copyright (c) 2012 CyberAgent Inc.
+//  Copyright (c) 2012-2013 CyberAgent Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -37,8 +37,6 @@ void testCLogs()
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [NBULog setAppLogLevel:LOG_LEVEL_VERBOSE];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
     {
