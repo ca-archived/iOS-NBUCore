@@ -1,6 +1,6 @@
 PODS:
   - CocoaLumberjack (HEAD based on 1.6.2)
-  - Lockbox (1.4.3)
+  - Lockbox (1.4.4)
   - NBUCore (2.0.0):
     - CocoaLumberjack (~> 1.6.2)
     - Lockbox (~> 1.4.3)
@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 2619775f386bbec1e870eddb5040f870c68726b1
-  Lockbox: 1bcfd564f034b83456fcad5bdd49470a80a38d2b
+  Lockbox: 917945068ab8b0802e65527f225e6480937b2106
   NBUCore: a2c469207e96f9b582411794ac65f72a25d81584
 
 COCOAPODS: 0.25.0

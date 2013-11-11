@@ -208,6 +208,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "CyberAgent Inc.";
+				TargetAttributes = {
+					E5E5DFDD1730EA18004985B1 = {
+						DevelopmentTeam = UA6QHU98F6;
+					};
+				};
 			};
 			buildConfigurationList = E5E5DFD91730EA18004985B1 /* Build configuration list for PBXProject "NBUCoreDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -391,12 +396,14 @@
 			buildSettings = {
 				BUNDLEID = "jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}-dev";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DISPLAYNAME = NBUCoreDev;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NBUCoreDemo/NBUCoreDemo-Prefix.pch";
 				INFOPLIST_FILE = "NBUCoreDemo/NBUCoreDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -408,13 +415,14 @@
 			buildSettings = {
 				BUNDLEID = "jp.co.cyberagent.nbu.${PRODUCT_NAME:rfc1034identifier}-ota";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DISPLAYNAME = NBUCore;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NBUCoreDemo/NBUCoreDemo-Prefix.pch";
 				INFOPLIST_FILE = "NBUCoreDemo/NBUCoreDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -42,7 +42,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
     
     NBULogTrace();
+    
     NSLog(@"This NSLog will only appear on DEBUG builds");
+    
+    // Try a log from a backgroud thread
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NBULogInfo(@"Message from another thread");
+    });
     
     // Prepare the window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
