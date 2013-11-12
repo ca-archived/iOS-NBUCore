@@ -47,7 +47,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     // Try a log from a backgroud thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NBULogInfo(@"Message from another thread");
+        NBULogDebug(@"Message from another thread");
     });
     
     // Prepare the window

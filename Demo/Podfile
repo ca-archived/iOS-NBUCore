@@ -5,6 +5,6 @@ platform :ios, '5.0'
 # pod 'NBUCore',    '~> 2.0.0'
 
 # For NBUCore development:
-pod 'CocoaLumberjack',  :head
+#pod 'CocoaLumberjack',  :head
 #pod 'CocoaLumberjack',  :path => '../../../CocoaLumberjack'
 pod 'NBUCore',          :path => '../'

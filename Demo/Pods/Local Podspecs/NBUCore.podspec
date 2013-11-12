@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     s.preserve_paths = "README.*", "NOTICE", "*.xcconfig"
     
     s.dependency 'Lockbox',         '~> 1.4.3'
-    s.dependency 'CocoaLumberjack', '~> 1.6.2'
+    s.dependency 'CocoaLumberjack', '~> 1.6.3'
     
     s.subspec 'UI' do |su|
         su.source_files = 'Source/UI/*.{h,m}'
