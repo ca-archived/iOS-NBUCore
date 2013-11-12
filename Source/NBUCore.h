@@ -22,7 +22,7 @@
 #import "NBUUtil.h"
 
 /// Helpers
-#import "NBULog.h"
+#import "NBULog+NBUCore.h"
 #import "NBUConfigurationPicker.h"
 
 /// UI

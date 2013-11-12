@@ -1,0 +1,43 @@
+//
+//  NBULog+NBUCore.h
+//  NBUCore
+//
+//  Created by Ernesto Rivera on 2013/11/12.
+//  Copyright (c) 2012-2013 CyberAgent Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+#import "NBULog.h"
+
+/**
+ NBULog category used to set/get NBUCore log levels.
+ 
+ Default configuration (can be dynamically changed):
+ 
+ - Log level: `LOG_LEVEL_INFO` for `DEBUG` configurations, `LOG_LEVEL_WARN` otherwise.
+ 
+ */
+@interface NBULog (NBUCore)
+
+/// @name Adjusting NBUCore Log Levels
+
+/// Get the current NBUCore log level.
++ (int)coreLogLevel;
+
+/// Dynamically set the NBUCore log level for all modules at once.
+/// @param LOG_LEVEL_XXX The desired log level.
++ (void)setCoreLogLevel:(int)LOG_LEVEL_XXX;
+
+@end
+
