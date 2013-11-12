@@ -266,10 +266,11 @@
     NSString * prefix;
     switch (logMessage->logFlag)
     {
-        case LOG_FLAG_ERROR : prefix = @"X"; break;
-        case LOG_FLAG_WARN  : prefix = @"!"; break;
-        case LOG_FLAG_INFO  : prefix = @"i"; break;
-        default             : prefix = @"•"; break;
+        case LOG_FLAG_ERROR : prefix = @"Ⓔ"; break;
+        case LOG_FLAG_WARN  : prefix = @"Ⓦ"; break;
+        case LOG_FLAG_INFO  : prefix = @"Ⓘ"; break;
+        case LOG_FLAG_DEBUG : prefix = @"Ⓓ"; break;
+        default             : prefix = @"Ⓥ"; break;
     }
     
     // Selected cell?
@@ -355,10 +356,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
     // Configure the label
     switch (logMessage->logFlag)
     {
-        case LOG_FLAG_ERROR : label.textColor = [UIColor redColor];     break;
-        case LOG_FLAG_WARN  : label.textColor = [UIColor orangeColor];  break;
-        case LOG_FLAG_INFO  : label.textColor = [UIColor greenColor];   break;
-        default             : label.textColor = [UIColor whiteColor];   break;
+        case LOG_FLAG_ERROR : label.textColor = [UIColor redColor];         break;
+        case LOG_FLAG_WARN  : label.textColor = [UIColor orangeColor];      break;
+        case LOG_FLAG_INFO  : label.textColor = [UIColor greenColor];       break;
+        case LOG_FLAG_DEBUG : label.textColor = [UIColor whiteColor];       break;
+        default             : label.textColor = [UIColor lightGrayColor];   break;
     }
     
     label.text = [self textForCellFromTableView:tableView
@@ -425,8 +427,9 @@ selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
     switch (selectedScope)
     {
         case 0 : _currentLogLevel = LOG_LEVEL_VERBOSE;  break;
-        case 1 : _currentLogLevel = LOG_LEVEL_INFO;     break;
-        case 2 : _currentLogLevel = LOG_LEVEL_WARN;     break;
+        case 1 : _currentLogLevel = LOG_LEVEL_DEBUG;    break;
+        case 2 : _currentLogLevel = LOG_LEVEL_INFO;     break;
+        case 3 : _currentLogLevel = LOG_LEVEL_WARN;     break;
         default: _currentLogLevel = LOG_LEVEL_ERROR;    break;
     }
     

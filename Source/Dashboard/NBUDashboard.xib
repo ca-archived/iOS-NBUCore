@@ -63,8 +63,9 @@
 									</object>
 									<array key="IBScopeButtonTitles">
 										<string>Verbose</string>
+										<string>Debug</string>
 										<string>Info</string>
-										<string>Warning</string>
+										<string>Warn</string>
 										<string>Error</string>
 									</array>
 									<bool key="IBShowsScopeBar">YES</bool>

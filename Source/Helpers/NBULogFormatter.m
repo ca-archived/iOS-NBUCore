@@ -45,6 +45,7 @@ static NSString * _processName;
         case LOG_FLAG_ERROR : logLevel = @"E"; break;
         case LOG_FLAG_WARN  : logLevel = @"W"; break;
         case LOG_FLAG_INFO  : logLevel = @"I"; break;
+        case LOG_FLAG_DEBUG : logLevel = @"D"; break;
         default             : logLevel = @"V"; break;
     }
     

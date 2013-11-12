@@ -115,8 +115,11 @@
     int logLevel;
     switch ((int)sender.value)
     {
-        case 4:
+        case 5:
             logLevel = LOG_LEVEL_VERBOSE;
+            break;
+        case 4:
+            logLevel = LOG_LEVEL_DEBUG;
             break;
         case 3:
             logLevel = LOG_LEVEL_INFO;
@@ -224,11 +227,18 @@
             stepper.value = 3;
             break;
         }
+        case LOG_LEVEL_DEBUG:
+        {
+            label.text = @"Debug level";
+            label.textColor = [UIColor whiteColor];
+            stepper.value = 4;
+            break;
+        }
         case LOG_LEVEL_VERBOSE:
         {
             label.text = @"Verbose level";
-            label.textColor = [UIColor whiteColor];
-            stepper.value = 4;
+            label.textColor = [UIColor lightGrayColor];
+            stepper.value = 5;
             break;
         }
         case LOG_LEVEL_OFF:

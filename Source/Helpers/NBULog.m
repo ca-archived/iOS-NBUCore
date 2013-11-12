@@ -136,12 +136,18 @@ static BOOL _fileLoggerAdded;
     if (xcode_colors && (strcmp(xcode_colors, "YES") == 0))
     {
         // Set default colors
-        [ttyLogger setForegroundColor:[UIColor colorWithRed:0.5
-                                                      green:0.5
-                                                       blue:0.5
+        [ttyLogger setForegroundColor:[UIColor colorWithRed:0.65
+                                                      green:0.65
+                                                       blue:0.65
                                                       alpha:1.0]
                       backgroundColor:nil
                               forFlag:LOG_FLAG_VERBOSE];
+        [ttyLogger setForegroundColor:[UIColor colorWithRed:0.4
+                                                      green:0.4
+                                                       blue:0.4
+                                                      alpha:1.0]
+                      backgroundColor:nil
+                              forFlag:LOG_FLAG_DEBUG];
         [ttyLogger setForegroundColor:[UIColor colorWithRed:26.0/255.0
                                                       green:158.0/255.0
                                                        blue:4.0/255.0

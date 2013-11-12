@@ -86,7 +86,7 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<bool key="IBUIAutorepeat">NO</bool>
-								<double key="IBUIMaximumValue">4</double>
+								<double key="IBUIMaximumValue">5</double>
 							</object>
 							<object class="IBUILabel" id="690121253">
 								<reference key="NSNextResponder" ref="686710101"/>
