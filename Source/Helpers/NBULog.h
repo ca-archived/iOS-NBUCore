@@ -32,7 +32,7 @@
 /// Change the module of any file by redefining `APP_MODULE` at
 /// the beginning of the implementation file. Ex.:
 ///     #undef  APP_MODULE
-///     #define APP_MODULE APP_MODULE_NETWORK
+///     #define APP_MODULE  APP_MODULE_NETWORK
 #define APP_MODULE          APP_MODULE_DEFAULT
 
 /// Dynamic levels
@@ -47,12 +47,12 @@
 #endif
 
 /// Log with the currently defined APP_MODULE
-#define NBULogTrace()           NBULogVerbose(@"[%p] %@", self, THIS_METHOD)
 #define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,     APP_LOG_LEVEL, LOG_FLAG_ERROR,      APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,      APP_LOG_LEVEL, LOG_FLAG_WARN,       APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogInfo(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_INFO,      APP_LOG_LEVEL, LOG_FLAG_INFO,       APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogDebug(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_DEBUG,     APP_LOG_LEVEL, LOG_FLAG_DEBUG,      APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogVerbose(frmt, ...)LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE,   APP_LOG_LEVEL, LOG_FLAG_VERBOSE,    APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogTrace()           NBULogDebug(@"%@", THIS_METHOD)
 
 /// Log with specific module that may be different from the currently defined APP_MODULE
 #define NBULogErrorWithModule(mod, frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,     APP_LOG_LEVEL, LOG_FLAG_ERROR,      APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
@@ -60,7 +60,7 @@
 #define NBULogInfoWithModule(mod, frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_INFO,      APP_LOG_LEVEL, LOG_FLAG_INFO,       APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
 #define NBULogDebugWithModule(mod, frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_DEBUG,     APP_LOG_LEVEL, LOG_FLAG_DEBUG,      APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
 #define NBULogVerboseWithModule(mod, frmt, ...) LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE,   APP_LOG_LEVEL, LOG_FLAG_VERBOSE,    APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
-#define NBULogTraceForModule(mod)               NBULogVerboseForModule(mod, @"[%p] %@", self, THIS_METHOD)
+#define NBULogTraceWithModule(mod)              NBULogDebugForModule(mod, @"%@", THIS_METHOD)
 
 /**
  DDLog wrapper. Use it to set/get App log levels for debug or testing builds.
@@ -72,7 +72,7 @@
  
  Manually add NBUDashboard, DDTTYLogger, DDASLLogger or DDFileLogger if desired.
  
- To add register new modules just create a NBULog category.
+ To register new modules just create a NBULog category.
  */
 @interface NBULog : DDLog
 
@@ -131,24 +131,4 @@
 @end
 
 
-/**
- NBULog category used to set/get NBUCore log levels.
- 
- Default configuration (can be dynamically changed):
- 
- - Log level: `LOG_LEVEL_INFO` for `DEBUG`, `LOG_LEVEL_WARN` otherwise.
- 
- */
-@interface NBULog (NBUCore)
-
-/// @name Adjusting NBUCore Log Levels
-
-/// Get the current NBUCore log level.
-+ (int)coreLogLevel;
-
-/// Dynamically set the NBUCore log level for all modules at once.
-/// @param LOG_LEVEL_XXX The desired log level.
-+ (void)setCoreLogLevel:(int)LOG_LEVEL_XXX;
-
-@end
 

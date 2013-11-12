@@ -21,7 +21,7 @@
 #import <CocoaLumberjack/DispatchQueueLogFormatter.h>
 
 /**
- Default log formatter.
+ Default NBULog formatter.
  */
 @interface NBULogFormatter : DispatchQueueLogFormatter
 
