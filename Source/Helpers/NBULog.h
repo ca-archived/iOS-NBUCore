@@ -47,17 +47,17 @@
 #endif
 
 /// Log with the currently defined APP_MODULE
-#define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
-#define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
-#define NBULogInfo(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_INFO,    APP_LOG_LEVEL, LOG_FLAG_INFO,     APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
-#define NBULogVerbose(frmt, ...)LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE, APP_LOG_LEVEL, LOG_FLAG_VERBOSE,  APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 #define NBULogTrace()           NBULogVerbose(@"[%p] %@", self, THIS_METHOD)
+#define NBULogError(frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,     APP_LOG_LEVEL, LOG_FLAG_ERROR,      APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogWarn(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_WARN,      APP_LOG_LEVEL, LOG_FLAG_WARN,       APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogInfo(frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_INFO,      APP_LOG_LEVEL, LOG_FLAG_INFO,       APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
+#define NBULogVerbose(frmt, ...)LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE,   APP_LOG_LEVEL, LOG_FLAG_VERBOSE,    APP_LOG_CONTEXT + APP_MODULE, frmt, ##__VA_ARGS__)
 
 /// Log with specific module that may be different from the currently defined APP_MODULE
-#define NBULogErrorForModule(mod, frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,   APP_LOG_LEVEL, LOG_FLAG_ERROR,    APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
-#define NBULogWarnForModule(mod, frmt, ...)     LOG_OBJC_MAYBE(LOG_ASYNC_WARN,    APP_LOG_LEVEL, LOG_FLAG_WARN,     APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
-#define NBULogInfoForModule(mod, frmt, ...)     LOG_OBJC_MAYBE(LOG_ASYNC_INFO,    APP_LOG_LEVEL, LOG_FLAG_INFO,     APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
-#define NBULogVerboseForModule(mod, frmt, ...)  LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE, APP_LOG_LEVEL, LOG_FLAG_VERBOSE,  APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogErrorWithModule(mod, frmt, ...)   LOG_OBJC_MAYBE(LOG_ASYNC_ERROR,     APP_LOG_LEVEL, LOG_FLAG_ERROR,      APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogWarnWithModule(mod, frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_WARN,      APP_LOG_LEVEL, LOG_FLAG_WARN,       APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogInfoWithModule(mod, frmt, ...)    LOG_OBJC_MAYBE(LOG_ASYNC_INFO,      APP_LOG_LEVEL, LOG_FLAG_INFO,       APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
+#define NBULogVerboseWithModule(mod, frmt, ...) LOG_OBJC_MAYBE(LOG_ASYNC_VERBOSE,   APP_LOG_LEVEL, LOG_FLAG_VERBOSE,    APP_LOG_CONTEXT + mod, frmt, ##__VA_ARGS__)
 #define NBULogTraceForModule(mod)               NBULogVerboseForModule(mod, @"[%p] %@", self, THIS_METHOD)
 
 /**
