@@ -1,5 +1,5 @@
 //
-//  NBUUtil.m
+//  NBUCore.m
 //  NBUCore
 //
 //  Created by Ernesto Rivera on 2012/12/06.
@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#import "NBUUtil.h"
+#import "NBUCore.h"
 
 NSString * NBUStringFromBOOL(BOOL yesOrNo)
 {
