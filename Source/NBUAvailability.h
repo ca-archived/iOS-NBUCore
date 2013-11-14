@@ -1,5 +1,5 @@
 //
-//  NBUAvailavility.h
+//  NBUAvailability.h
 //  NBUCore
 //
 //  Created by Ernesto Rivera on 2013/10/01.
