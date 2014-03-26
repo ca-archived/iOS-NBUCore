@@ -34,6 +34,9 @@
 /// Detect "widescreen" devices (iPhone 5 or iPod Touch 4).
 #define DEVICE_IS_WIDESCREEN (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON)
 
+/// Print descriptive BOOL (e.g. `[NSString stringWithFormat:@"View is hidden: %@", NBUStringFromBOOL(view.hidden)]`).
+#define NBUStringFromBOOL(b) ((b) ? @"YES" : @"NO")
+
 /// @name Functions
 
 /// Convert valid UIDeviceOrientation to UIInterfaceOrientation.
@@ -42,9 +45,6 @@ extern UIInterfaceOrientation UIInterfaceOrientationFromValidDeviceOrientation(U
 /// Check if a given UIInterfaceOrientation is supported by a UIInterfaceOrientationMask.
 extern BOOL UIInterfaceOrientationIsSupportedByInterfaceOrientationMask(UIInterfaceOrientation orientation,
                                                                         UIInterfaceOrientationMask mask);
-
-/// Print descriptive BOOL: stringWithFormat:@"View is hidden: %@", NBUStringFromBOOL(view.hidden).
-extern NSString * NBUStringFromBOOL(BOOL yesOrNo);
 
 /// Whether the application is being debugged.
 extern BOOL AmIBeingDebugged(void);

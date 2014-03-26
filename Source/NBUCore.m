@@ -20,11 +20,6 @@
 
 #import "NBUCore.h"
 
-NSString * NBUStringFromBOOL(BOOL yesOrNo)
-{
-    return yesOrNo ? @"YES" : @"NO";
-}
-
 UIInterfaceOrientation UIInterfaceOrientationFromValidDeviceOrientation(UIDeviceOrientation orientation)
 {
     /*
