@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1>iOS NBUCore</h1>
-        <p>Convenience extensions and utilities for iOS projects</p>
+        <p>Convenience extensions and utilities for iOS projects.</p>
 
         <p class="view"><a href="https://github.com/CyberAgent/iOS-NBUCore">View the Project on GitHub <small>CyberAgent/iOS-NBUCore</small></a></p>
 
@@ -28,82 +28,44 @@
         </ul>
       </header>
       <section>
-        <p><a href="http://cocoadocs.org/docsets/NBUCore/"><img src="http://cocoapod-badges.herokuapp.com/p/NBUCore/badge.svg" alt="Platform: iOS"></a>
-<a href="http://cocoadocs.org/docsets/NBUCore/"><img src="http://cocoapod-badges.herokuapp.com/v/NBUCore/badge.png" alt="Version: 1.9.2"></a>
+        <p><a href="http://cocoadocs.org/docsets/NBUCore/"><img src="https://cocoapod-badges.herokuapp.com/p/NBUCore/badge.svg" alt="Platform: iOS"></a>
+<a href="http://cocoadocs.org/docsets/NBUCore/"><img src="https://cocoapod-badges.herokuapp.com/v/NBUCore/badge.png" alt="Version: 2.0.2"></a>
 <a href="https://travis-ci.org/CyberAgent/iOS-NBUCore"><img src="https://travis-ci.org/CyberAgent/iOS-NBUCore.png?branch=master" alt="Build Status"></a></p>
 
-<p>[<a href="README.jp.md">日本語</a>]</p>
-
-<p><img src="https://github.com/CyberAgent/iOS-NBUCore/wiki/images/NBUCore.png" alt="NBUCore"></p>
+<p><em><a href="https://github.com/CyberAgent/iOS-NBULog">NBULog</a> and <a href="https://github.com/CyberAgent/iOS-NBUKit">NBUKit</a>'s Additions used to be part of NBUCore.</em></p>
 
 <h2>
-<a name="components" class="anchor" href="#components"><span class="octicon octicon-link"></span></a>Components</h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <h3>
-<a name="xcconfig-files" class="anchor" href="#xcconfig-files"><span class="octicon octicon-link"></span></a>.xcconfig Files</h3>
+<a name="macros-and-functions" class="anchor" href="#macros-and-functions"><span class="octicon octicon-link"></span></a>Macros and Functions</h3>
 
-<p>Add these files to your target's build settings if you want to have some default settings
-to configure your Debug, Testing and Production configurations.</p>
+<p>Macros to detect system versions, device idioms, widescreen devices, etc.</p>
 
-<h3>
-<a name="nbuutil" class="anchor" href="#nbuutil"><span class="octicon octicon-link"></span></a>NBUUtil</h3>
-
-<p>Commonly needed macros, functions, etc.</p>
+<p>Functions to handle/transform <code>UIInterfaceOrientation</code>s/<code>UIDeviceOrientation</code>s, etc.</p>
 
 <h3>
-<a name="nbulog" class="anchor" href="#nbulog"><span class="octicon octicon-link"></span></a>NBULog</h3>
+<a name="availability" class="anchor" href="#availability"><span class="octicon octicon-link"></span></a>Availability</h3>
 
-<p>A very useful replacement for NSLog wich is also bad for performance.<br>
-Easy to use and easy to extend. Based on <a href="https://github.com/robbiehanson/CocoaLumberjack">Cocoa Lumberjack</a>.</p>
+<p>Temporarily make Xcode warn you when using new API calls that may crash on older devices.</p>
 
-<h3>
-<a name="nbuadditions" class="anchor" href="#nbuadditions"><span class="octicon octicon-link"></span></a>NBUAdditions</h3>
+<div class="highlight highlight-obj-c"><pre><span class="c1">// E.g. check for API that may crash on iOS 5.x devices.</span>
+<span class="cp">#define __IPHONE_OS_VERSION_SOFT_MAX_REQUIRED __IPHONE_5_0</span>
+<span class="cp">#import &lt;NBUCore/NBUAvailability.h&gt;</span>
 
-<p>Many useful UIKit and NSFoundation categories that could be useful for many applications.
-Import them all or just the ones you need.</p>
-
-<h3>
-<a name="nbudashboard" class="anchor" href="#nbudashboard"><span class="octicon octicon-link"></span></a>NBUDashboard</h3>
-
-<p>On-device log console that supports:</p>
-
-<ul>
-<li>Different colors for log levels.</li>
-<li>Expands and collapses text on tap.</li>
-<li>Can be filtered according to log levels or custom strings.</li>
-<li>Can be minimized, maximized or used in any size in between.</li>
-</ul><p><img src="https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard.png" alt="Dashboard" title="On-device log console"><img src="https://raw.github.com/wiki/CyberAgent/iOS-NBUCore/images/Dashboard_filter.png" alt="Dashboard minimized" title="Filter log messages"></p>
+</pre></div>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3>
-<a name="cocoapods-recomended" class="anchor" href="#cocoapods-recomended"><span class="octicon octicon-link"></span></a>Cocoapods (Recomended)</h3>
-
-<ol>
-<li>Install <a href="http://cocoapods.org">Cocoapods</a> if not already done.</li>
-<li>Add <code>pod 'NBUCore'</code> to your Podfile.</li>
-</ol><p><em>If you have a problem try <code>gem update cocoapods</code> first.</em></p>
-
-<h3>
-<a name="manual" class="anchor" href="#manual"><span class="octicon octicon-link"></span></a>Manual</h3>
-
-<ol>
-<li>Checkout <code>git@github.com:CyberAgent/iOS-NBUCore.git</code> or <a href="https://github.com/CyberAgent/iOS-NBUCore/tags">download</a>
-the NBUCore sources to your project directory.</li>
-<li>Import <code>NBUCore.h</code> or only the files that you need.</li>
-<li>Optionally add the <a href="#nbucore_xcconfig-files">configuration files</a> to your target.</li>
-</ol><p><em>Keychain access requires to link <code>Security.framework</code>.</em></p>
+<p>Simply add <code>pod 'NBUCore'</code> to your <a href="http://cocoapods.org">CocoaPods</a>' <a href="http://docs.cocoapods.org/podfile.html">Podfile</a>.</p>
 
 <h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
-<ul>
-<li>HTML: <a href="http://cocoadocs.org/docsets/NBUCore/">http://cocoadocs.org/docsets/NBUCore/</a>
-</li>
-<li>Xcode DocSet: <code>http://cocoadocs.org/docsets/NBUCore/xcode-docset.atom</code>
-</li>
-</ul><h2>
+<p><a href="http://cocoadocs.org/docsets/NBUCore/">http://cocoadocs.org/docsets/NBUCore/</a></p>
+
+<h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <pre><code>Licensed under the Apache License, Version 2.0 (the "License");
