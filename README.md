@@ -2,9 +2,10 @@
 NBUCore
 =======
 
-[![Platform: iOS](https://cocoapod-badges.herokuapp.com/p/NBUCore/badge.svg)](http://cocoadocs.org/docsets/NBUCore/)
-[![Version: 2.0.2](https://cocoapod-badges.herokuapp.com/v/NBUCore/badge.png)](http://cocoadocs.org/docsets/NBUCore/)
-[![Build Status](https://travis-ci.org/CyberAgent/iOS-NBUCore.png?branch=master)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
+[![Platform: iOS](https://img.shields.io/cocoapods/p/NBUCore.svg?style=flat)](http://cocoadocs.org/docsets/NBUCore/)
+[![Version: 2.0.2](https://img.shields.io/cocoapods/v/NBUCore.svg?style=flat)](http://cocoadocs.org/docsets/NBUCore/)
+[![License: Apache 2.0](https://img.shields.io/cocoapods/l/NBUCore.svg?style=flat)](http://cocoadocs.org/docsets/NBUCore/)
+[![Build Status](http://img.shields.io/travis/CyberAgent/iOS-NBUCore/master.svg?style=flat)](https://travis-ci.org/CyberAgent/iOS-NBUCore)
 
 Convenience macros, functions and API availability checks for iOS projects.
 
