@@ -32,13 +32,15 @@ Temporarily make Xcode warn you when using new API calls that may crash on older
 
 ## Installation
 
-Simply add `pod 'NBUCore'` to your [CocoaPods](http://cocoapods.org)' [Podfile](http://docs.cocoapods.org/podfile.html).
+Simply add `pod 'NBUCore'` to your [CocoaPods](http://cocoapods.org)' [Podfile](http://guides.cocoapods.org/syntax/podfile.html).
 
 ## Documentation
 
 http://cocoadocs.org/docsets/NBUCore/
 
 ## License
+
+    Copyright 2012-2014 CyberAgent Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License. 
