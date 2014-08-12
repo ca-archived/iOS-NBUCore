@@ -29,6 +29,7 @@
  E.g.:
  
      #define __IPHONE_OS_VERSION_SOFT_MAX_REQUIRED __IPHONE_5_0
+     #import <NBUCore/NBUAvailability.h>
  
  @note Only enable it temporarily to make sure you are properly guarding new APIs calls.
  
