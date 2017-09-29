@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "91B801BE04594854D5FF72E15DEA11C69D51C377",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "91B801BE04594854D5FF72E15DEA11C69D51C377" : 0,
+    "1CE69B63641D4BDEE596AA3BE34F2C59B2C2B1C4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EB7C3CE2-B13F-4B1F-B9A4-CB9CC6D23D74",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "91B801BE04594854D5FF72E15DEA11C69D51C377" : "NBUCore\/",
+    "1CE69B63641D4BDEE596AA3BE34F2C59B2C2B1C4" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Test",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Test\/Test.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:CyberAgent\/iOS-NBUBase.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1CE69B63641D4BDEE596AA3BE34F2C59B2C2B1C4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:CyberAgent\/iOS-NBUCore.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "91B801BE04594854D5FF72E15DEA11C69D51C377"
+    }
+  ]
+}

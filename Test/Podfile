@@ -1,0 +1,13 @@
+
+platform :ios, '8.0'
+use_frameworks!
+
+target 'Test' do
+
+# For regular projects
+#pod 'NBUCore'
+
+# For development
+pod 'NBUCore', :path => '../'
+
+end
